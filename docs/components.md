@@ -7,26 +7,51 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
-  * NotebooksIndex
-    * Search
-    * NotebookIndexItem
-    * NotebookForm
-  * **NotesIndex**
-    * NoteForm
-    * NoteIndexItem
-    * **NoteDetail**
-      * NoteTags
-      * NoteEditArea
+  * Navigation
+  * **BrowseMain**
+    * Filters
+    * Browse
+      * BrowseItem
+  * **MessagingMain**
+    * MessageFilters
+    * MessageInbox
+      * MessageInboxItem
+        * **MessageItem**
+  * **ProfileMain**
+    * ProfileBasics
+    * ProfileTabs
+    * ProfileSub
+      * **ProfileAbout**
+        * Profile
+        * ProfileDetails
+      * **ProfilePhotos**
+        * ProfilePhotosAdd
+        * ProfilePhotosItem
+      * **ProfileQuestions**
+        * ProfileQuestionItem
+  * **UserMain**
+    * UserBasics
+    * UserProfile
+    * QuestionMatch
+    * UserDetails
+    * SuggestedUsers
+  * **NewsMain** (Optional)
+    * News
+      * NewsItem
+    * QuestionPreview
+    * YourVisits
+      * YourVisitsItem
 
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `NotesIndex` **path:** index
-  * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-  * **component:** `NotesIndex` **path:** none
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-
-For Routes that have no `notebookId`, `NotesIndex` will render all
-notes.
+  * **component:** `NewsMain` **path:** index
+  * **component:** `BrowseMain` **path:** `app/browse`
+  * **component:** `MessageMain` **path:** `app/messages`
+    * **component:** `MessageItem` **path:** `app/messages/:messageId`
+  * **component:** `ProfileMain` **path:** `app/profile (redirects to ProfileAbout)`
+    * **component:** `ProfileAbout` **path:** `app/profile/about`
+    * **component:** `ProfilePhotos` **path:** `app/profile/photos`
+    * **component:** `ProfileQuestions` **path:** `app/profile/questions`
+  * **component:** `UserMain` **path:** `app/users`

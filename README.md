@@ -32,10 +32,10 @@ following criteria:
 
 ## Design Docs
 * [View Wireframes][views]
+* [React Components][components]
 
 ##I STOPPED HERE
 
-* [React Components][components]
 * [Flux Cycles][flux-cycles]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
