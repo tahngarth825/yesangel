@@ -31,7 +31,7 @@ following criteria:
   - [ ] Adequate CSS styling
 
 ## Design Docs
-* [View Wireframes][views]
+* [View Wireframes][views] (Views need to be updated to match the current schema)
 * [React Components][components]
 
 ##I STOPPED HERE

@@ -12,13 +12,13 @@ because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
 
-## Note Cycles
+## UsersMain Cycles
 
-### Notes API Request Actions
+### Filters API Request Actions
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notes` is called.
+* `fetchAllUsers`
+  0. invoked from `BrowseMain` `willMount`/`willReceiveProps`
+  0. `GET /api/` is called.
   0. `receiveAllNotes` is set as the callback.
 
 * `createNote`
