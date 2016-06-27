@@ -1,22 +1,27 @@
 # View Wireframes
 
-## New User
-![new-user]
+## Browse
+![browse]
 
-## New Session
-![new-session]
+## Messaging
+![messaging]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Profile About
+![about]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Profile Photos
+![photos]
 
-## NotebookForm
-![notebook-form]
+## User
+![user]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+## News
+![news]
+
+
+[browse]: ./wireframes/MVP_browse.png
+[messaging]: ./wireframes/MVP_message.png
+[about]: ./wireframes/MVP_ProfileMain_About.png
+[photos]: ./wireframes/MVP_ProfileMain_Photos.png
+[user]: ./wireframes/MVP_UserMain.png
+[news]: ./wireframes/Optional_news.png

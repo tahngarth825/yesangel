@@ -32,6 +32,9 @@ following criteria:
 
 ## Design Docs
 * [View Wireframes][views]
+
+##I STOPPED HERE
+
 * [React Components][components]
 * [Flux Cycles][flux-cycles]
 * [API endpoints][api-endpoints]
@@ -58,6 +61,7 @@ Optional: News View (IndexRoute)
 Todo:
   Profile Questions View
   Questions View (for other users)
+  Log-in page
 
 React Components
 
