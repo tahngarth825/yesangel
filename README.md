@@ -31,7 +31,9 @@ following criteria:
   - [ ] Adequate CSS styling
 
 ## Design Docs
-* [View Wireframes][views] (Views need to be updated to match the current schema)
+* [View Wireframes][views]
+  (TODO: change "Browse" to "Users"; remove optional components such
+  as indexroute and suggested users under UserMain)
 * [React Components][components]
 
 ##I STOPPED HERE

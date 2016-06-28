@@ -12,109 +12,118 @@ because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
 
-## UsersMain Cycles
+## UsersMain Cycle
 
-### Filters API Request Actions
+### UsersMain API Request Actions
 
 * `fetchAllUsers`
-  0. invoked from `BrowseMain` `willMount`/`willReceiveProps`
-  0. `GET /api/` is called.
-  0. `receiveAllNotes` is set as the callback.
+  0. Invoked from `UsersMain` `willMount`/`willReceiveProps`
+  0. `GET /api/users` is called.
+  0. `receiveAllUsers` is set as the callback.
 
-* `createNote`
-  0. invoked from new note button `onClick`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+* `filterUsers`
+  0. Invoked from `Filters` `filterUsers`
+  0. `Users` store updates `_filteredUsers` and emits change.
 
-* `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the callback.
+### UsersMain API Response Actions
 
-* `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
-
-* `destroyNote`
-  0. invoked from delete note button `onClick`
-  0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the callback.
-
-### Notes API Response Actions
-
-* `receiveAllNotes`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
-
-* `receiveSingleNote`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
-
-* `removeNote`
-  0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+* `receiveAllUsers`
+  0. Invoked from an API callback.
+  0. `Users` store updates `_users` and emits change.
 
 ### Store Listeners
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+* `Browse` component listens to `Users` store.
 
 
-## Notebook Cycles
+## UserMain Cycle
 
-### Notebooks API Request Actions
+### UserMain API Request Actions
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the callback.
+* `fetchUser`
+  0. Invoked from `UserMain` `willMount`
+  0. `GET /api/users/:userId` is called
+  0. `receiveUser` is set as the callback
 
-* `createNotebook`
-  0. invoked from new notebook button `onClick`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+### UserMain API Response Actions
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the callback.
-
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
-
-* `destroyNotebook`
-  0. invoked from delete notebook button `onClick`
-  0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the callback.
-
-### Notebooks API Response Actions
-
-* `receiveAllNotebooks`
-  0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
-
-* `receiveSingleNotebook`
-  0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
-
-* `removeNotebook`
-  0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
+* `receiveUser`
+  0. Invoked from an API callback.
+  0. `User` store updates `_user` and emits change.
 
 ### Store Listeners
 
-* `NotebooksIndex` component listens to `Notebook` store.
+* `UserBasics` component listens to `User` store.
+* `UserProfile` component listens to `User` store.
+* `QuestionMatch` component listens to `User` store.
+* `UserDetails` component listens to `User` store.
 
 
-## SearchSuggestion Cycles
+## MessageMain Cycles
 
-* `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
-  0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the callback.
+### MessageMain API Request Actions
+
+* `fetchAllMessages`
+  0. invoked from `MessageMain` `willMount`
+  0. `GET /api/messages` is called.
+  0. `receiveAllMessages` is set as the callback.
+
+* `createMessage`
+  0. invoked from `UserMain` by clicking `message` button
+  0. `POST /api/messages` is called.
+  0. `messageConfirmation` is set as the callback.
+
+* `fetchMessage`
+  0. invoked from `MessageItem` `willMount`
+  0. `GET /api/messages/:messageId` is called.
+  0. `receiveMessage` is set as the callback.
+
+* `replyMessage`
+  0. invoked from `MessageItem` `onReply`
+  0. `PATCH /api/messages/:messageId` is called.
+  0. `messageConfirmation` is set as the callback.
+
+* `deleteMessage`
+  0. invoked from `MessageItem` delete button `onClick`
+  0. `DELETE /api/messages/:messageId` is called.
+  0. `removeMessage` is set as the callback.
+
+### MessageMain API Response Actions
+
+* `receiveAllMessages`
+  0. invoked from an API callback.
+  0. `Messages` store updates `_messages` and emits change.
+
+* `receiveMessage`
+  0. invoked from an API callback.
+  0. `Messages` store updates `_message` and emits change.
+
+* `messageConfirmation`
+  0. invoked from an API callback.
+  0. `Messages` store updates `_messages` and emits change.
+
+* `removeMessage`
+  0. invoked from an API callback.
+  0. `Message` store removes `_messages[id]` and emits change.
+
+### Store Listeners
+
+* `MessageInbox` component listens to `Messages` store.
+* `MessageInboxItem` component listens to `Messages` store.
+
+
+## ProfileMain Cycles
+
+###ProfileMain API Request Actions
+
+* `fetchProfile`
+0. invoked from `ProfileMain` `willMount`
+0. `GET /api/users` is called with `text` param.
+0. `receiveSearchSuggestions` is set as the callback.
+
+
+###ProfileMain API Response Actions
+
 
 * `receiveSearchSuggestions`
   0. invoked from an API callback.

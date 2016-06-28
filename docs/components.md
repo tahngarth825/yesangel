@@ -8,12 +8,12 @@
     * Filters
     * Browse
       * BrowseItem
-    * **UserMain**
+  * **UserMain**
     * UserBasics
     * UserProfile
     * QuestionMatch
     * UserDetails
-    * SuggestedUsers
+    * SuggestedUsers (optional)
   * **MessagingMain**
     * MessageFilters
     * MessageInbox
@@ -44,7 +44,7 @@
 * **component:** `App` **path:** `/`
   * **component:** `NewsMain` **path:** index
   * **component:** `UsersMain` **path:** `app/users`
-    * **component:** `UserMain` **path:** `app/users/:userId`
+  * **component:** `UserMain` **path:** `app/:userId`
   * **component:** `MessageMain` **path:** `app/messages`
     * **component:** `MessageItem` **path:** `app/messages/:messageId`
   * **component:** `ProfileMain` **path:** `app/profile (redirects to ProfileAbout)`
