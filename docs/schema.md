@@ -57,6 +57,13 @@ offspring   | string    |
 pets        | string    |
 speaks      | string    |
 
+## messages
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user1_id    | integer   | not null, foreign key to users, indexed
+user2_id    | integer   | not null, foreign key to users, indexed
+content     | text      | not null
 
 #TODO
 

@@ -31,17 +31,14 @@ following criteria:
   - [ ] Adequate CSS styling
 
 ## Design Docs
-TODO: SESSION PAGES FOR ALL COMPONENTS!
-AND SIMPLIFIED INDEX PAGE
+TODO: SESSION PAGES AS INDEX PAGE (else /users will be)
 * [View Wireframes][views]
   (TODO: change "Browse" to "Users"; remove optional components such
   as indexroute and suggested users under UserMain)
 * [React Components][components]
-  (TODO: REMOVE OPTIONAL)
 * [Flux Cycles][flux-cycles]
   (TO DO: Users)
 * [API endpoints][api-endpoints]
-
 * [DB schema][schema]
   (TO DO: Questions and Photos)
 
@@ -51,47 +48,10 @@ AND SIMPLIFIED INDEX PAGE
 [api-endpoints]: docs/api-endpoints.md
 [schema]: docs/schema.md
 
-Wireframes
-
-Completed:
-MVP:
-  Browse View
-  Message View
-  Profile About View
-  Profile Photos View
-  User View
-
-Optional: News View (IndexRoute)
-
 Todo:
   Profile Questions View
   Questions View (for other users)
   Log-in page
-
-React Components
-
-In addition to the view wireframes, you should diagram a tree indicating your application's overall component structure.
- See the sample project proposal for an example of this.
-
-Flux Cycles
-
-Flux loops are organized by data type. Under each data type, there may be sub- categories,
-and each action is listed with the sequence of events that result from its invocation, ending with the API or store.
-Finally, store listeners are listed at the end.
-
-You should be able to use this document trace an action starting with where it was invoked,
-through the API/store involved, and finally to the components that update as a result.
-This is important because once you start implementing your flux loops, that's precisely what you'll need to do.
-
-DB Schema
-
-Link to a document outlining the database schema for your app. Build up the schema by walking through your app's wireframes.
-Think carefully about what data will be needed for each view and the best way to store that data.
-Make note of any database-level validations and foreign key relationships.
-
-API Endpoints
-
-Link to a page that lists your Rails API endpoints. Break these up between HTML and JSON endpoints.
 
 Implementation Timeline
 
@@ -99,8 +59,6 @@ This will be the road map for your application. Rather than building the entire 
 you're going to implement one feature at a time. Refer back to your MVP and group the features into logical phases.
 You should have a working app at the end of each phase (even if not all of your features are in yet).
 For each phase, write a brief game plan and list out any third-party APIs, front-end and back-end components you will need to implement.
-
-
 
 
 # FOR MYSELF:
