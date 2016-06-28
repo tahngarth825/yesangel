@@ -31,16 +31,19 @@ following criteria:
   - [ ] Adequate CSS styling
 
 ## Design Docs
+TODO: SESSION PAGES FOR ALL COMPONENTS!
+AND SIMPLIFIED INDEX PAGE
 * [View Wireframes][views]
   (TODO: change "Browse" to "Users"; remove optional components such
   as indexroute and suggested users under UserMain)
 * [React Components][components]
-
-##I STOPPED HERE
-
+  (TODO: REMOVE OPTIONAL)
 * [Flux Cycles][flux-cycles]
+  (TO DO: Users)
 * [API endpoints][api-endpoints]
+
 * [DB schema][schema]
+  (TO DO: Questions and Photos)
 
 [views]: docs/views.md
 [components]: docs/components.md
@@ -100,22 +103,5 @@ For each phase, write a brief game plan and list out any third-party APIs, front
 
 
 
-FOR MYSELF:
-Hi Richard,
-
-You've ben approved to create OKCupid as your capstone project!
-
-Here is the MVP feature set:
-Browse and search other users by location and ‘looking for’
-Messaging
-Personality questions
-Match percentages based on question answers
-And here's some optional bonus feature:
-Bonus: block or hide other users
-Bonus: mark importance of questions and weight accordingly in % match
-Let me know if you want to talk about any of those things. I'll be your Project Manager for the remainder of the course. This means:
-I'll review and approve your proposal.
-I'll need to approve any subsequent changes, timeline adjustments, or major project decisions.
-I'll check in on your progress every day.
-I'll review and report on your MVP progress 3 times a week.
-Looking forward to working with you. Let's see what we can put together!
+# FOR MYSELF:
+SKIP TURBOLINKS!

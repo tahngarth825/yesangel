@@ -5,10 +5,12 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 username    | string    | not null
+pass_digest | string    | not null
 age         | integer   | not null
 location    | string    | not null
 gender      | string    | not null
 last_online | datetime  | not null
+pic_url     | string    |
 
 ## profiles
 column name | data type | details

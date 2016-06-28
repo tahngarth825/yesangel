@@ -43,11 +43,11 @@
 
 * **component:** `App` **path:** `/`
   * **component:** `NewsMain` **path:** index
-  * **component:** `UsersMain` **path:** `app/users`
-  * **component:** `UserMain` **path:** `app/:userId`
-  * **component:** `MessageMain` **path:** `app/messages`
-    * **component:** `MessageItem` **path:** `app/messages/:messageId`
-  * **component:** `ProfileMain` **path:** `app/profile (redirects to ProfileAbout)`
-    * **component:** `ProfileAbout` **path:** `app/profile/about`
-    * **component:** `ProfilePhotos` **path:** `app/profile/photos`
-    * **component:** `ProfileQuestions` **path:** `app/profile/questions`
+  * **component:** `UsersMain` **path:** `users`
+  * **component:** `UserMain` **path:** `:userId`
+  * **component:** `MessageMain` **path:** `messages`
+    * **component:** `MessageItem` **path:** `messages/:messageId`
+  * **component:** `ProfileMain` **path:** `profile (redirects to ProfileAbout)`
+    * **component:** `ProfileAbout` **path:** `profile/about`
+    * **component:** `ProfilePhotos` **path:** `profile/photos`
+    * **component:** `ProfileQuestions` **path:** `profile/questions`

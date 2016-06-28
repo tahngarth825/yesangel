@@ -2,29 +2,26 @@
 
 ## HTML API
 
-### Root
-
-- `GET /` - loads React web app
-
 ### Users
 
-- `GET /users/new`
-- `POST /users`
-- `PATCH /users`
+- `GET /users` - #index
+- `GET /users/user_id`- #show retrieves detailed info on the user
+- `POST /users/new` -#create user
 
 ### Session
 
-- `GET /session/new`
-- `POST /session`
-- `DELETE /session`
+- `POST /session/new`- #create login
+- `DELETE /session` - #delete logout
+- `GET /session` - #show used for authentication purposes
 
 ## JSON API
 
 ### Notes
 
-- `GET /api/notes`
-  - Notes index/search
-  - accepts `tag_name` query param to list notes by tag
+- `GET /api/users`
+  - Users browse page
+  - Filters component appends query  
+  accepts `tag_name` query param to list notes by tag
   - accepts pagination params (if I get there)
 - `POST /api/notes`
 - `GET /api/notes/:id`
