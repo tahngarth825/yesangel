@@ -11,6 +11,7 @@
 
 - `POST /api/session/new`- session#create login
 - `DELETE /api/session` - session#delete logout
+- `GET /api/session` - session#show for auth purposes
 
 ### Users
 

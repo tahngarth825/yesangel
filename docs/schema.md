@@ -12,7 +12,8 @@ location    | string    | not null
 gender      | string    | not null
 pic_url     | string    |
 lf_gender   | string    | not null
-lf_age      | integer   | not null
+lf_min_age  | integer   | not null
+lf_max_age  | integer   | not null
 lf_location | string    | not null
 summary     | text      |
 favs        | text      |

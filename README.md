@@ -133,10 +133,11 @@ Also, make the `Navigation` component (links will be broken).
 
 # FOR MYSELF:
 TODO:
-0. Make Log-in page
-1. Add photos and questions to views, flux-cycles, api endpoints,
+1. Make Log-in page
+2. Change location to be zipcode? 
+3. Add photos and questions to views, flux-cycles, api endpoints,
 and db schema
-2. find a way to make the questions and photos the same for both yourself
+4. find a way to make the questions and photos the same for both yourself
 and others' profiles)
-3. Views: userdetails should include "looking for"
-5. SKIP TURBOLINKS!
+5. Views: userdetails should include "looking for"
+6. SKIP TURBOLINKS!

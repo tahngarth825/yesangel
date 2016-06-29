@@ -15,7 +15,14 @@ const LoginForm = React.createClass({
   getInitialState() {
     return {
       username: "",
-      password: ""
+      password: "",
+			age: undefined,
+			location: undefined,
+			gender: undefined,
+			lf_gender: undefined,
+			lf_min_age: undefined,
+			lf_max_age: undefined,
+			lf_location: undefined
     };
   },
 
@@ -40,7 +47,15 @@ const LoginForm = React.createClass({
 
 		let formData = {};
 
-		Object.assign(formData, this.state);
+		if (this.formType() === "login"){
+			formData = {
+				username: this.state.username,
+				password: this.state.password
+			}
+		}
+		else {
+			Object.assign(formData, this.state);
+		}
 
 		debugger
 
@@ -68,7 +83,19 @@ const LoginForm = React.createClass({
   },
 
   update(property) {
-    return (e) => this.setState({[property]: e.target.value});
+		const that = this;
+    return (
+			function(event) {
+				let prop = event.target.value;
+
+				if (property === "age" || property === "lf_min_age" ||
+					property === "lf_max_age" || property === "height")
+				{
+					prop = parseInt(prop);
+				}
+				that.setState({[property]: prop});
+			}
+		);
   },
 
 	render() {
@@ -105,6 +132,54 @@ const LoginForm = React.createClass({
 		            value={this.state.password}
 		            onChange={this.update("password")}
 								className="login-input" />
+						</label>
+
+						<br />
+						<label> Age:
+							<input type="text"
+								value={this.state.age}
+								onChange={this.update("age")}
+								className="login-input"/>
+						</label>
+
+						<br />
+						<label> Location:
+							<input type="text"
+								value={this.state.location}
+								onChange={this.update("location")}
+								className="login-input"/>
+						</label>
+
+						<br />
+						<label> Gender:
+							<input type="text"
+								value={this.state.gender}
+								onChange={this.update("gender")}
+								className="login-input"/>
+						</label>
+
+						<br />
+						<label> What gender are you interested in?
+							<input type="text"
+								value={this.state.lf_gender}
+								onChange={this.update("lf_gender")}
+								className="login-input"/>
+						</label>
+
+						<br />
+						<label> What is the youngest age your desired person can be?
+							<input type="text"
+								value={this.state.lf_min_age}
+								onChange={this.update("lf_min_age")}
+								className="login-input"/>
+						</label>
+
+						<br />
+						<label> What is the oldest age your desired person can be?
+							<input type="text"
+								value={this.state.lf_max_age}
+								onChange={this.update("lf_max_age")}
+								className="login-input"/>
 						</label>
 
 		        <br />
