@@ -5,6 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <% if current_user %>
+  <script type="text/javascript">
+    // caution! This exposes more information than we want. Don't do this
+    // In real life :)
+    window.currentUser = <%= current_user.to_json.html_safe %>
+  </script>
+<% end %>
+
 </head>
 <body>
 

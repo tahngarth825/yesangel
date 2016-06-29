@@ -51,12 +51,13 @@ Implementation Timeline
 
 **Objective** Functioning rails project with authentication
 
-- [ ] create new project
+- [X] create new project
 - [ ] create `Session` component
 - [ ] create `User` model
 - [ ] authentication
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
+- [ ] MAKE SURE USER PW/SESSION ISN'T EXPOSED
 
 ### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
 

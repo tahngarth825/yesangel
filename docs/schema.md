@@ -5,7 +5,8 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 username    | string    | not null
-pass_digest | string    | not null
+password_digest | string    | not null
+session_token|  string  |
 age         | integer   | not null
 location    | string    | not null
 gender      | string    | not null
@@ -26,7 +27,6 @@ body_type   | string    |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key to users, indexed
 title       | string    | not null
 content     | string    | not null
 
