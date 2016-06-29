@@ -11,38 +11,31 @@
     * Filters
     * Browse
       * BrowseItem
-    * **UserMain**
-      * UserBasics
-      * UserProfile
-      * QuestionMatch
+  * **UserMain**
+    * UserBasics
+    * UserTabs
+    * **UserAbout**
+      * Profile
       * UserDetails
-      * **ProfileMain**
-        * ProfileBasics
-        * ProfileTabs
-        * ProfileSub
-          * **ProfileAbout**
-            * Profile
-            * ProfileDetails
-          * **ProfilePhotos**
-            * ProfilePhotosAdd
-            * ProfilePhotosItem
-          * **ProfileQuestions**
-            * ProfileQuestionItem
-      * **MessagingMain**
-        * MessageFilters
-        * MessageInbox
-          * MessageInboxItem
-            * **MessageItem**
+    * **UserPhotos**
+      * UserPhotosAdd
+      * UserPhotosItem
+    * **UserQuestions**
+      * UserQuestionItem
+  * **MessagingMain**
+    * MessageFilters
+    * MessageInbox
+      * MessageInboxItem
+        * **MessageItem**
 
 ## Routes
 
 * **component:** `App` **path:** `/`
   * **component:** `Session` **path:** index
   * **component:** `UsersMain` **path:** `users` (index when logged in)
-    * **component:** `UserMain` **path:** `:userId`
-      * **component:** `ProfileMain` **path:** `profile (redirects to ProfileAbout)`
-        * **component:** `ProfileAbout` **path:** `profile/about`
-        * **component:** `ProfilePhotos` **path:** `profile/photos`
-        * **component:** `ProfileQuestions` **path:** `profile/questions`
-      * **component:** `MessageMain` **path:** `messages`
-        * **component:** `MessageItem` **path:** `messages/:messageId`
+  * **component:** `UserMain` **path:** `:userId` (redirects to UserAbout)
+    * **component:** `UserAbout` **path:** `about`
+    * **component:** `UserPhotos` **path:** `photos`
+    * **component:** `UserQuestions` **path:** `questions`
+  * **component:** `MessageMain` **path:** `messages`
+    * **component:** `MessageItem` **path:** `:messageId`

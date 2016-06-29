@@ -33,7 +33,7 @@ what you'll need to do.
 
 ### Store Listeners
 
-* `Browse` component listens to `Users` store.
+* `Users` component listens to `Users` store.
 
 
 ## UserMain Cycle
@@ -42,6 +42,7 @@ what you'll need to do.
 
 * `fetchUser`
   0. Invoked from `UserMain` `willMount`
+  0. Fetches specific detail
   0. `GET /api/users/:userId` is called
   0. `receiveUser` is set as the callback
 
@@ -54,9 +55,86 @@ what you'll need to do.
 ### Store Listeners
 
 * `UserBasics` component listens to `User` store.
-* `UserProfile` component listens to `User` store.
-* `QuestionMatch` component listens to `User` store.
+* `Profile` component listens to `User` store.
 * `UserDetails` component listens to `User` store.
+* `UserAbout` component listens to `User` store.
+* `UserPhotos` component listens to `User` store.
+* `UserQuestions` component listens to `User` store.
+* `UserDetails` component listens to `User` store.
+
+
+## UserQuestions
+
+### UserQuestions API Request Actions
+
+* `fetchQuestions`
+  0. Invoked from `UserQuestions` `willMount`
+  0. `receiveQuestions` set as callback
+* `fetchResponses`
+  0. Invoked from `UserQuestions` `willMount`
+  0. `receiveResponses` set as callback
+* `createResponse`
+  0. Invoked from `UserQuestions` `answerQuestion`
+  0. `receiveResponse` set as callback
+* `editResponse`
+  0. Invoked from `UserQuestions` `answerQuestion`
+  0. `receiveResponse` set as callback
+
+
+### UserQuestions API Response Actions
+
+* `receiveQuestions`
+  0. Invoked from API callback
+  0. `Question` store updates `_questions` and emits change
+
+* `receiveResponses`
+  0. Invoked from API callback
+  0. `Response` store updates `_responses` and emits change
+
+* `receiveResponse`
+  0. Invoked from API callback
+  0. `Response` store updates `_responses` and emits change
+
+### Store Listeners
+
+* `UserQuestions` component listens to `Questions` store
+* `UserQuestions` component listens to `Response` store
+
+
+## UserPhotos
+
+### UserPhotos API Request Actions
+
+* `fetchPhotos`
+  0. Invoked from `UserPhotos`
+  0. Sets `receivePhotos` as callback
+
+* `addPhoto`
+  0. Invoked from `UserPhotos`
+  0. Sets `receivePhoto` as callback
+
+* `deletePhoto`
+  0. Invoked from `UserPhotos`
+  0. Sets `removePhoto` as callback
+
+### UserPhotos API Response Actions
+
+* `receivePhotos`
+  0. Invoked from API callback
+  0. `Photos` store updates `_photos` and emits change
+
+* `receivePhoto`
+  0. Invoked from API callback
+  0. `Photos` store updates `_photos` and emits change
+
+* `removePhoto`
+  0. Invoked from API callback
+  0. `Photos` store updates `_photos` and emits change
+
+### Store Listeners
+
+* `UserPhotos` component listens to `Photos` store
+
 
 
 ## MessageMain Cycles
@@ -110,29 +188,3 @@ what you'll need to do.
 
 * `MessageInbox` component listens to `Messages` store.
 * `MessageInboxItem` component listens to `Messages` store.
-
-
-## ProfileMain Cycles
-
-###ProfileMain API Request Actions
-
-* `fetchProfile`
-0. invoked from `ProfileMain` `willMount`
-0. `GET /api/users` is called with `text` param.
-0. `receiveSearchSuggestions` is set as the callback.
-
-
-###ProfileMain API Response Actions
-
-
-* `receiveSearchSuggestions`
-  0. invoked from an API callback.
-  0. `SearchSuggestion` store updates `_suggestions` and emits change.
-
-* `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
-  0. `SearchSuggestion` store resets `_suggestions` and emits change.
-
-### Store Listeners
-
-* `SearchBarSuggestions` component listens to `SearchSuggestion` store.

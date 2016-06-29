@@ -33,14 +33,11 @@ following criteria:
 ## Design Docs
 TODO: SESSION PAGES AS INDEX PAGE (else /users will be)
 * [View Wireframes][views]
-  (TODO: change "Browse" to "Users"; remove optional components such
-  as indexroute and suggested users under UserMain)
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-  (TO DO: Users)
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-  (TO DO: Questions and Photos)
+  (TODO: Massive redo)
+* [React Components][components] (Complete)
+* [Flux Cycles][flux-cycles] (Complete)
+* [API endpoints][api-endpoints] (Complete)
+* [DB schema][schema] (Complete)
 
 [views]: docs/views.md
 [components]: docs/components.md
@@ -48,18 +45,96 @@ TODO: SESSION PAGES AS INDEX PAGE (else /users will be)
 [api-endpoints]: docs/api-endpoints.md
 [schema]: docs/schema.md
 
-Todo:
-  Profile Questions View
-  Questions View (for other users)
-  Log-in page
-
 Implementation Timeline
 
-This will be the road map for your application. Rather than building the entire project all at once,
-you're going to implement one feature at a time. Refer back to your MVP and group the features into logical phases.
-You should have a working app at the end of each phase (even if not all of your features are in yet).
-For each phase, write a brief game plan and list out any third-party APIs, front-end and back-end components you will need to implement.
+### Phase 1: Backend setup and Front End User Auth (w8d2-3)
 
+**Objective** Functioning rails project with authentication
+
+- [ ] create new project
+- [ ] create `Session` component
+- [ ] create `User` model
+- [ ] authentication
+- [ ] user signup/signin pages
+- [ ] blank landing page after signin
+
+### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
+
+**Objective** Functional profile for self and others through API interaction
+
+- [ ] create `UserMain` and `UserAbout` components
+- [ ] seed database with small amount of test data
+- [ ] Update/show profiles
+- [ ] jBuilder views for `UserAbout`
+- [ ] setup Webpack and flux scaffold
+- [ ] setup `APIUtil` to interact witht he API
+- [ ] test out API interaction in console
+
+### Phase 3: Flux Architecture and Router (w8d6-w8d7)
+
+**Objective** Functional profiles through user interface
+
+- [ ] setup flux loop
+- [ ] setup React Router
+- [ ] implement each UserMain and UserAbout component, building out flux
+  loop as needed
+  - [ ] `UserBasics`
+  - [ ] `UserTabs`
+  - [ ] `Profile`
+  - [ ] `UserDetails`
+- [ ] save profile to database when save button is pushed. Warn when unsaved data.
+
+### Phase 4: Basic Styling (w9d1)
+
+**Objective** Make layout look similar to OKC's for login/signup and profile views
+Also, make the `Navigation` component (links will be broken).
+
+- [ ] set up classes within html components to enable css styling
+- [ ] position elements as desired
+- [ ] setup colors and fonts as desired
+
+### Phase 5: UsersMain (w9d2)
+
+**Objective** Make browse page by building out UsersMain component and subcomponents
+
+- [ ] Filers component
+- [ ] Browse and Browse Item components
+- [ ] ensure flux cycle interaction works
+- [ ] style it appropriately
+
+### Phase 6: Messaging (w9d3)
+
+**Objective** Make messaging functions work
+
+- [ ] Build out MessageMain component
+- [ ] Build out MessageItem component
+- [ ] Connect them to the flux loop and make sure they interact properly
+- [ ] CSS Styling
+
+### Phase 7: User Photos and User Questions (w9d4-d5)
+- [ ] Build out UserPhotos component and subcomponents
+- [ ] Build out UserQuestion component and subcomponents
+- [ ] CSS Styling
+
+### Phase 8: Styling cleanup, seeding, and website setup (w9d6-d7)
+- [ ] Finishing touches on styling
+- [ ] Set up appropriate seeding
+- [ ] Host pictures on 3rd party sites
+- [ ] Upload everything to website
+
+### Bonus Features:
+- [ ] Matching based on questions
+- [ ] News page
+- [ ] QuickMatch
+- [ ] Suggested Matches
+- [ ] Enable albums for photos
 
 # FOR MYSELF:
-SKIP TURBOLINKS!
+TODO:
+0. Make Log-in page
+1. Add photos and questions to views, flux-cycles, api endpoints,
+and db schema
+2. find a way to make the questions and photos the same for both yourself
+and others' profiles)
+3. Views: userdetails should include "looking for"
+5. SKIP TURBOLINKS!

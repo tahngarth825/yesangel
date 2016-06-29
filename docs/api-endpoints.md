@@ -2,34 +2,53 @@
 
 ## HTML API
 
-### Users
-
-- `GET /users` - #index
-- `GET /users/:user_id`- #show retrieves detailed info on the user
-- `POST /users/new` -#create user
-
-### Session
-
-- `POST /session/new`- #create login
-- `DELETE /session` - #delete logout
-- `GET /session` - #show used for authentication purposes
-
+### Staticpages
+- `GET /` - #root
 
 ## JSON API
 
+### Session
+
+- `POST /api/session/new`- session#create login
+- `DELETE /api/session` - session#delete logout
+- `GET /api/session` - session#show used for authentication purposes
+
 ### UsersMain
 
-- `GET /api/users`
+- `GET /api/users` - users#index
   - Users browse page
   - Filters component appends query
+- `POST /api/users/new` - users#create user
 
-### UserMain
+### UserAbout
 
-- `GET /api/users/:userId`
-  -Fetches detailed info on the user, including querying: profiles,
-    wants, and details
+- `GET /api/:userId` user#show
+  Fetches detailed info on the user
 
-### Profiles
+### UserPhotos
+- `GET /api/:userId/photos`
+  Get all photos
+- `POST /api/:userId/photos`
+  Create a photo
+- `DELETE /api/:userId/photos/:photoId`
+  Delete a photo
 
+### UserQuestions
+- `GET /api/:userId/questions`
+  Get all one's questions (including unanswered)
+- `PATCH /api/:userId/questions/:questionId`
+  Answer/edit one's question
 
-### Messages
+### MessageMain
+- `GET /api/messages`
+  Get all one's messages
+- `POST /api/messages`
+  Create a message
+
+### MessageItem
+- `GET /api/:messageId`
+  Get one message's details
+- `PATCH /api/:messageId`
+  Reply to a message by appending to it
+- `DELETE /api/:messageId`
+  Delete a message
