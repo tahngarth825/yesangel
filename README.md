@@ -53,11 +53,12 @@ Implementation Timeline
 
 - [X] create new project
 - [ ] create `Session` component
-- [ ] create `User` model
+- [X] create `User` model
 - [ ] authentication
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 - [ ] MAKE SURE USER PW/SESSION ISN'T EXPOSED
+- [ ] Demo log-in possible
 
 ### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
 

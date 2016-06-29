@@ -10,7 +10,6 @@ session_token|  string  |
 age         | integer   | not null
 location    | string    | not null
 gender      | string    | not null
-last_online | datetime  | not null
 pic_url     | string    |
 lf_gender   | string    | not null
 lf_age      | integer   | not null

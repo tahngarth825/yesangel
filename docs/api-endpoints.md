@@ -11,19 +11,16 @@
 
 - `POST /api/session/new`- session#create login
 - `DELETE /api/session` - session#delete logout
-- `GET /api/session` - session#show used for authentication purposes
 
-### UsersMain
+### Users
 
 - `GET /api/users` - users#index
   - Users browse page
   - Filters component appends query
-- `POST /api/users/new` - users#create user
-
-### UserAbout
-
-- `GET /api/:userId` user#show
-  Fetches detailed info on the user
+- `POST /api/users` - users#create user
+- `GET /api/users/:id/edit` - users#edit
+- `GET /api/users/:id` user#show
+  - Fetches detailed info on the user
 
 ### UserPhotos
 - `GET /api/:userId/photos`

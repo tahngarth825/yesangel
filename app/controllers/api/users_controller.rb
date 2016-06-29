@@ -1,29 +1,37 @@
 class Api::UsersController < ApplicationController
 
+	def index
+		@users = User.all
+
+		#render using json builder
+	end
+
+	def show
+		# TO DO
+	end
+
 	def create
-		@user = User.new(user_params)
+		@user = User.new(user_params[:username], user_params[:password]))
+
 		if @user.save
 			login(@user)
 			render "api/users/show"
 		else
-			@errors = @user.errors.full_messages
-			render "api/shared/error", status: 422
+			render json: @user.errors, status: 422
 		end
 	end
 
-	def show
+	def edit
 		@user = current_user
-		if @user
-			render "api/users/show"
-		else
-			render json: nil, status: 404
-		end
+
+		@user.update!(user_params)
+		render "api/users/show" # TO CHANGE LATER
 	end
 
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :password)
+		params.require(:user).permit(:username, :password, :age, :location,
+			:gender, :lf_gender, :lf_age, :lf_location)
 	end
-
 end
