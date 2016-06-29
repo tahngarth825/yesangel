@@ -3,15 +3,17 @@ class Api::UsersController < ApplicationController
 	def index
 		@users = User.all
 
-		#render using json builder
+		debugger
 	end
 
 	def show
-		# TO DO
+		render "api/users/show"
 	end
 
 	def create
-		@user = User.new(user_params[:username], user_params[:password]))
+		debugger
+
+		@user = User.new(user_params)
 
 		if @user.save
 			login(@user)
@@ -32,6 +34,6 @@ class Api::UsersController < ApplicationController
 
 	def user_params
 		params.require(:user).permit(:username, :password, :age, :location,
-			:gender, :lf_gender, :lf_age, :lf_location)
+			:gender, :lf_gender, :lf_min_age, :lf_max_age)
 	end
 end

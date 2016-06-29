@@ -11,7 +11,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :lf_gender, null:false
       t.integer :lf_min_age, null: false
       t.integer :lf_max_age, null: false
-      t.string :lf_location, null:false
       t.text :summary
       t.text :favs
       t.text :hobbies

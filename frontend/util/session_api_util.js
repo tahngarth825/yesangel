@@ -32,7 +32,9 @@ const SessionApiUtil = {
 			type: 'POST',
 			dataType: 'json',
 			data: { user },
-			success,
+			success(response){
+				success(response);
+			},
 			error(xhr) {
 				const errors = xhr.responseJSON;
 				error("signup", errors);

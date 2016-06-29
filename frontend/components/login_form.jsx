@@ -20,9 +20,8 @@ const LoginForm = React.createClass({
 			location: undefined,
 			gender: undefined,
 			lf_gender: undefined,
-			lf_min_age: undefined,
-			lf_max_age: undefined,
-			lf_location: undefined
+			lf_min_age: 18,
+			lf_max_age: 99,
     };
   },
 
@@ -57,7 +56,6 @@ const LoginForm = React.createClass({
 			Object.assign(formData, this.state);
 		}
 
-		debugger
 
     if (this.props.location.pathname === "/login") {
       SessionActions.logIn(formData);
@@ -91,12 +89,67 @@ const LoginForm = React.createClass({
 				if (property === "age" || property === "lf_min_age" ||
 					property === "lf_max_age" || property === "height")
 				{
-					prop = parseInt(prop);
+					if (prop === undefined) {
+						prop = parseInt(prop);
+					}
 				}
 				that.setState({[property]: prop});
 			}
 		);
   },
+
+	signUpForm(){
+		if (this.formType() === "signup"){
+			return (
+				<div>
+					<br />
+					<label> Age:
+						<input type="text"
+							onChange={this.update("age")}
+							className="login-input"/>
+					</label>
+
+					<br />
+					<label> Location:
+						<input type="text"
+							onChange={this.update("location")}
+							className="login-input"/>
+					</label>
+
+					<br />
+					<label> Gender:
+						<input type="text"
+							onChange={this.update("gender")}
+							className="login-input"/>
+					</label>
+
+					<br />
+					<label> What gender are you interested in?
+						<input type="text"
+							onChange={this.update("lf_gender")}
+							className="login-input"/>
+					</label>
+
+					<br />
+					<label> What is the youngest age your desired person can be?
+						<input type="text"
+							onChange={this.update("lf_min_age")}
+							className="login-input"/>
+					</label>
+
+					<br />
+					<label> What is the oldest age your desired person can be?
+						<input type="text"
+							onChange={this.update("lf_max_age")}
+							className="login-input"/>
+					</label>
+				</div>
+			);
+		}
+		else {
+			return;
+		}
+	},
 
 	render() {
 
@@ -134,53 +187,7 @@ const LoginForm = React.createClass({
 								className="login-input" />
 						</label>
 
-						<br />
-						<label> Age:
-							<input type="text"
-								value={this.state.age}
-								onChange={this.update("age")}
-								className="login-input"/>
-						</label>
-
-						<br />
-						<label> Location:
-							<input type="text"
-								value={this.state.location}
-								onChange={this.update("location")}
-								className="login-input"/>
-						</label>
-
-						<br />
-						<label> Gender:
-							<input type="text"
-								value={this.state.gender}
-								onChange={this.update("gender")}
-								className="login-input"/>
-						</label>
-
-						<br />
-						<label> What gender are you interested in?
-							<input type="text"
-								value={this.state.lf_gender}
-								onChange={this.update("lf_gender")}
-								className="login-input"/>
-						</label>
-
-						<br />
-						<label> What is the youngest age your desired person can be?
-							<input type="text"
-								value={this.state.lf_min_age}
-								onChange={this.update("lf_min_age")}
-								className="login-input"/>
-						</label>
-
-						<br />
-						<label> What is the oldest age your desired person can be?
-							<input type="text"
-								value={this.state.lf_max_age}
-								onChange={this.update("lf_max_age")}
-								className="login-input"/>
-						</label>
+						{this.signUpForm()}
 
 		        <br />
 						<input type="submit" value={this.formType().toUpperCase() + "!"} />

@@ -2,20 +2,20 @@ class User < ActiveRecord::Base
 
 	attr_reader :password
 
-	validates :username, :password_digest, :session_token,
-		presence: true
+	validates :username, :password_digest, :session_token, :age, :location,
+		:gender, :lf_gender, :lf_min_age, :lf_max_age, presence: true
 	validates :username, uniqueness: true
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
-	has_many :responses
-	has_many :questions,
-		through: :responses,
-		source: :question
-  has_many :photos
-  has_many :messages
+	# has_many :responses
+	# has_many :questions,
+	# 	through: :responses,
+	# 	source: :question
+  # has_many :photos
+  # has_many :messages
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)

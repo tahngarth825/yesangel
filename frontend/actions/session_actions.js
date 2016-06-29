@@ -24,12 +24,13 @@ const SessionActions = {
 
   logOut() {
     SessionApiUtil.logOut(SessionActions.removeCurrentUser);
-
   },
 
   fetchCurrentUser(complete){
     SessionApiUtil.fetchCurrentUser(
-      SessionActions.receiveCurrentUser, complete);
+      SessionActions.receiveCurrentUser,
+      complete
+    );
   },
 
   receiveCurrentUser(currentUser) {
