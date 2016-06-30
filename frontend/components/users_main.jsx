@@ -32,7 +32,7 @@ const UsersMain = React.createClass({
         <br/>
         Age: {user.age}
       </div>
-    )
+    );
   },
 
   render () {
