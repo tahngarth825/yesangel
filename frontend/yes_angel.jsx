@@ -6,6 +6,7 @@ const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
+const IndexRedirect = ReactRouter.IndexRedirect;
 const hashHistory = ReactRouter.hashHistory;
 //Components
 const App = require('./components/app.jsx');
@@ -18,9 +19,10 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
-      <IndexRoute component={ UsersMain } onEnter={ _ensureLoggedIn } />
-      <Route path="/login" component={ LoginForm } />
-      <Route path="/signup" component={ LoginForm } />
+      <IndexRedirect to="/users" />
+      <Route path="login" component={ LoginForm } onEnter={_ensureLoggedOut}/>
+      <Route path="signup" component={ LoginForm } onEnter={_ensureLoggedOut}/>
+      <Route path="users" component={ UsersMain } onEnter={ _ensureLoggedIn }  />
     </Route>
   </Router>
 );
@@ -30,6 +32,12 @@ function _ensureLoggedIn(nextState, replace) {
     if (!SessionStore.isUserLoggedIn()) {
       replace('/login');
     }
+}
+
+function _ensureLoggedOut(nextState, replace){
+  if (SessionStore.isUserLoggedIn()) {
+    replace('/users');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

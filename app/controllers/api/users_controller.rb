@@ -2,8 +2,6 @@ class Api::UsersController < ApplicationController
 
 	def index
 		@users = User.all
-
-		debugger
 	end
 
 	def show
@@ -11,8 +9,6 @@ class Api::UsersController < ApplicationController
 	end
 
 	def create
-		debugger
-
 		@user = User.new(user_params)
 
 		if @user.save

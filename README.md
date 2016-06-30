@@ -52,18 +52,18 @@ Implementation Timeline
 **Objective** Functioning rails project with authentication
 
 - [X] create new project
-- [ ] create `Session` component
+- [X] create `Session` component
 - [X] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
-- [ ] MAKE SURE USER PW/SESSION ISN'T EXPOSED
-- [ ] Demo log-in possible
+- [X] authentication
+- [X] user signup/signin pages
+- [X] blank landing page after signin
+- [X] MAKE SURE USER PW/SESSION ISN'T EXPOSED
 
 ### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
 
 **Objective** Functional profile for self and others through API interaction
 
+- [ ] Demo log-in
 - [ ] create `UserMain` and `UserAbout` components
 - [ ] seed database with small amount of test data
 - [ ] Update/show profiles
@@ -134,7 +134,7 @@ Also, make the `Navigation` component (links will be broken).
 # FOR MYSELF:
 TODO:
 1. Make Log-in page
-2. Change location to be zipcode? 
+2. Change location to be zipcode?
 3. Add photos and questions to views, flux-cycles, api endpoints,
 and db schema
 4. find a way to make the questions and photos the same for both yourself
