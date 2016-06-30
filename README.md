@@ -57,7 +57,7 @@ Implementation Timeline
 - [X] authentication
 - [X] user signup/signin pages
 - [X] blank landing page after signin
-- [X] MAKE SURE USER PW/SESSION ISN'T EXPOSED
+- [X] make sure pw/session isn't exposed
 
 ### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
 

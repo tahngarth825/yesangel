@@ -3,7 +3,7 @@ const React = require("react");
 const UsersMain = React.createClass({
   render () {
     return(
-      <div>I'M A CHOCOLATE BAR</div>
+      <div>THIS IS EVENTUALLY GONNABE MAH BROWSE PAGE!</div>
     );
   }
 });

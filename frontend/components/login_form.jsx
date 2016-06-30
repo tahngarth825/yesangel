@@ -109,7 +109,7 @@ const LoginForm = React.createClass({
 	signUpForm(){
 		if (this.formType() === "signup"){
 			return (
-				<div>
+				<div className="login-form">
 					<br />
 					<label> Age:
 						<input type="text"
@@ -159,6 +159,17 @@ const LoginForm = React.createClass({
 		}
 	},
 
+	demoLogin(e){
+		e.preventDefault();
+
+		const formData = {
+			username: "Guest",
+			password: "YesAngel"
+		};
+
+		SessionActions.logIn(formData);
+	},
+
 	render() {
 
     let navLink;
@@ -172,6 +183,15 @@ const LoginForm = React.createClass({
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 	        Welcome to Yes Angel!
+					<br/>
+
+					<br/>
+					<button className="guest-login"
+						onClick={this.demoLogin}>
+						Browse as Guest
+					</button>
+					<br/>
+
 					<br/>
 					Please { this.formType() }, or { navLink }
 
