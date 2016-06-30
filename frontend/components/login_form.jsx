@@ -8,9 +8,6 @@ const ErrorStore = require('../stores/error_store');
 
 //Router
 const ReactRouter = require('react-router');
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 
 

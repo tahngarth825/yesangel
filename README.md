@@ -63,13 +63,13 @@ Implementation Timeline
 
 **Objective** Functional profile for self and others through API interaction
 
-- [ ] Demo log-in
+- [X] Demo log-in
 - [ ] create `UserMain` and `UserAbout` components
 - [ ] seed database with small amount of test data
 - [ ] Update/show profiles
 - [ ] jBuilder views for `UserAbout`
-- [ ] setup Webpack and flux scaffold
-- [ ] setup `APIUtil` to interact witht he API
+- [X] setup Webpack and flux scaffold
+- [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in console
 
 ### Phase 3: Flux Architecture and Router (w8d6-w8d7)
@@ -133,11 +133,10 @@ Also, make the `Navigation` component (links will be broken).
 
 # FOR MYSELF:
 TODO:
-1. Make Log-in page
-2. Change location to be zipcode?
-3. Add photos and questions to views, flux-cycles, api endpoints,
+1. Add photos and questions to views, flux-cycles, api endpoints,
 and db schema
-4. find a way to make the questions and photos the same for both yourself
+2. find a way to make the questions and photos the same for both yourself
 and others' profiles)
-5. Views: userdetails should include "looking for"
-6. SKIP TURBOLINKS!
+3. Views: userdetails should include "looking for"
+4. ENSURE MIN AGE < MAX AGE
+5. Strengthen validations (location is string, age is int, etc.)
