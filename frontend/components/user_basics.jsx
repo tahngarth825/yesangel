@@ -1,4 +1,6 @@
 const React = require("react");
+const SessionStore = require("../stores/session_store.js");
+const UserStore = require("../stores/user_store.js");
 
 const UserBasics = React.createClass({
   render(){

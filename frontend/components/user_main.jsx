@@ -10,17 +10,17 @@ const UserMain = React.createClass({
     return (
       {
         currentUser: SessionStore.currentUser(),
-        visitedUser: UserStore.find(this.props.params.userId),
-        editable: false
+        visitedUser: UserStore.find(parseInt(this.props.params.userId)),
+        edit: false
       }
-    )
+    );
   },
 
   componentDidMount(){
     if (UserStore.all() === []) {
       UserActions.fetchUsers();
     }
-    UserActions.fetchUser(this.props.params.userId);
+    UserActions.fetchUser(parseInt(this.props.params.userId));
     this.listener = UserStore.addListener(this.handleChange);
   },
 
@@ -29,27 +29,23 @@ const UserMain = React.createClass({
   },
 
   handleChange(){
-    this.setState({visitedUser: UserStore.find(this.props.params.userId)}, this.handleDisplay);
-  },
-
-  handleDisplay(){
-    if (this.state.currentUser === this.state.visitedUser){
-      this.setState({editable: true});
+    const currentUser = SessionStore.currentUser();
+    const visitedUser = UserStore.find(parseInt(this.props.params.userId));
+    let edit = false;
+    if (currentUser.id === visitedUser.id) {
+      edit = true
     }
-
-    React.Children.map(this.props.children, child => {
-      return React.cloneElement(child, {
-        edit: this.state.editable
-      });
+    this.setState({
+      currentUser: currentUser,
+      visitedUser: visitedUser,
+      edit: edit
     });
-
-    this.forceUpdate();
   },
 
   render(){
     return(
       <div>
-        <UserBasics edit={this.state.editable}/>
+        <UserBasics edit={this.state.edit}/>
         <UserTabs userId={this.props.params.userId}/>
         {this.props.children}
       </div>

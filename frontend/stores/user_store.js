@@ -11,7 +11,7 @@ UserStore.all = function(){
 };
 
 UserStore.find = function(id){
-  return Object.assign({},_users[id]);
+  return Object.assign({},_users[parseInt(id)]);
 };
 
 UserStore.__onDispatch = function (payload) {
