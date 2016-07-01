@@ -23,7 +23,22 @@ const UserApiUtil = {
 			  console.log("Error in UserApiUtil#fetchCurrentUser");
 			}
 		});
-	}
+	},
+
+  editUser(user, callback){
+    $.ajax({
+      url: `/api/users/${user.id}/edit`,
+      method: "GET",
+      data: {user: user},
+      dataType: "json",
+      success(response){
+        callback(user);
+      },
+      error(){
+        console.log("User unsuccessfully edited");
+      }
+    });
+  }
 };
 
 module.exports = UserApiUtil;

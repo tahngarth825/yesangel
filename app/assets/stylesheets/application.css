@@ -121,3 +121,29 @@ h1, h5 {
 .browse-tile-detail {
   list-style-type: none;
 }
+
+.user-basics {
+  display: block;
+  text-align: center;
+  width: 200px;
+  margin: 20px;
+}
+
+.user-basics-editable {
+  margin: 20px;
+  display: block;
+  width: 300px;
+}
+
+.user-basics-editable > h3{
+  margin-bottom: 5px;
+}
+
+.basics-input {
+  margin: 6px;
+}
+
+.submit {
+  margin: 6px 0 0 6px;
+  width: 173px;
+}

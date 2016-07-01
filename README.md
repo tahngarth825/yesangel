@@ -13,25 +13,24 @@ following criteria:
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and a guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Notes
+- [ ] Browse & Search Users
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
+- [ ] Messaging
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
+- [ ] Personality Questions
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
+- [ ] Match % based on questions
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
 
 ## Design Docs
-TODO: SESSION PAGES AS INDEX PAGE (else /users will be)
 * [View Wireframes][views]
   (TODO: Massive redo)
 * [React Components][components] (Complete)
@@ -64,9 +63,9 @@ Implementation Timeline
 **Objective** Functional profile for self and others through API interaction
 
 - [X] Demo log-in
-- [ ] create `UserMain` and `UserAbout` components
+- [X] create `UserMain` and `UserAbout` components
 - [ ] seed database with small amount of test data
-- [ ] show profiles
+- [ ] show information of profiles
 - [ ] allow editing of own profile
 - [ ] jBuilder views for `UserAbout`
 - [X] setup Webpack and flux scaffold
@@ -147,9 +146,8 @@ and others' profiles)
 7. Guest login for girls?
 8. Make sure handleDisplay for UserMain checks if it's your profile, and
 allow edits if not!
+9. Filter on backend
 
 
-ASK ABOUT: Flatten children error and how to pass props to children
-Visited user can't be defined until later, yet I want to determine
-editable immediately?
-UHHH CAN'T EDIT????
+FINISH UP USER ACTION UPDATEUSER
+Make modals??? (how to require?)

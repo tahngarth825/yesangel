@@ -32,6 +32,7 @@ const UserMain = React.createClass({
     const currentUser = SessionStore.currentUser();
     const visitedUser = UserStore.find(parseInt(this.props.params.userId));
     let edit = false;
+
     if (currentUser.id === visitedUser.id) {
       edit = true
     }
@@ -45,7 +46,7 @@ const UserMain = React.createClass({
   render(){
     return(
       <div>
-        <UserBasics edit={this.state.edit}/>
+        <UserBasics userId={this.props.params.userId} edit={this.state.edit}/>
         <UserTabs userId={this.props.params.userId}/>
         {this.props.children}
       </div>

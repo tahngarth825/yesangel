@@ -26,6 +26,10 @@ const UserActions = {
       actionType: UserConstants.RECEIVE_USER,
       user: user
     })
+  },
+
+  updateUser(user){
+    UserApiUtil.editUser(user, UserActions.receiveUser);
   }
 };
 

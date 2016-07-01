@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		
+
 		render "api/users/show"
 	end
 
@@ -25,9 +25,8 @@ class Api::UsersController < ApplicationController
 
 	def edit
 		@user = current_user
-
 		@user.update!(user_params)
-		render "api/users/show" # TO CHANGE LATER
+		render "api/users/show"
 	end
 
 	private
