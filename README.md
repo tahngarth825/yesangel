@@ -66,7 +66,8 @@ Implementation Timeline
 - [X] Demo log-in
 - [ ] create `UserMain` and `UserAbout` components
 - [ ] seed database with small amount of test data
-- [ ] Update/show profiles
+- [ ] show profiles
+- [ ] allow editing of own profile
 - [ ] jBuilder views for `UserAbout`
 - [X] setup Webpack and flux scaffold
 - [ ] setup `APIUtil` to interact with the API

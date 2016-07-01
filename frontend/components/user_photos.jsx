@@ -21,6 +21,10 @@ const UserPhotos = React.createClass({
     }
   },
 
+  componentWillUnmount(){
+    this.listener.remove();
+  },
+
   render(){
     let text;
     if (this.state.edit === true){

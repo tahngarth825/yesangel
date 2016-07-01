@@ -3,6 +3,28 @@ const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 
 const UserBasics = React.createClass({
+  getInitialState(){
+    return(
+      {
+
+      }
+    );
+  },
+
+  componentDidMount(){
+    this.listener = UserStore.addListener(this.handleChange);
+  },
+
+  handleChange(){
+    this.setState({
+
+    });
+  },
+
+  componentWillUnmount(){
+    this.listener.remove();
+  },
+
   render(){
     let text;
     if (this.props.edit === true){
