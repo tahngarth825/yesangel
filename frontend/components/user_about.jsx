@@ -5,7 +5,7 @@ const UserStore = require("../stores/user_store.js");
 const UserAbout = React.createClass({
   getInitialState(){
     let edit = false;
-    if (SessionStore.currentUser.id === parseInt(this.props.params.userId)){
+    if (SessionStore.currentUser().id === parseInt(this.props.params.userId)){
       edit = true;
     }
     return {edit: edit};
@@ -16,7 +16,7 @@ const UserAbout = React.createClass({
   },
 
   handleChange(){
-    if (SessionStore.currentUser.id === parseInt(this.props.params.userId)){
+    if (SessionStore.currentUser().id === parseInt(this.props.params.userId)){
       this.setState({edit: true});
     }
   },
