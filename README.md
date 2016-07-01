@@ -71,8 +71,18 @@ Implementation Timeline
 - [X] setup Webpack and flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in console
+- [ ] strong validations on signup components
 
-### Phase 3: Flux Architecture and Router (w8d6-w8d7)
+### Phase 3: UsersMain (w8d6)
+
+**Objective** Make browse page by building out UsersMain component and subcomponents
+
+- [ ] Filers component
+- [ ] Browse and Browse Item components
+- [ ] ensure flux cycle interaction works
+- [ ] style it appropriately
+
+### Phase 4: Flux Architecture and Router (w8d7-w9d1)
 
 **Objective** Functional profiles through user interface
 
@@ -86,7 +96,7 @@ Implementation Timeline
   - [ ] `UserDetails`
 - [ ] save profile to database when save button is pushed. Warn when unsaved data.
 
-### Phase 4: Basic Styling (w9d1)
+### Phase 5: Basic Styling (w9d2)
 
 **Objective** Make layout look similar to OKC's for login/signup and profile views
 Also, make the `Navigation` component (links will be broken).
@@ -94,15 +104,7 @@ Also, make the `Navigation` component (links will be broken).
 - [ ] set up classes within html components to enable css styling
 - [ ] position elements as desired
 - [ ] setup colors and fonts as desired
-
-### Phase 5: UsersMain (w9d2)
-
-**Objective** Make browse page by building out UsersMain component and subcomponents
-
-- [ ] Filers component
-- [ ] Browse and Browse Item components
-- [ ] ensure flux cycle interaction works
-- [ ] style it appropriately
+- [ ] add easier input for users to do age/location/desired_age (scrollers?)
 
 ### Phase 6: Messaging (w9d3)
 
@@ -140,3 +142,12 @@ and others' profiles)
 3. Views: userdetails should include "looking for"
 4. ENSURE MIN AGE < MAX AGE
 5. Strengthen validations (location is string, age is int, etc.)
+6. Remove self from browse?
+7. Guest login for girls?
+8. Make sure handleDisplay for UserMain checks if it's your profile, and
+allow edits if not!
+
+
+ASK ABOUT: Flatten children error and how to pass props to children
+Visited user can't be defined until later, yet I want to determine
+editable immediately?

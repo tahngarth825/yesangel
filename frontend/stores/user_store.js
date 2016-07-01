@@ -10,6 +10,10 @@ UserStore.all = function(){
   return Object.assign([], _users);
 };
 
+UserStore.find = function(id){
+  return Object.assign({},_users[id]);
+};
+
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserConstants.RECEIVE_USERS:
@@ -17,8 +21,7 @@ UserStore.__onDispatch = function (payload) {
       UserStore.__emitChange();
       break;
     case UserConstants.RECEIVE_USER:
-      console.log("USER RECEIVED:");
-      console.log(payload.user);
+      _users[payload.user.id] = payload.user;
       UserStore.__emitChange();
       break;
   }

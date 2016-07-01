@@ -27,29 +27,41 @@ const UsersMain = React.createClass({
 
   displayUser(user){
     return (
-      <div>
-        Username: {user.username}
-        <br/>
-        Age: {user.age}
-      </div>
+      <ul className="browse-tile-detail">
+        <li>
+          <b>Username:</b> {user.username}
+        </li>
+        <li>
+          <b>Age:</b> {user.age}
+        </li>
+        <li>
+          <b>Location:</b> {user.location}
+        </li>
+      </ul>
     );
+  },
+
+  toUser(id){
+    return function(){
+      hashHistory.push(`${id}`);
+    }
   },
 
   render () {
     const that = this;
-
+    
     return(
-      <ul>
+      <div>
         {
           this.state.users.map(function (user) {
             return (
-              <li className="browse-tile" key={user.id}>
+              <div onClick={that.toUser(user.id)} className="browse-tile" key={user.id}>
                 {that.displayUser(user)}
-              </li>
+              </div>
             );
           })
         }
-      </ul>
+      </div>
     );
   }
 });
@@ -59,9 +71,3 @@ module.exports = UsersMain;
 //TODO DELETE THESE LATER
 window.UserActions = UserActions;
 window.UserStore = UserStore;
-
-// {
-//   Object.keys(this.state.users).map(function(key){
-//
-//   })
-// }

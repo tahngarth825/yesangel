@@ -12,6 +12,10 @@ const hashHistory = ReactRouter.hashHistory;
 const App = require('./components/app.jsx');
 const LoginForm = require('./components/login_form');
 const UsersMain = require("./components/users_main.jsx");
+const UserMain = require("./components/user_main.jsx");
+const UserAbout = require("./components/user_about.jsx");
+const UserPhotos = require("./components/user_photos.jsx");
+const UserQuestions = require("./components/user_questions.jsx");
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -23,6 +27,12 @@ const appRouter = (
       <Route path="login" component={ LoginForm } onEnter={_ensureLoggedOut}/>
       <Route path="signup" component={ LoginForm } onEnter={_ensureLoggedOut}/>
       <Route path="users" component={ UsersMain } onEnter={ _ensureLoggedIn }  />
+      <Route path=":userId" component={ UserMain } onEnter={ _ensureLoggedIn } >
+        <IndexRedirect to="about" />
+        <Route path="about" component={ UserAbout } onEnter={ _ensureLoggedIn } />
+        <Route path="photos" component={ UserPhotos } onEnter={ _ensureLoggedIn } />
+        <Route path="questions" component={ UserQuestions } onEnter={ _ensureLoggedIn } />
+      </Route>
     </Route>
   </Router>
 );
