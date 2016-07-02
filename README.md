@@ -64,14 +64,12 @@ Implementation Timeline
 
 - [X] Demo log-in
 - [X] create `UserMain` and `UserAbout` components
-- [ ] seed database with small amount of test data
-- [ ] show information of profiles
-- [ ] allow editing of own profile
-- [ ] jBuilder views for `UserAbout`
+- [X] show information of profiles
+- [X] allow editing of own profile
+- [X] jBuilder views for `UserAbout`
 - [X] setup Webpack and flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in console
-- [ ] strong validations on signup components
+- [X] setup `APIUtil` to interact with the API
+- [X] test out API interaction in console
 
 ### Phase 3: UsersMain (w8d6)
 
@@ -105,6 +103,9 @@ Also, make the `Navigation` component (links will be broken).
 - [ ] position elements as desired
 - [ ] setup colors and fonts as desired
 - [ ] add easier input for users to do age/location/desired_age (scrollers?)
+- [ ] Make front page pretty
+- [ ] seed database with small amount of test data (Do after mult-choice options!)
+- [ ] strong validations on signup components (mult-choice/sliders)
 
 ### Phase 6: Messaging (w9d3)
 
@@ -147,7 +148,4 @@ and others' profiles)
 8. Make sure handleDisplay for UserMain checks if it's your profile, and
 allow edits if not!
 9. Filter on backend
-
-
-FINISH UP USER ACTION UPDATEUSER
-Make modals??? (how to require?)
+10. SEED DATABASE ONCE I'VE FIGURED OUT HOW TO LIMIT CHOICES

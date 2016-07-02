@@ -157,6 +157,7 @@ h1, h5 {
 }
 
 input {
+  padding: 2px;
   margin: 6px 0;
 }
 
