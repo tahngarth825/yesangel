@@ -147,3 +147,23 @@ h1, h5 {
   margin: 6px 0 0 6px;
   width: 173px;
 }
+
+.user-about {
+  margin: 10px;
+}
+
+.user-about-editable {
+  margin: 10px;
+}
+
+input {
+  margin: 6px 0;
+}
+
+.user-tabs {
+  margin: 5px;
+}
+
+.user-tabs-box {
+  text-align: center;
+}

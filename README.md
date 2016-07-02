@@ -10,8 +10,8 @@ YesAngel! is a web application inspired by OKCupid that will be built using usin
 Rails and React.js. By the end of Week 9, this app will, at the minimum, satisfy the
 following criteria:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and a guest/demo login
+- [X] Hosting on Heroku
+- [X] New account creation, login, and a guest/demo login
 - [ ] A production README, replacing this README
 - [ ] Browse & Search Users
   - [ ] Smooth, bug-free navigation

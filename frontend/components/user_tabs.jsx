@@ -17,7 +17,8 @@ const UserTabs = React.createClass({
 
   render(){
     return(
-      <div>
+      <div className="user-tabs-box">
+        <h3>Toggle View:</h3>
         <button className="user-tabs" onClick={this.toAbout}>About</button>
         <button className="user-tabs" onClick={this.toPhotos}>Photos</button>
         <button className="user-tabs" onClick={this.toQuestions}>Questions</button>

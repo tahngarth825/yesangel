@@ -14,7 +14,7 @@ const UserActions = {
     AppDispatcher.dispatch({
       actionType: UserConstants.RECEIVE_USERS,
       users: users
-    })
+    });
   },
 
   fetchUser(id){
@@ -25,7 +25,7 @@ const UserActions = {
     AppDispatcher.dispatch({
       actionType: UserConstants.RECEIVE_USER,
       user: user
-    })
+    });
   },
 
   updateUser(user){
