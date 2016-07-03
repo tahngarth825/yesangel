@@ -1,5 +1,6 @@
 const UserActions = require('../actions/user_actions');
 const UserStore = require('../stores/user_store');
+const Filter = require("./filter.jsx");
 
 const React = require("react");
 //Router
@@ -37,6 +38,9 @@ const UsersMain = React.createClass({
         <li>
           <b>Location:</b> {user.location}
         </li>
+        <li>
+          <b>Gender:</b> {user.gender}
+        </li>
       </ul>
     );
   },
@@ -52,6 +56,7 @@ const UsersMain = React.createClass({
 
     return(
       <div>
+        <Filter/>
         {
           this.state.users.map(function (user) {
             return (

@@ -2,6 +2,7 @@ const React = require("react");
 const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
+const UserDetails = require("./user_details.jsx");
 
 const UserAbout = React.createClass({
   getInitialState(){
@@ -35,7 +36,6 @@ const UserAbout = React.createClass({
   },
 
   extractUser(){
-    debugger
     return ({
       id: parseInt(this.props.params.userId),
       summary: this.state.summary,
@@ -64,15 +64,15 @@ const UserAbout = React.createClass({
     if (this.state.edit === false) {
       return (
         <div className="user-about">
-          <b>Summary: </b> <br/>
+          <h3>About me: </h3>
+          {this.state.summary}
           <br/>
-          {this.state.username}
 
-          <b>Hobbies: </b> <br/>
+          <h3>What I like to do for fun: </h3>
           {this.state.hobbies}
           <br/>
 
-          <b>Favorites: </b> <br/>
+          <h3>Some of my favorite things: </h3>
           {this.state.favs}
           <br/>
 
@@ -90,6 +90,7 @@ const UserAbout = React.createClass({
   handleUpdate(trait){
     const that = this;
     return(function(event){
+      event.preventDefault();
       that.setState({[trait]: event.currentTarget.value});
     });
   },
@@ -97,19 +98,22 @@ const UserAbout = React.createClass({
   handleEditable(){
     return (
       <form onSubmit={this.handleSubmit} className="user-about-editable">
-          <b>About me: </b> <br/>
-          <input onChange={this.handleUpdate("summary")} value={this.state.summary}/>
-            <br/>
+        <h3>About me:</h3>
+        <textarea onChange={this.handleUpdate("summary")}
+          value={this.state.summary}/>
+        <br/>
 
-          <b>What I like to do for fun: </b> <br/>
-          <input onChange={this.handleUpdate("hobbies")} value={this.state.hobbies}/>
-            <br/>
+        <h3>What I like to do for fun: </h3>
+        <textarea onChange={this.handleUpdate("hobbies")}
+          value={this.state.hobbies}/>
+        <br/>
 
-          <b>Some of my favorite things: </b> <br/>
-          <input onChange={this.handleUpdate("favs")} value={this.state.favs}/>
-          <br/>
+        <h3>Some of my favorite things: </h3>
+        <textarea onChange={this.handleUpdate("favs")}
+          value={this.state.favs}/>
+        <br/>
 
-          <input type="submit" value="Update Profile!"/>
+        <input type="submit" value="Update Profile!"/>
       </form>
     );
   },
@@ -117,6 +121,7 @@ const UserAbout = React.createClass({
   render(){
     return(
       <div>
+        <UserDetails userId={parseInt(this.props.params.userId)}/>
         {this.handleDisplay()}
       </div>
     );

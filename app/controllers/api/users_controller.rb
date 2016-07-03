@@ -1,7 +1,11 @@
 class Api::UsersController < ApplicationController
 
 	def index
-		@users = User.all
+		if (params.include?("filter"))
+			@users = filter_users
+		else
+			@users = User.all
+		end
 
 		render "api/users/index"
 	end
@@ -35,5 +39,26 @@ class Api::UsersController < ApplicationController
 		params.require(:user).permit(:username, :password, :age, :location,
 			:gender, :lf_gender, :lf_min_age, :lf_max_age, :summary, :hobbies,
 			:favs, :pic_url, :orientation, :ethnicity, :height, :body_type)
+	end
+
+	def filter_params
+		params.require(:filter).permit(:location, :lf_min_age, :lf_max_age,
+		:lf_gender)
+	end
+
+	def filter_users
+		filter = filter_params
+
+		filter = {
+			location: filter[:location],
+			age: (filter[:lf_min_age]..filter[:lf_max_age]),
+			gender: filter[:lf_gender]
+		}
+
+		if (filter[:gender] == "any")
+			filter.delete(:gender)
+		end
+
+		return User.where(filter)
 	end
 end

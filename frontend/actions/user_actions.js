@@ -30,6 +30,10 @@ const UserActions = {
 
   updateUser(user){
     UserApiUtil.editUser(user, UserActions.receiveUser);
+  },
+
+  filterUsers(filter){
+    UserApiUtil.filterUsers(filter, UserActions.receiveUsers);
   }
 };
 

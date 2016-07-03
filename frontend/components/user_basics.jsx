@@ -101,6 +101,7 @@ const UserBasics = React.createClass({
   handleUpdate(trait){
     const that = this;
     return(function(event){
+      event.preventDefault();
       that.setState({[trait]: event.currentTarget.value});
     });
   },

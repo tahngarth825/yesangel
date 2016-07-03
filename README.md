@@ -70,14 +70,15 @@ Implementation Timeline
 - [X] setup Webpack and flux scaffold
 - [X] setup `APIUtil` to interact with the API
 - [X] test out API interaction in console
+- [X] UserDetails
 
 ### Phase 3: UsersMain (w8d6)
 
 **Objective** Make browse page by building out UsersMain component and subcomponents
 
-- [ ] Filers component
-- [ ] Browse and Browse Item components
-- [ ] ensure flux cycle interaction works
+- [X] Filters component
+- [X] Browse and Browse Item components
+- [X] ensure flux cycle interaction works
 - [ ] style it appropriately
 
 ### Phase 4: Flux Architecture and Router (w8d7-w9d1)
@@ -149,3 +150,7 @@ and others' profiles)
 allow edits if not!
 9. Filter on backend
 10. SEED DATABASE ONCE I'VE FIGURED OUT HOW TO LIMIT CHOICES
+11. DETAILED VIEWS
+12. Clean CSS for toggle view to change from centered to fixed when viewport
+  is too small to render two columns
+13. strong validations on inputs such as location

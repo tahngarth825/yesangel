@@ -38,6 +38,21 @@ const UserApiUtil = {
         console.log("User unsuccessfully edited");
       }
     });
+  },
+
+  filterUsers(filter, callback){
+    $.ajax({
+      url: `/api/users`,
+      method: 'GET',
+      data: {filter: filter},
+      dataType: "json",
+      success(response){
+        callback(response);
+      },
+      error(){
+        console.log("ERROR IN FILTERING USERS");
+      }
+    });
   }
 };
 
