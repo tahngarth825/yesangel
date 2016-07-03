@@ -180,11 +180,20 @@ textarea {
 }
 
 .filter-box{
+  color: white;
   border: 5px solid black;
   display: inline-block;
   margin: 10px auto;
   text-align: center;
-  background:
+  background-color: rgb(50, 96, 199);
+}
+
+.filter-box > h3 {
+  color: rgb(255, 51, 153);
+}
+
+.browse-tile-box {
+  display: block;
 }
 
 .user-details-box {

@@ -57,15 +57,17 @@ const UsersMain = React.createClass({
     return(
       <div>
         <Filter/>
-        {
-          this.state.users.map(function (user) {
-            return (
-              <div onClick={that.toUser(user.id)} className="browse-tile" key={user.id}>
-                {that.displayUser(user)}
-              </div>
-            );
-          })
-        }
+        <div className="browse-tile-box">
+          {
+            this.state.users.map(function (user) {
+              return (
+                <div onClick={that.toUser(user.id)} className="browse-tile" key={user.id}>
+                  {that.displayUser(user)}
+                </div>
+              );
+            })
+          }
+        </div>
       </div>
     );
   }
