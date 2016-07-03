@@ -79,21 +79,24 @@ Implementation Timeline
 - [X] Filters component
 - [X] Browse and Browse Item components
 - [X] ensure flux cycle interaction works
-- [ ] style it appropriately
+- [X] style it functionally
 
 ### Phase 4: Flux Architecture and Router (w8d7-w9d1)
 
 **Objective** Functional profiles through user interface
 
-- [ ] setup flux loop
-- [ ] setup React Router
-- [ ] implement each UserMain and UserAbout component, building out flux
+- [X] setup flux loop
+- [X] setup React Router
+- [X] implement each UserMain and UserAbout component, building out flux
   loop as needed
-  - [ ] `UserBasics`
-  - [ ] `UserTabs`
-  - [ ] `Profile`
-  - [ ] `UserDetails`
+  - [X] `UserBasics`
+  - [X] `UserTabs`
+  - [X] `Profile`
+  - [X] `UserDetails`
 - [ ] save profile to database when save button is pushed. Warn when unsaved data.
+- [ ] Filter Sorts components
+- [ ] Implement validations via buttons/radio/checkboxes for looking for
+  features, profile edit, and account creation
 
 ### Phase 5: Basic Styling (w9d2)
 
@@ -154,3 +157,4 @@ allow edits if not!
 12. Clean CSS for toggle view to change from centered to fixed when viewport
   is too small to render two columns
 13. strong validations on inputs such as location
+14. SORTING COMPONENTS
