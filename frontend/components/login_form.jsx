@@ -6,6 +6,23 @@ const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 
+//Used to construct form inputs
+const LoginConstants = require("../constants/login_constants.js");
+const Slider = require("react-slider");
+
+//
+// const Select = require("react-select");
+// //This was experimental and works with error messages:
+//Location:
+// <Select
+// 	className="react-select"
+// 	onChange={this.update("location")}
+// 	options={LoginConstants.location}
+// 	value={this.state.location}
+// 	simpleValue
+// 	autofocus
+// />
+
 //Router
 const ReactRouter = require('react-router');
 const hashHistory = ReactRouter.hashHistory;
@@ -55,7 +72,7 @@ const LoginForm = React.createClass({
 			formData = {
 				username: this.state.username,
 				password: this.state.password
-			}
+			};
 		}
 		else {
 			Object.assign(formData, this.state);
@@ -104,6 +121,7 @@ const LoginForm = React.createClass({
   },
 
 	signUpForm(){
+
 		if (this.formType() === "signup"){
 			return (
 				<div className="login-form">
@@ -115,11 +133,22 @@ const LoginForm = React.createClass({
 					</label>
 
 					<br />
-					<label> Location:
-						<input type="text"
-							onChange={this.update("location")}
-							className="login-input"/>
-					</label>
+					Location:
+					<select value={this.state.location}
+						onChange={this.update("location")}
+						className="react-select"
+					>
+						{
+							LoginConstants.location.map( function(location){
+								return (
+									<option value={location.value} key={location.value}>
+										{location.label}
+									</option>
+								);
+							})
+						}
+					</select>
+
 
 					<br />
 					<label> Gender:

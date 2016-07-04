@@ -93,10 +93,10 @@ Implementation Timeline
   - [X] `UserTabs`
   - [X] `Profile`
   - [X] `UserDetails`
-- [ ] save profile to database when save button is pushed. Warn when unsaved data.
 - [ ] Filter Sorts components
 - [ ] Implement validations via buttons/radio/checkboxes for looking for
   features, profile edit, and account creation
+(TO DO: FIX HEIGHT AS NOT INTEGER!)
 
 ### Phase 5: Basic Styling (w9d2)
 
@@ -158,3 +158,8 @@ allow edits if not!
   is too small to render two columns
 13. strong validations on inputs such as location
 14. SORTING COMPONENTS
+
+
+### Sources
+1. React-sliders: https://www.npmjs.com/package/react-slider
+2. React-select: http://jedwatson.github.io/react-select/

@@ -36,6 +36,8 @@
     "react-bootstrap": "^0.29.5",
     "react-dom": "^15.1.0",
     "react-router": "^2.5.1",
+    "react-select": "^1.0.0-beta13",
+    "react-slider": "^0.6.1",
     "react-textarea-autosize": "^4.0.3",
     "webpack": "^1.13.1"
   }

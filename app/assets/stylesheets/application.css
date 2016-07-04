@@ -207,3 +207,7 @@ textarea {
   padding: 10px;
   float: left;
 }
+
+.react-select {
+  width: 200px;
+}
