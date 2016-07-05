@@ -38,6 +38,7 @@ const UserBasics = React.createClass({
     }
 
     return( {
+      edit: editState,
       username: username,
       location: location,
       age: age,
@@ -45,8 +46,9 @@ const UserBasics = React.createClass({
     });
   },
 
-  renderBlank(){
+  renderBlank(edit){
     return ({
+      edit: edit,
       username: " ",
       location: " ",
       age: " ",
@@ -93,7 +95,7 @@ const UserBasics = React.createClass({
       return (<div></div>);
     }
 
-    if (this.props.edit === false) {
+    if (this.state.edit === false) {
       return (
         <div className="user-basics">
           <b>{this.state.username}</b>
