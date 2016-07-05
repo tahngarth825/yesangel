@@ -2,6 +2,7 @@ const React = require("react");
 const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
+const TraitConstants = require("../constants/trait_constants.js");
 
 const UserDetails = React.createClass({
   getInitialState(){
@@ -13,41 +14,69 @@ const UserDetails = React.createClass({
 
     let user = UserStore.find(parseInt(this.props.userId));
 
-    if (user === undefined || user.height === undefined){
-      return {
-        edit: edit,
-        orientation: " ",
-        ethnicity: " ",
-        height: " ",
-        body_type: " ",
-        lf_gender: " ",
-        lf_min_age: " ",
-        lf_max_age: " "
-      };
+    if (user === undefined){
+      return this.renderBlank(edit);
     }
 
     if (SessionStore.currentUser().id === user.id){
       edit = true;
     }
 
-    return( {
-      edit: edit,
-      orientation: user.orientation,
-      ethnicity: user.ethnicity,
-      height: user.height,
-      body_type: user.body_type,
-      lf_gender: user.gender,
-      lf_min_age: user.lf_min_age,
-      lf_max_age: user.lf_max_age
-    } );
+    return this.renderGiven(user, edit);
+  },
+
+  renderGiven(user, editState){
+    const orientation = user.orientation ? user.orientation : " ";
+    const ethnicity = user.ethnicity ? user.ethnicity : " ";
+    const height = user.height ? user.height : " ";
+    const body_type = user.body_type ? user.body_type : " ";
+    const lf_gender = user.lf_gender ? user.lf_gender : " ";
+    const lf_min_age = user.lf_min_age ? user.lf_min_age : " ";
+    const lf_max_age = user.lf_max_age ? user.lf_max_age : " ";
+
+    return ({
+      edit: editState,
+      orientation: orientation,
+      ethnicity: ethnicity,
+      height: height,
+      body_type: body_type,
+      lf_gender: lf_gender,
+      lf_min_age: lf_min_age,
+      lf_max_age: lf_max_age
+    });
+  },
+
+  renderBlank(editState){
+    return {
+      edit: editState,
+      orientation: " ",
+      ethnicity: " ",
+      height: " ",
+      body_type: " ",
+      lf_gender: " ",
+      lf_min_age: " ",
+      lf_max_age: " "
+    };
   },
 
   extractUser(){
+    const orientation = this.state.orientation ? this.state.orientation : " ";
+    const ethnicity = this.state.ethnicity ? this.state.ethnicity : " ";
+    const body_type = this.state.body_type ? this.state.body_type : " ";
+    const lf_gender = this.state.lf_gender ? this.state.lf_gender : " ";
+
+    const height = this.state.height ? parseInt(this.state.height) : " ";
+    const lf_min_age = this.state.lf_min_age ? parseInt(this.state.lf_min_age) : " ";
+    const lf_max_age = this.state.lf_max_age ? parseInt(this.state.lf_max_age) : " ";
+
     return ({
-      id: parseInt(this.props.userId),
-      summary: this.state.summary,
-      favs: this.state.favs,
-      hobbies: this.state.hobbies
+      orientation: this.state.orientation,
+      ethnicity: this.state.ethnicity,
+      height: this.state.height,
+      body_type: this.state.body_type,
+      lf_gender: this.state.lf_gender,
+      lf_min_age: this.state.lf_min_age,
+      lf_max_age: this.state.lf_max_age
     });
   },
 
@@ -61,6 +90,21 @@ const UserDetails = React.createClass({
 
   componentWillUnmount(){
     this.listener.remove();
+  },
+
+  splitArray(arr){
+    if (!Array.isArray(arr)){
+      return arr;
+    }
+
+    let result = arr[0];
+
+    arr.forEach(function(el, idx) {
+      if(idx !== 0){
+        result = result + ", " + el;
+      }
+    });
+    return result;
   },
 
   handleDisplay(){
@@ -84,7 +128,7 @@ const UserDetails = React.createClass({
           {this.state.body_type}
 
           <h4>Gender of interest:</h4>
-          {this.state.ethnicity}
+          {this.splitArray(this.state.lf_gender)}
 
           <h4>I'm looking for someone ages:</h4>
           {this.state.lf_min_age + "-" + this.state.lf_max_age}
@@ -97,51 +141,134 @@ const UserDetails = React.createClass({
   },
 
   handleSubmit(){
+    if (this.state.lf_min_age > this.state.lf_max_age){
+      alert("Minimum age must be less than or equal to maximum age!");
+      return;
+    }
+
+    if (this.state.lf_gender.length === 0) {
+      alert("Please select at least one gender to be interested in!");
+      return;
+    }
     UserActions.updateUser(this.extractUser());
   },
 
-  handleUpdate(trait){
-    const that = this;
-    return(function(event){
-      event.preventDefault();
-      that.setState({[trait]: event.currentTarget.value});
-    });
+  update(property) {
+		const that = this;
+    return (
+			function(event) {
+				let value = event.target.value;
+
+				if (property === "lf_gender"){
+					const gender = that.state.lf_gender;
+					const index = gender.indexOf(value);
+
+					if (index === -1){
+						gender.push(value);
+						that.setState({[property]: gender});
+					} else {
+						gender.splice(index, 1);
+            that.setState({[property]: gender});
+					}
+
+					return;
+				}
+
+				if (property === "lf_min_age" || property === "lf_max_age")
+				{
+					value = parseInt(value);
+				}
+				that.setState({[property]: value});
+			}
+		);
+  },
+
+  checkGender(gender){
+    if (this.state.lf_gender.indexOf(gender) !== -1) {
+      return "checked";
+    } else {
+      return false;
+    }
+  },
+
+  edgeModifier(property, value){
+    if (property === "age") {
+      if (value === "60"){
+        return (value + "+");
+      }
+    }
+
+    return value;
   },
 
   handleEditable(){
+    const that = this;
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
         <b>Orientation: </b>
         <input value={this.state.orientation}
-          onChange={this.handleUpdate("orientation")}/>
+          onChange={this.update("orientation")}/>
         <br/>
 
         <b>Ethnicity: </b>
         <input value={this.state.ethnicity}
-          onChange={this.handleUpdate("ethnicity")}/>
+          onChange={this.update("ethnicity")}/>
         <br/>
 
         <b>Height: </b>
         <input value={this.state.height}
-          onChange={this.handleUpdate("height")}/>
+          onChange={this.update("height")}/>
         <br/>
 
         <b>Body Type: </b>
         <input value={this.state.body_type}
-          onChange={this.handleUpdate("body_type")}/>
+          onChange={this.update("body_type")}/>
         <br/>
 
-        <b>Gender of interest: </b>
-        <input value={this.state.lf_gender}
-          onChange={this.handleUpdate("lf_gender")}/>
-        <br/>
+          <br />
+          Gender(s) of interest:
+          <div className="checkbox-box">
+            {
+              TraitConstants.gender.map( function(gender){
+                return (
+                  <div className="checkbox" key={gender.value}>
+                    <label htmlFor={gender.value}> {gender.label} </label>
+                      <input type="checkbox"
+                        checked={that.checkGender(gender.value)}
+                        id={gender.value}
+                        value={gender.value}
+                        onChange={that.update("lf_gender")} />
+                  </div>
+                );
+              })
+            }
+          </div>
 
-        <b>I'm looking for someone ages: </b>
-        <input className="small-input" value={this.state.lf_min_age}
-          onChange={this.handleUpdate("lf_min_age")}/>{"-"}
-        <input className="small-input" value={this.state.lf_max_age}
-          onChange={this.handleUpdate("lf_max_age")}/>
-        <br/>
+          <br />
+					<label> Youngest desired age:
+						<br/>
+						{that.edgeModifier("age ", that.state.lf_min_age)}
+						<input type="range"
+							id="lf_min_age"
+							min="18"
+							max="60"
+							defaultValue={that.state.lf_min_age}
+							onChange={this.update("lf_min_age")}
+							className="slider"/>
+					</label>
+
+					<br />
+					<label> Oldest desired age:
+						<br/>
+						{that.edgeModifier("age ", that.state.lf_max_age)}
+							<input type="range"
+								id="lf_max_age"
+								min="18"
+								max="60"
+								defaultValue={that.state.lf_max_age}
+								onChange={this.update("lf_max_age")}
+								className="slider"/>
+					</label>
 
         <input type="submit" value="Update Details!"/>
       </form>

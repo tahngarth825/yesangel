@@ -3,25 +3,44 @@ const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const ReactDOM = require("react-dom");
+const TraitConstants = require("../constants/trait_constants.js");
 
 const UserBasics = React.createClass({
   getInitialState(){
     const user = UserStore.find(this.props.userId);
 
     if (user === undefined){
-      return null;
+      return this.renderBlank();
     } else{
       return (this.extractFromUser(user));
     }
   },
 
+  renderBlank(){
+    return ({
+      username: " ",
+      location: " ",
+      age: " ",
+      gender: " "
+    });
+  },
+
   extractFromUser(user){
+    const username = user.username ? user.username : " ";
+    const location = user.location ? user.location : " ";
+    const gender = user.gender ? user.gender : " ";
+    let age = " ";
+
+    if (user.age && user.age !== " ") {
+      age = parseInt(user.age);
+    }
+
     return( {
-      username: user.username,
-      location: user.location,
-      age: parseInt(user.age),
-      gender: user.gender
-    } );
+      username: username,
+      location: location,
+      age: age,
+      gender: gender
+    });
   },
 
   extractUser(){
@@ -68,7 +87,18 @@ const UserBasics = React.createClass({
     }
   },
 
+  edgeModifier(property, value){
+    if (property === "age") {
+      if (value === "60"){
+        return (value + "+");
+      }
+    }
+
+    return value;
+  },
+
   handleEditable(){
+    const that = this;
     return(
       <div>
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
@@ -77,20 +107,36 @@ const UserBasics = React.createClass({
           <b>{this.state.username}</b>
             <br/>
 
-          Age: <input className="basics-input"
-            value={this.state.age}
-            onChange={this.handleUpdate("age")}/>
+          <label> Age: {that.edgeModifier("age", that.state.age)}
+						<input type="range"
+							min="18"
+							max="60"
+							defaultValue="30"
+							onChange={this.update("age")}
+							className="slider-small"/>
+					</label>
 
           <br/>
           Location: <input className="basics-input"
             value={this.state.location}
-            onChange={this.handleUpdate("location")}/>
+            onChange={this.update("location")}/>
 
-          <br/>
-          Gender: <input className="basics-input"
-            value={this.state.gender}
-            onChange={this.handleUpdate("gender")}/>
-          <br/>
+            <br />
+  					Gender:
+  					<select value={this.state.gender}
+  						onChange={this.update("gender")}
+  						className="react-select"
+  					>
+  						{
+  							TraitConstants.gender.map( function(gender){
+  								return (
+  									<option value={gender.value} key={gender.value}>
+  										{gender.label}
+  									</option>
+  								);
+  							})
+  						}
+  					</select>
 
           <input className="submit" type="submit" value="Update Basic Info!"/>
         </form>
@@ -98,11 +144,18 @@ const UserBasics = React.createClass({
     );
   },
 
-  handleUpdate(trait){
+  update(trait){
     const that = this;
+
     return(function(event){
       event.preventDefault();
-      that.setState({[trait]: event.currentTarget.value});
+      let value = event.currentTarget.value;
+
+      if (trait === "age") {
+        value = parseInt(value);
+      }
+
+      that.setState({[trait]: value});
     });
   },
 
@@ -115,7 +168,7 @@ const UserBasics = React.createClass({
       <div>
         {this.displayBasics()}
       </div>
-    )
+    );
   }
 });
 

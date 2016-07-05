@@ -5,23 +5,7 @@ const Link = require('react-router').Link;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
-
-//Used to construct form inputs
-const LoginConstants = require("../constants/login_constants.js");
-const Slider = require("react-slider");
-
-//
-// const Select = require("react-select");
-// //This was experimental and works with error messages:
-//Location:
-// <Select
-// 	className="react-select"
-// 	onChange={this.update("location")}
-// 	options={LoginConstants.location}
-// 	value={this.state.location}
-// 	simpleValue
-// 	autofocus
-// />
+const TraitConstants = require("../constants/trait_constants.js");
 
 //Router
 const ReactRouter = require('react-router');
@@ -38,12 +22,12 @@ const LoginForm = React.createClass({
     return {
       username: "",
       password: "",
-			age: undefined,
-			location: undefined,
-			gender: undefined,
-			lf_gender: undefined,
+			age: 30,
+			location: "San Francisco",
+			gender: "Male",
+			lf_gender: [],
 			lf_min_age: 18,
-			lf_max_age: 99,
+			lf_max_age: 60,
     };
   },
 
@@ -63,8 +47,16 @@ const LoginForm = React.createClass({
     }
   },
 
-	handleSubmit(e) {
-		e.preventDefault();
+	handleSubmit() {
+		if (this.state.lf_min_age > this.state.lf_max_age){
+			alert("Minimum age must be less than or equal to maximum age!");
+			return;
+		}
+
+		if (this.state.lf_gender.length === 0) {
+			alert("Please select at least one gender to be interested in!");
+			return;
+		}
 
 		let formData = {};
 
@@ -73,17 +65,12 @@ const LoginForm = React.createClass({
 				username: this.state.username,
 				password: this.state.password
 			};
+			SessionActions.logIn(formData);
 		}
 		else {
 			Object.assign(formData, this.state);
+			SessionActions.signUp(formData);
 		}
-
-
-    if (this.props.location.pathname === "/login") {
-      SessionActions.logIn(formData);
-    } else {
-      SessionActions.signUp(formData);
-    }
 	},
 
   fieldErrors(field) {
@@ -106,30 +93,58 @@ const LoginForm = React.createClass({
 		const that = this;
     return (
 			function(event) {
-				let prop = event.target.value;
+				let value = event.target.value;
+
+				if (property === "lf_gender"){
+					const gender = that.state.lf_gender;
+					const index = gender.indexOf(value);
+
+					if (index === -1){
+						gender.push(value);
+						that.setState({[property]: gender});
+					} else {
+						gender.splice(index, 1);
+						that.setState({[property]: gender});
+					}
+
+					return;
+				}
 
 				if (property === "age" || property === "lf_min_age" ||
-					property === "lf_max_age" || property === "height")
+					property === "lf_max_age")
 				{
-					if (prop === undefined) {
-						prop = parseInt(prop);
-					}
+					value = parseInt(value);
 				}
-				that.setState({[property]: prop});
+				that.setState({[property]: value});
 			}
 		);
   },
 
+	edgeModifier(property, value){
+		if (property === "age") {
+			if (value === "60"){
+				return (value + "+");
+			}
+		}
+
+		return value;
+	},
+
 	signUpForm(){
+		const that = this;
 
 		if (this.formType() === "signup"){
 			return (
 				<div className="login-form">
 					<br />
-					<label> Age:
-						<input type="text"
+
+					<label> Age: {that.edgeModifier("age", that.state.age)}
+						<input type="range"
+							min="18"
+							max="60"
+							defaultValue="30"
 							onChange={this.update("age")}
-							className="login-input"/>
+							className="slider"/>
 					</label>
 
 					<br />
@@ -139,7 +154,7 @@ const LoginForm = React.createClass({
 						className="react-select"
 					>
 						{
-							LoginConstants.location.map( function(location){
+							TraitConstants.location.map( function(location){
 								return (
 									<option value={location.value} key={location.value}>
 										{location.label}
@@ -149,33 +164,65 @@ const LoginForm = React.createClass({
 						}
 					</select>
 
+					<br />
+					Gender:
+					<select value={this.state.gender}
+						onChange={this.update("gender")}
+						className="react-select"
+					>
+						{
+							TraitConstants.gender.map( function(gender){
+								return (
+									<option value={gender.value} key={gender.value}>
+										{gender.label}
+									</option>
+								);
+							})
+						}
+					</select>
 
 					<br />
-					<label> Gender:
-						<input type="text"
-							onChange={this.update("gender")}
-							className="login-input"/>
-					</label>
-
-					<br />
-					<label> What gender are you interested in?
-						<input type="text"
-							onChange={this.update("lf_gender")}
-							className="login-input"/>
-					</label>
+					Which gender(s) are you interested in?
+					<div className="checkbox-box">
+						{
+							TraitConstants.gender.map( function(gender){
+								return (
+									<div className="checkbox" key={gender.value}>
+										<label htmlFor={gender.value}> {gender.label} </label>
+											<input type="checkbox"
+												id={gender.value}
+												value={gender.value}
+												onChange={that.update("lf_gender")} />
+									</div>
+								);
+							})
+						}
+					</div>
 
 					<br />
 					<label> What is the youngest age your desired person can be?
-						<input type="text"
+						<br/>
+						{that.edgeModifier("age ", that.state.lf_min_age)}
+						<input type="range"
+							id="lf_min_age"
+							min="18"
+							max="60"
+							defaultValue="18"
 							onChange={this.update("lf_min_age")}
-							className="login-input"/>
+							className="slider"/>
 					</label>
 
 					<br />
 					<label> What is the oldest age your desired person can be?
-						<input type="text"
-							onChange={this.update("lf_max_age")}
-							className="login-input"/>
+						<br/>
+						{that.edgeModifier("age ", that.state.lf_max_age)}
+							<input type="range"
+								id="lf_max_age"
+								min="18"
+								max="60"
+								defaultValue="60"
+								onChange={this.update("lf_max_age")}
+								className="slider"/>
 					</label>
 				</div>
 			);

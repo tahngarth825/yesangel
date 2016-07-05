@@ -32,7 +32,7 @@ const UserApiUtil = {
       data: {user: user},
       dataType: "json",
       success(response){
-        callback(user);
+        callback(response);
       },
       error(){
         console.log("User unsuccessfully edited");

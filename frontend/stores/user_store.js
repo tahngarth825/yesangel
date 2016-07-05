@@ -11,7 +11,7 @@ UserStore.all = function(){
 };
 
 UserStore.find = function(id){
-  let result = undefined
+  let result = undefined;
   _users.forEach(function(user){
     if (user.id === parseInt(id)){
       result = user;
@@ -22,18 +22,27 @@ UserStore.find = function(id){
 
 UserStore.addUser = function (user){
   const found = UserStore.find(user.id);
+  const userParsed = parseUser(user);
 
   if (found === undefined){
-    _users.push(user);
+    _users.push(userParsed);
   } else {
-    _users[_users.indexOf(found)] = user;
+    _users[_users.indexOf(found)] = userParsed;
   }
+};
+
+UserStore.addUsers = function (users) {
+  let result = users.map(function (user) {
+    return parseUser(user);
+  });
+
+  _users = result;
 };
 
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserConstants.RECEIVE_USERS:
-      _users = payload.users;
+      UserStore.addUsers(payload.users);
       UserStore.__emitChange();
       break;
     case UserConstants.RECEIVE_USER:
@@ -42,5 +51,28 @@ UserStore.__onDispatch = function (payload) {
       break;
   }
 };
+
+function parseUser (user) {
+  let result = user;
+
+  if (result["lf_gender"] && !Array.isArray(result["lf_gender"])){
+    result["lf_gender"] = JSON.parse(result["lf_gender"]);
+  }
+
+  if( result["age"] ) {
+    result["age"] = parseInt(result["age"]);
+  }
+
+  if ( result["lf_min_age"] ){
+    result["lf_min_age"] = parseInt(result["lf_min_age"]);
+    result["lf_max_age"] = parseInt(result["lf_max_age"]);
+  }
+
+  if (result["height"]) {
+    result["height"] = parseInt(result["height"]);
+  }
+
+  return result;
+}
 
 module.exports = UserStore;

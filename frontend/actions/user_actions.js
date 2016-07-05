@@ -33,6 +33,7 @@ const UserActions = {
   },
 
   filterUsers(filter){
+    UserActions.updateUser(filter);
     UserApiUtil.filterUsers(filter, UserActions.receiveUsers);
   }
 };

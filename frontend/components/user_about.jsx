@@ -15,24 +15,36 @@ const UserAbout = React.createClass({
     let user = UserStore.find(parseInt(this.props.params.userId));
 
     if (user === undefined){
-      return {
-        edit: edit,
-        summary: " ",
-        favs: " ",
-        hobbies: " "
-      };
+      return this.renderBlank(edit);
     }
 
     if (SessionStore.currentUser().id === user.id){
       edit = true;
     }
 
-    return( {
-      edit: edit,
-      summary: user.summary,
-      favs: user.favs,
-      hobbies: user.hobbies
-    } );
+    return this.renderGiven(user, edit);
+  },
+
+  renderGiven(user, editState){
+    const summary = user.summary ? user.summary : " ";
+    const favs = user.favs ? user.favs : " ";
+    const hobbies = user.hobbies ? user.hobbies : " ";
+
+    return ({
+      edit: editState,
+      summary: summary,
+      favs: favs,
+      hobbies: hobbies
+    });
+  },
+
+  renderBlank(editState){
+    return {
+      edit: editState,
+      summary: " ",
+      favs: " ",
+      hobbies: " "
+    };
   },
 
   extractUser(){
@@ -83,14 +95,14 @@ const UserAbout = React.createClass({
     }
   },
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     UserActions.updateUser(this.extractUser());
   },
 
-  handleUpdate(trait){
+  update(trait){
     const that = this;
     return(function(event){
-      event.preventDefault();
       that.setState({[trait]: event.currentTarget.value});
     });
   },
@@ -99,17 +111,17 @@ const UserAbout = React.createClass({
     return (
       <form onSubmit={this.handleSubmit} className="user-about-editable">
         <h3>About me:</h3>
-        <textarea onChange={this.handleUpdate("summary")}
+        <textarea onChange={this.update("summary")}
           value={this.state.summary}/>
         <br/>
 
         <h3>What I like to do for fun: </h3>
-        <textarea onChange={this.handleUpdate("hobbies")}
+        <textarea onChange={this.update("hobbies")}
           value={this.state.hobbies}/>
         <br/>
 
         <h3>Some of my favorite things: </h3>
-        <textarea onChange={this.handleUpdate("favs")}
+        <textarea onChange={this.update("favs")}
           value={this.state.favs}/>
         <br/>
 

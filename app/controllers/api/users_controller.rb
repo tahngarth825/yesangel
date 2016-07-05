@@ -19,6 +19,7 @@ class Api::UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 
+
 		if @user.save
 			login(@user)
 			render "api/users/show"
@@ -30,20 +31,38 @@ class Api::UsersController < ApplicationController
 	def edit
 		@user = current_user
 		@user.update!(user_params)
+		@user
 		render "api/users/show"
 	end
 
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :password, :age, :location,
-			:gender, :lf_gender, :lf_min_age, :lf_max_age, :summary, :hobbies,
-			:favs, :pic_url, :orientation, :ethnicity, :height, :body_type)
+		result = params.require(:user).permit(:username, :password, :age, :location,
+			:gender, :lf_min_age, :lf_max_age, :summary, :hobbies,
+			:favs, :pic_url, :orientation, :ethnicity, :height, :body_type,
+			:lf_gender => [])
+
+		result[:age] = result[:age].to_i if result[:age]
+
+		result[:lf_min_age] = result[:lf_min_age].to_i if result[:lf_min_age]
+
+		result[:lf_max_age] = result[:lf_max_age].to_i if result[:lf_max_age]
+
+		result[:height] = result[:height].to_i if result[:height]
+
+		return result
 	end
 
 	def filter_params
-		params.require(:filter).permit(:location, :lf_min_age, :lf_max_age,
-		:lf_gender)
+		result = params.require(:filter).permit(:location, :lf_min_age, :lf_max_age,
+		:lf_gender => [])
+
+		result[:lf_min_age] = result[:lf_min_age].to_i if result[:lf_min_age]
+
+		result[:lf_max_age] = result[:lf_max_age].to_i if result[:lf_max_age]
+
+		return result
 	end
 
 	def filter_users
@@ -54,10 +73,6 @@ class Api::UsersController < ApplicationController
 			age: (filter[:lf_min_age]..filter[:lf_max_age]),
 			gender: filter[:lf_gender]
 		}
-
-		if (filter[:gender] == "any")
-			filter.delete(:gender)
-		end
 
 		return User.where(filter)
 	end

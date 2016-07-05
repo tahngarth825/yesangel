@@ -58,3 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const root = document.getElementById('content');
   ReactDOM.render(appRouter, root);
 });
+
+const UserStore = require ("./stores/user_store.js");
+window.UserStore = UserStore;

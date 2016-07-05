@@ -21,6 +21,10 @@ following criteria:
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
+- [ ] Photos
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
 - [ ] Personality Questions
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -121,15 +125,11 @@ Also, make the `Navigation` component (links will be broken).
 - [ ] CSS Styling
 
 ### Phase 7: User Photos and User Questions (w9d4-d5)
+- [ ] Host pictures on 3rd party sites
 - [ ] Build out UserPhotos component and subcomponents
 - [ ] Build out UserQuestion component and subcomponents
+- [ ] Seed questions
 - [ ] CSS Styling
-
-### Phase 8: Styling cleanup, seeding, and website setup (w9d6-d7)
-- [ ] Finishing touches on styling
-- [ ] Set up appropriate seeding
-- [ ] Host pictures on 3rd party sites
-- [ ] Upload everything to website
 
 ### Bonus Features:
 - [ ] Matching based on questions
@@ -158,7 +158,11 @@ allow edits if not!
   is too small to render two columns
 13. strong validations on inputs such as location
 14. SORTING COMPONENTS
-
+15. Make it filter the browse page as you first load
+16. Make your own profile available on top right nav bar
+17. MAKE FILTERS WORK WITH AGE AND GENDER; FIX HEIGHT
+18. Number data are stored as strings; extract them as integers!
+19. Add a "check all" for genders of interest
 
 ### Sources
 1. React-sliders: https://www.npmjs.com/package/react-slider

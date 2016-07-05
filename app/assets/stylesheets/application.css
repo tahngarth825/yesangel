@@ -198,7 +198,9 @@ textarea {
 
 .user-details-box {
   float: left;
+  padding: 10px 20px;
   margin: 10px 20px;
+  border: 2px solid black;
 }
 
 .filter-item {
@@ -210,4 +212,25 @@ textarea {
 
 .react-select {
   width: 200px;
+}
+
+.checkbox-box {
+  width: 90%;
+}
+
+.checkbox {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.slider {
+  margin: 15px;
+  width: 400px;
+  vertical-align: middle;
+}
+
+.slider-small {
+  margin: 15px;
+  width: 200px;
+  vertical-align: middle;
 }

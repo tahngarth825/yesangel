@@ -74,7 +74,3 @@ const UsersMain = React.createClass({
 });
 
 module.exports = UsersMain;
-
-//TODO DELETE THESE LATER
-window.UserActions = UserActions;
-window.UserStore = UserStore;

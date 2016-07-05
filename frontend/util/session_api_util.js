@@ -31,7 +31,7 @@ const SessionApiUtil = {
 			url: '/api/users',
 			type: 'POST',
 			dataType: 'json',
-			data: { user },
+			data: { user: user },
 			success(response){
 				success(response);
 			},

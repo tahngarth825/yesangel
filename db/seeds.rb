@@ -11,8 +11,8 @@ User.create!({
   password: "YesAngel",
   age: 24,
   location: "San Francisco",
-  gender: "Transgender female to male",
-  lf_gender: "any",
+  gender: "Male-to-female transgender",
+  lf_gender: ["Female-to-male transgender", "Male", "Female"],
   lf_min_age: 18,
   lf_max_age: 30,
   summary: "I'm new to San Francisco and looking for someone to explore the city!",
@@ -21,7 +21,7 @@ User.create!({
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494653/bradpitt_dqqcrg.jpg",
   orientation: "non-conforming",
   ethnicity: "mixed",
-  height: "6'0\"",
+  height: 72,
   body_type: "average"
 })
 
@@ -30,8 +30,8 @@ User.create!({
   password: "YesAngel",
   age: 27,
   location: "San Francisco",
-  gender: "M",
-  lf_gender: "F",
+  gender: "Male",
+  lf_gender: ["Female"],
   lf_min_age: 23,
   lf_max_age: 31,
   summary: "I'm an affectionate and sensitive guy looking for his other half.",
@@ -40,7 +40,7 @@ User.create!({
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494208/Richard_Lau_e7cvij.jpg",
   orientation: "straight",
   ethnicity: "Asian",
-  height: "5'7\"",
+  height: 67,
   body_type: "skinny"
 })
 
@@ -49,8 +49,8 @@ User.create!({
   password: "YesAngel",
   age: 41,
   location: "San Francisco",
-  gender: "F",
-  lf_gender: "any",
+  gender: "Female",
+  lf_gender: ["Male-to-female transgender", "Male", "Female"],
   lf_min_age: 18,
   lf_max_age: 24,
   summary: "I'm a little bit evil and a lot of fun!",
@@ -59,6 +59,6 @@ User.create!({
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494246/Emily_Cheng_r2lw3x.jpg",
   orientation: "bisexual",
   ethnicity: "Asian",
-  height: "4'3\"",
+  height: 51,
   body_type: "chubby"
 })
