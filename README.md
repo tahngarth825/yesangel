@@ -97,10 +97,8 @@ Implementation Timeline
   - [X] `UserTabs`
   - [X] `Profile`
   - [X] `UserDetails`
+- [X] Implement sliders/checkboxes for profile and filter
 - [ ] Filter Sorts components
-- [ ] Implement validations via buttons/radio/checkboxes for looking for
-  features, profile edit, and account creation
-(TO DO: FIX HEIGHT AS NOT INTEGER!)
 
 ### Phase 5: Basic Styling (w9d2)
 
@@ -161,7 +159,6 @@ allow edits if not!
 15. Make it filter the browse page as you first load
 16. Make your own profile available on top right nav bar
 17. MAKE FILTERS WORK WITH AGE AND GENDER; FIX HEIGHT
-18. Number data are stored as strings; extract them as integers!
 19. Add a "check all" for genders of interest
 
 ### Sources
