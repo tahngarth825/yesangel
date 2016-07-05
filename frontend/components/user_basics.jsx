@@ -111,7 +111,7 @@ const UserBasics = React.createClass({
 
   edgeModifier(property, value){
     if (property === "age") {
-      if (value === "60"){
+      if (value === 60){
         return (value + "+");
       }
     }
@@ -144,23 +144,26 @@ const UserBasics = React.createClass({
             onChange={this.update("location")}/>
 
             <br />
-  					Gender:
-  					<select value={this.state.gender}
-  						onChange={this.update("gender")}
-  						className="react-select"
-  					>
-  						{
-  							TraitConstants.gender.map( function(gender){
-  								return (
-  									<option value={gender.value} key={gender.value}>
-  										{gender.label}
-  									</option>
-  								);
-  							})
-  						}
-  					</select>
+  				<label>	Gender:
+              <select value={this.state.gender}
+                onChange={this.update("gender")}
+                className="basics-input"
+                >
+                {
+                  TraitConstants.gender.map( function(gender){
+                    return (
+                      <option value={gender.value} key={gender.value}>
+                        {gender.label}
+                      </option>
+                    );
+                  })
+                }
+              </select>
+  					</label>
 
-          <input className="submit" type="submit" value="Update Basic Info!"/>
+          <div className="submit-box">
+            <input className="submit" type="submit" value="Update Basic Info!"/>
+          </div>
         </form>
       </div>
     );

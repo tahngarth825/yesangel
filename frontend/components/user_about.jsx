@@ -139,7 +139,9 @@ const UserAbout = React.createClass({
           value={this.state.favs}/>
         <br/>
 
-        <input type="submit" value="Update Profile!"/>
+        <div className="submit-box">
+          <input className="submit" type="submit" value="Update Profile!"/>
+        </div>
       </form>
     );
   },

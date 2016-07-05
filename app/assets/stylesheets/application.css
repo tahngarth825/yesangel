@@ -97,6 +97,9 @@ h1, h5 {
 }
 
 .header-link {
+  display: inline-block;
+  width: 200px;
+  height: auto;
   text-decoration: none;
   color: rgb(255, 51, 153);
 }
@@ -137,12 +140,19 @@ h3, h4, li {
 }
 
 .basics-input {
+  vertical-align: middle;
   margin: 6px;
+  padding: 3px;
 }
 
 .submit {
   margin: 6px 0 0 6px;
   width: 173px;
+}
+
+.submit-box {
+  display: block;
+  text-align: center;
 }
 
 .user-about {
@@ -151,7 +161,9 @@ h3, h4, li {
 }
 
 .user-about-editable {
+  border: 2px solid black;
   float: left;
+  padding: 10px;
   margin: 10px 20px;
 }
 
@@ -197,6 +209,7 @@ textarea {
 }
 
 .user-details-box {
+  width: 480px;
   float: left;
   padding: 10px 20px;
   margin: 10px 20px;
@@ -215,7 +228,7 @@ textarea {
 }
 
 .checkbox-box {
-  width: 90%;
+  width: 460px;
 }
 
 .checkbox {

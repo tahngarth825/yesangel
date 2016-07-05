@@ -198,11 +198,10 @@ const UserDetails = React.createClass({
 
   edgeModifier(property, value){
     if (property === "age") {
-      if (value === "60"){
+      if (value === 60){
         return (value + "+");
       }
     }
-
     return value;
   },
 
@@ -250,9 +249,7 @@ const UserDetails = React.createClass({
           </div>
 
           <br />
-					<label> Youngest desired age:
-						<br/>
-						{that.edgeModifier("age ", that.state.lf_min_age)}
+					<label> Youngest desired age: {that.edgeModifier("age", that.state.lf_min_age)}
 						<input type="range"
 							id="lf_min_age"
 							min="18"
@@ -263,9 +260,7 @@ const UserDetails = React.createClass({
 					</label>
 
 					<br />
-					<label> Oldest desired age:
-						<br/>
-						{that.edgeModifier("age ", that.state.lf_max_age)}
+					<label> Oldest desired age:	{that.edgeModifier("age", that.state.lf_max_age)}
 							<input type="range"
 								id="lf_max_age"
 								min="18"
@@ -275,7 +270,9 @@ const UserDetails = React.createClass({
 								className="slider"/>
 					</label>
 
-        <input type="submit" value="Update Details!"/>
+          <div className="submit-box">
+            <input className="submit" type="submit" value="Update Details!"/>
+          </div>
       </form>
     );
   },
