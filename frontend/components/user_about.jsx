@@ -3,6 +3,7 @@ const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const UserDetails = require("./user_details.jsx");
+const SessionAction = require("../actions/session_actions.js");
 
 const UserAbout = React.createClass({
   getInitialState(){
@@ -12,14 +13,15 @@ const UserAbout = React.createClass({
   extractData(){
     let edit = false;
 
+    if (this.editable()){
+      edit = true;
+      return this.renderGiven(SessionStore.currentUser(), edit);
+    }
+
     let user = UserStore.find(parseInt(this.props.params.userId));
 
     if (user === undefined){
       return this.renderBlank(edit);
-    }
-
-    if (SessionStore.currentUser().id === user.id){
-      edit = true;
     }
 
     return this.renderGiven(user, edit);
@@ -49,15 +51,27 @@ const UserAbout = React.createClass({
 
   extractUser(){
     return ({
-      id: parseInt(this.props.params.userId),
       summary: this.state.summary,
       favs: this.state.favs,
       hobbies: this.state.hobbies
     });
   },
 
+  editable(){
+    if (parseInt(this.props.params.userId) === SessionStore.currentUser().id){
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   componentDidMount(){
-    this.listener = UserStore.addListener(this.handleChange);
+    if (this.editable()){
+      this.listener = SessionStore.addListener(this.handleChange);
+      SessionAction.fetchCurrentUser();
+    } else {
+      this.listener = UserStore.addListener(this.handleChange);
+    }
   },
 
   handleChange(){

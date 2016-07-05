@@ -1,3 +1,5 @@
+const SessionStore = require("../stores/session_store.js");
+
 const UserApiUtil = {
   fetchUsers(callback) {
 		$.ajax({
@@ -27,7 +29,7 @@ const UserApiUtil = {
 
   editUser(user, callback){
     $.ajax({
-      url: `/api/users/${user.id}/edit`,
+      url: `/api/users/${SessionStore.currentUser().id}/edit`,
       method: "GET",
       data: {user: user},
       dataType: "json",

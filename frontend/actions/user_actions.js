@@ -1,9 +1,10 @@
 "use strict";
 
 const AppDispatcher = require('../dispatcher/dispatcher');
-const UserConstants = require('../constants/user_constants');
+const SessionActions = require('../actions/session_actions');
 const UserApiUtil = require('../util/user_api_util');
 const hashHistory = require('react-router').hashHistory;
+const UserConstants = require("../constants/user_constants.js");
 
 const UserActions = {
   fetchUsers(){
@@ -29,7 +30,7 @@ const UserActions = {
   },
 
   updateUser(user){
-    UserApiUtil.editUser(user, UserActions.receiveUser);
+    UserApiUtil.editUser(user, SessionActions.receiveCurrentUser);
   },
 
   filterUsers(filter){

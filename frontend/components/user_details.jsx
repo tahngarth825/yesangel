@@ -3,23 +3,24 @@ const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const TraitConstants = require("../constants/trait_constants.js");
+const SessionAction = require("../actions/session_actions.js");
 
 const UserDetails = React.createClass({
   getInitialState(){
     return (this.extractData());
   },
 
-  extractData(initial){
-    let edit = false;
+  extractData(){
+    const edit = this.editable();
+
+    if (edit){
+      return this.renderGiven(SessionStore.currentUser(), edit);
+    }
 
     let user = UserStore.find(parseInt(this.props.userId));
 
     if (user === undefined){
       return this.renderBlank(edit);
-    }
-
-    if (SessionStore.currentUser().id === user.id){
-      edit = true;
     }
 
     return this.renderGiven(user, edit);
@@ -60,15 +61,6 @@ const UserDetails = React.createClass({
   },
 
   extractUser(){
-    const orientation = this.state.orientation ? this.state.orientation : " ";
-    const ethnicity = this.state.ethnicity ? this.state.ethnicity : " ";
-    const body_type = this.state.body_type ? this.state.body_type : " ";
-    const lf_gender = this.state.lf_gender ? this.state.lf_gender : " ";
-
-    const height = this.state.height ? parseInt(this.state.height) : " ";
-    const lf_min_age = this.state.lf_min_age ? parseInt(this.state.lf_min_age) : " ";
-    const lf_max_age = this.state.lf_max_age ? parseInt(this.state.lf_max_age) : " ";
-
     return ({
       orientation: this.state.orientation,
       ethnicity: this.state.ethnicity,
@@ -80,8 +72,21 @@ const UserDetails = React.createClass({
     });
   },
 
+  editable(){
+    if (parseInt(this.props.userId) === SessionStore.currentUser().id){
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   componentDidMount(){
-    this.listener = UserStore.addListener(this.handleChange);
+    if (this.editable()){
+      this.listener = SessionStore.addListener(this.handleChange);
+      SessionAction.fetchCurrentUser();
+    } else {
+      this.listener = UserStore.addListener(this.handleChange);
+    }
   },
 
   handleChange(){

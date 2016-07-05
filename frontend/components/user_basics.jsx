@@ -4,28 +4,30 @@ const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const ReactDOM = require("react-dom");
 const TraitConstants = require("../constants/trait_constants.js");
+const SessionAction = require("../actions/session_actions.js");
 
 const UserBasics = React.createClass({
   getInitialState(){
-    const user = UserStore.find(this.props.userId);
+    return (this.extractData());
+  },
+
+  extractData(){
+    const edit = this.editable();
+
+    if (edit){
+      return this.renderGiven(SessionStore.currentUser(), edit);
+    }
+
+    let user = UserStore.find(parseInt(this.props.userId));
 
     if (user === undefined){
-      return this.renderBlank();
-    } else{
-      return (this.extractFromUser(user));
+      return this.renderBlank(edit);
     }
+
+    return this.renderGiven(user, edit);
   },
 
-  renderBlank(){
-    return ({
-      username: " ",
-      location: " ",
-      age: " ",
-      gender: " "
-    });
-  },
-
-  extractFromUser(user){
+  renderGiven(user, editState){
     const username = user.username ? user.username : " ";
     const location = user.location ? user.location : " ";
     const gender = user.gender ? user.gender : " ";
@@ -43,9 +45,17 @@ const UserBasics = React.createClass({
     });
   },
 
+  renderBlank(){
+    return ({
+      username: " ",
+      location: " ",
+      age: " ",
+      gender: " "
+    });
+  },
+
   extractUser(){
     return ({
-      id: parseInt(this.props.userId),
       username: this.state.username,
       location: this.state.location,
       age: parseInt(this.state.age),
@@ -53,13 +63,25 @@ const UserBasics = React.createClass({
     });
   },
 
+  editable(){
+    if (parseInt(this.props.userId) === SessionStore.currentUser().id){
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   componentDidMount(){
-    this.listener = UserStore.addListener(this.handleChange);
+    if (this.editable()){
+      this.listener = SessionStore.addListener(this.handleChange);
+      SessionAction.fetchCurrentUser();
+    } else {
+      this.listener = UserStore.addListener(this.handleChange);
+    }
   },
 
   handleChange(){
-    const user = UserStore.find(this.props.userId);
-    this.setState(this.extractFromUser(user));
+    this.setState(this.extractData());
   },
 
   componentWillUnmount(){
@@ -111,7 +133,7 @@ const UserBasics = React.createClass({
 						<input type="range"
 							min="18"
 							max="60"
-							defaultValue="30"
+							defaultValue={this.state.age}
 							onChange={this.update("age")}
 							className="slider-small"/>
 					</label>

@@ -1,6 +1,7 @@
 const UserActions = require('../actions/user_actions');
 const UserStore = require('../stores/user_store');
 const Filter = require("./filter.jsx");
+const SessionActions = require("../actions/session_actions");
 
 const React = require("react");
 //Router

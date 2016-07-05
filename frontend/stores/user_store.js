@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher.js');
 const Store = require("flux/utils").Store;
 const UserConstants = require("../constants/user_constants.js");
+const SessionStore = require("./session_store.js");
 
 let _users = [];
 
@@ -21,6 +22,10 @@ UserStore.find = function(id){
 };
 
 UserStore.addUser = function (user){
+  if (user.id === SessionStore.currentUser().id){
+    return;
+  }
+
   const found = UserStore.find(user.id);
   const userParsed = parseUser(user);
 
@@ -32,8 +37,11 @@ UserStore.addUser = function (user){
 };
 
 UserStore.addUsers = function (users) {
-  let result = users.map(function (user) {
-    return parseUser(user);
+  let result = [];
+  users.forEach(function (user) {
+    if (user.id !== SessionStore.currentUser().id){
+      result.push(parseUser(user));
+    }
   });
 
   _users = result;

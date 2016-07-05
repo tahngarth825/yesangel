@@ -10,7 +10,7 @@ let _currentUser = {};
 let _currentUserHasBeenFetched = false;
 
 const _login = function(currentUser) {
-  _currentUser = currentUser;
+  _currentUser = parseUser(currentUser);
   _currentUserHasBeenFetched = true;
 };
 
@@ -18,6 +18,29 @@ const _logout = function() {
   _currentUser = {};
   _currentUserHasBeenFetched = true;
 };
+
+const parseUser = function (user) {
+  let result = user;
+
+  if (result["lf_gender"] && !Array.isArray(result["lf_gender"])){
+    result["lf_gender"] = JSON.parse(result["lf_gender"]);
+  }
+
+  if ( result["age"] ) {
+    result["age"] = parseInt(result["age"]);
+  }
+
+  if ( result["lf_min_age"] ) {
+    result["lf_min_age"] = parseInt(result["lf_min_age"]);
+    result["lf_max_age"] = parseInt(result["lf_max_age"]);
+  }
+
+  if (result["height"]) {
+    result["height"] = parseInt(result["height"]);
+  }
+
+  return result;
+}
 
 SessionStore.__onDispatch = payload => {
   switch(payload.actionType) {

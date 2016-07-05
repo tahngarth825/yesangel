@@ -3,6 +3,7 @@ const SessionStore = require("../stores/session_store.js");
 const UserActions = require("../actions/user_actions.js");
 const UserStore = require("../stores/user_store.js");
 const TraitConstants = require("../constants/trait_constants.js");
+const SessionActions = require("../actions/session_actions.js");
 
 const Filter = React.createClass({
   getInitialState(){
@@ -10,37 +11,24 @@ const Filter = React.createClass({
   },
 
   extractData(){
+    const user = SessionStore.currentUser();
 
-    if (this.state === null) {
-      const curUser = SessionStore.currentUser();
-
-      if (curUser["lf_gender"] && !Array.isArray(curUser["lf_gender"])){
-        curUser["lf_gender"] = JSON.parse(curUser["lf_gender"]);
-      }
-
-      return ({
-        lf_gender: curUser.lf_gender,
-        location: curUser.location,
-        lf_min_age: curUser.lf_min_age,
-        lf_max_age: curUser.lf_max_age
-      });
-    }
-    else {
-      return ({
-        lf_gender: this.state.lf_gender,
-        location: this.state.location,
-        lf_min_age: this.state.lf_min_age,
-        lf_max_age: this.state.lf_max_age
-      });
-    }
+    return ({
+      lf_gender: user.lf_gender,
+      location: user.location,
+      lf_min_age: user.lf_min_age,
+      lf_max_age: user.lf_max_age
+    });
   },
 
   handleChange(){
     this.setState(this.extractData());
   },
 
-  componentDidMount(){
-    this.listener = UserStore.addListener(this.handleChange);
+  componentWillMount(){
+    this.listener = SessionStore.addListener(this.handleChange);
+    SessionActions.fetchCurrentUser();
+    UserActions.filterUsers(this.state);
   },
 
   componentWillUnmount(){
@@ -58,7 +46,7 @@ const Filter = React.createClass({
       return;
     }
 
-    UserActions.filterUsers(this.extractData());
+    UserActions.filterUsers(this.state);
   },
 
   update(property){

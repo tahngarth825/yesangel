@@ -4,53 +4,33 @@ const UserTabs = require("./user_tabs.jsx");
 const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
+const SessionAction = require("../actions/session_actions.js");
 
 const UserMain = React.createClass({
-  getInitialState(){
-    return (
-      {
-        currentUser: SessionStore.currentUser(),
-        visitedUser: UserStore.find(parseInt(this.props.params.userId)),
-        edit: false
-      }
-    );
-  },
-
   componentDidMount(){
-    if (UserStore.all() === []) {
-      UserActions.fetchUsers();
+    if (this.editable()){
+      SessionAction.fetchCurrentUser();
+    } else {
+      UserActions.fetchUser(parseInt(this.props.params.userId));
     }
-    UserActions.fetchUser(parseInt(this.props.params.userId));
-    this.listener = UserStore.addListener(this.handleChange);
   },
 
-  componentWillUnmount(){
-    this.listener.remove();
-  },
-
-  handleChange(){
-    const currentUser = SessionStore.currentUser();
-    const visitedUser = UserStore.find(parseInt(this.props.params.userId));
-    let edit = false;
-
-    if (currentUser.id === visitedUser.id) {
-      edit = true
+  editable(){
+    if (parseInt(this.props.params.userId) === SessionStore.currentUser().id){
+      return true;
+    } else {
+      return false;
     }
-    this.setState({
-      currentUser: currentUser,
-      visitedUser: visitedUser,
-      edit: edit
-    });
   },
 
   render(){
     return(
       <div>
-        <UserBasics userId={this.props.params.userId} edit={this.state.edit}/>
+        <UserBasics userId={this.props.params.userId}/>
         <UserTabs userId={this.props.params.userId}/>
         {this.props.children}
       </div>
-    )
+    );
   }
 });
 

@@ -61,3 +61,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const UserStore = require ("./stores/user_store.js");
 window.UserStore = UserStore;
+window.SessionStore = SessionStore;

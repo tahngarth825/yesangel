@@ -26,11 +26,8 @@ const SessionActions = {
     SessionApiUtil.logOut(SessionActions.removeCurrentUser);
   },
 
-  fetchCurrentUser(complete){
-    SessionApiUtil.fetchCurrentUser(
-      SessionActions.receiveCurrentUser,
-      complete
-    );
+  fetchCurrentUser(){
+    SessionApiUtil.fetchCurrentUser(SessionActions.receiveCurrentUser);
   },
 
   receiveCurrentUser(currentUser) {
@@ -46,7 +43,6 @@ const SessionActions = {
     });
     hashHistory.push("/login");
   }
-
 };
 
 module.exports = SessionActions;

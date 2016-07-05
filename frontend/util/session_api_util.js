@@ -1,12 +1,14 @@
 "use strict";
 
 const SessionApiUtil = {
-	logIn(user, success, error) {
+	logIn(user, callback, error) {
 		$.ajax({
 			url: '/api/session',
 			type: 'POST',
 			data: { user },
-			success,
+			success(response){
+				callback(response);
+			},
 			error(xhr) {
 				const errors = xhr.responseJSON;
 
@@ -42,16 +44,15 @@ const SessionApiUtil = {
 		});
 	},
 
-	fetchCurrentUser(success, complete) {
+	fetchCurrentUser(callback) {
 		$.ajax({
 			url: '/api/session',
 			method: 'GET',
-			success,
-			error: function (xhr) {
-			  console.log("Error in SessionApiUtil#fetchCurrentUser");
+			success(response){
+				callback(response);
 			},
-      complete: function(){
-				complete();
+			error (xhr) {
+			  console.log("Error in SessionApiUtil#fetchCurrentUser");
 			}
 		});
 	}
