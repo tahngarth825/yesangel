@@ -143,15 +143,8 @@ and db schema
 2. find a way to make the questions and photos the same for both yourself
 and others' profiles)
 3. Views: userdetails should include "looking for"
-4. ENSURE MIN AGE < MAX AGE
-5. Strengthen validations (location is string, age is int, etc.)
-6. Remove self from browse?
 7. Guest login for girls?
-8. Make sure handleDisplay for UserMain checks if it's your profile, and
-allow edits if not!
-9. Filter on backend
 10. SEED DATABASE ONCE I'VE FIGURED OUT HOW TO LIMIT CHOICES
-11. DETAILED VIEWS
 12. Clean CSS for toggle view to change from centered to fixed when viewport
   is too small to render two columns
 13. strong validations on inputs such as location
@@ -160,7 +153,23 @@ allow edits if not!
 16. Make your own profile available on top right nav bar
 17. MAKE FILTERS WORK WITH AGE AND GENDER; FIX HEIGHT
 19. Add a "check all" for genders of interest
+20. Numbers like age in filter throw errors when typed (do slider?)
+21. Make splash page obvious of what it does!
+22. Browse page shows obvious meaning (make desired traits text
+  larger; maybe dif color?)
+23. Check out bottom of heroku setup to make sure dyno stays awake
+24. Data persists in login when error is thrown
+25. Age EdgeModifier on signup
+26. SIGNUP DOESN'T WORK!
+27. Your own page orientation is not checkboxes
+28. Can make push one button for all submits on your profile
+29. Location should be a drop-down!
+30. HEIGHT DOESN'T START AT RIGHT DEFAULT :(
+31. change font
 
 ### Sources
 1. React-sliders: https://www.npmjs.com/package/react-slider
 2. React-select: http://jedwatson.github.io/react-select/
+
+
+{React.cloneElement(this.props.children, {siteData: this.props.siteData})}

@@ -114,7 +114,7 @@ const UserBasics = React.createClass({
   edgeModifier(property, value){
     if (property === "age") {
       if (value === 60){
-        return (value + "+");
+        return (value + " or more");
       }
     }
 
@@ -131,7 +131,7 @@ const UserBasics = React.createClass({
           <b>{this.state.username}</b>
             <br/>
 
-          <label> Age: {that.edgeModifier("age", that.state.age)}
+          <label className="slider-label"> Age: {that.edgeModifier("age", that.state.age)}
 						<input type="range"
 							min="18"
 							max="60"
@@ -140,10 +140,11 @@ const UserBasics = React.createClass({
 							className="slider-small"/>
 					</label>
 
-          <br/>
-          Location: <input className="basics-input"
+          <label> Location:
+            <input className="basics-input"
             value={this.state.location}
             onChange={this.update("location")}/>
+          </label>
 
             <br />
   				<label>	Gender:

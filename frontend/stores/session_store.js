@@ -40,7 +40,7 @@ const parseUser = function (user) {
   }
 
   return result;
-}
+};
 
 SessionStore.__onDispatch = payload => {
   switch(payload.actionType) {

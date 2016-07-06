@@ -179,7 +179,8 @@ const UserDetails = React.createClass({
 					return;
 				}
 
-				if (property === "lf_min_age" || property === "lf_max_age")
+				if (property === "lf_min_age" || property === "lf_max_age" ||
+          property === "age" || property === "height")
 				{
 					value = parseInt(value);
 				}
@@ -196,12 +197,26 @@ const UserDetails = React.createClass({
     }
   },
 
-  edgeModifier(property, value){
+  parser(property, value){
     if (property === "age") {
       if (value === 60){
-        return (value + "+");
+        return (value + " or more");
       }
     }
+
+    if (property === "height" && value !== " ") {
+      const feet = Math.floor(value/12);
+      const inches = (value%12);
+      let result = (feet.toString() + "\'" + inches + "\"");
+
+      if (value === 86) {
+        result = result + " or more";
+      } else if (value === 48) {
+        result = result + " or less";
+      }
+      return result;
+    }
+
     return value;
   },
 
@@ -219,9 +234,14 @@ const UserDetails = React.createClass({
           onChange={this.update("ethnicity")}/>
         <br/>
 
-        <b>Height: </b>
-        <input value={this.state.height}
-          onChange={this.update("height")}/>
+        <label> Height: {that.parser("height", this.state.height)}
+          <input type="range"
+            min="48"
+            max="86"
+            defaultValue={this.state.height}
+            onChange={this.update("height")}
+            className="slider"/>
+        </label>
         <br/>
 
         <b>Body Type: </b>
@@ -249,9 +269,8 @@ const UserDetails = React.createClass({
           </div>
 
           <br />
-					<label> Youngest desired age: {that.edgeModifier("age", that.state.lf_min_age)}
+					<label> Youngest desired age: {that.parser("age", that.state.lf_min_age)}
 						<input type="range"
-							id="lf_min_age"
 							min="18"
 							max="60"
 							defaultValue={that.state.lf_min_age}
@@ -260,9 +279,8 @@ const UserDetails = React.createClass({
 					</label>
 
 					<br />
-					<label> Oldest desired age:	{that.edgeModifier("age", that.state.lf_max_age)}
+					<label> Oldest desired age:	{that.parser("age", that.state.lf_max_age)}
 							<input type="range"
-								id="lf_max_age"
 								min="18"
 								max="60"
 								defaultValue={that.state.lf_max_age}

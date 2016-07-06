@@ -49,7 +49,7 @@ const UsersMain = React.createClass({
   toUser(id){
     return function(){
       hashHistory.push(`${id}`);
-    }
+    };
   },
 
   render () {

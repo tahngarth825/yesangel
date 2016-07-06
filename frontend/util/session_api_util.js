@@ -17,11 +17,13 @@ const SessionApiUtil = {
 		});
 	},
 
-	logOut(success) {
+	logOut(callback) {
 		$.ajax({
 			url: '/api/session',
 			method: 'DELETE',
-			success,
+			success(response){
+				callback(response);
+			},
 			error: function () {
 			  console.log("Logout error in SessionApiUtil#logout");
 			}

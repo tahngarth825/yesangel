@@ -31,6 +31,14 @@ const Filter = React.createClass({
     UserActions.filterUsers(this.state);
   },
 
+  shouldComponentUpdate(nextProp, nextState){
+    const user = SessionStore.currentUser();
+    if (Object.keys(user).length === 0 && user.constructor === Object){
+      return false;
+    }
+    return true;
+  },
+
   componentWillUnmount(){
     this.listener.remove();
   },
@@ -87,54 +95,99 @@ const Filter = React.createClass({
     }
   },
 
+  parser(property, value){
+    if (property === "age") {
+      if (value === 60){
+        return (value + " or more");
+      }
+    }
+    return value;
+  },
+
   render(){
     const that = this;
-    return (
-      <form onSubmit={this.handleSubmit} className="filter-box">
-        <h3>Your desired traits in your partner: </h3>
 
-          <br />
-          <div className="filter-item">
-            Gender(s) of interest:
-            {
-              TraitConstants.gender.map( function(gender){
-                return (
-                  <div className="checkbox" key={gender.value}>
-                    <label htmlFor={gender.value}> {gender.label} </label>
-                      <input type="checkbox"
-                        checked={that.checkGender(gender.value)}
-                        id={gender.value}
-                        value={gender.value}
-                        onChange={that.update("lf_gender")} />
-                  </div>
-                );
-              })
-            }
+    if (SessionStore.currentUser() === {}){
+      return (
+        <div>
+
+        </div>
+      );
+    } else {
+      return (
+        <form onSubmit={this.handleSubmit} className="filter-box">
+          <h2>Your desired traits in your partner: </h2>
+
+            <br />
+            <div className="filter-gender">
+              Gender(s) of interest:
+              {
+                TraitConstants.gender.map( function(gender){
+                  return (
+                    <div className="gender-checkbox" key={gender.value}>
+                      <label htmlFor={gender.value}> {gender.label} </label>
+                        <input type="checkbox"
+                          checked={that.checkGender(gender.value)}
+                          id={gender.value}
+                          value={gender.value}
+                          onChange={that.update("lf_gender")} />
+                    </div>
+                  );
+                })
+              }
+            </div>
+
+            <label>	Location:
+                <select value={this.state.gender}
+                  onChange={this.update("gender")}
+                  className="basics-input"
+                  >
+                  {
+                    TraitConstants.gender.map( function(gender){
+                      return (
+                        <option value={gender.value} key={gender.value}>
+                          {gender.label}
+                        </option>
+                      );
+                    })
+                  }
+                </select>
+              </label>
+          <div className="filter-location">
+            <h4>Location:</h4>
+            <input onChange={this.update("location")} value={this.state.location} disabled={"disabled"}/>
+            <h6>Only premium users can look for users in other locations!</h6>
           </div>
 
+          <div className="filter-age">
+            <br />
+            <label className="slider-label"> Youngest desired age: {that.parser("age", that.state.lf_min_age)}
+              <input type="range"
+                min="18"
+                max="60"
+                defaultValue={that.state.lf_min_age}
+                onChange={this.update("lf_min_age")}
+                className="slider"/>
+            </label>
+          </div>
 
-        <div className="filter-item">
-          <h4>Location:</h4>
-          <input onChange={this.update("location")} value={this.state.location} disabled={"disabled"}/>
-          <h6>Only premium users can look for users in other locations!</h6>
-        </div>
+          <div className="filter-age">
+            <br />
+            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.state.lf_max_age)}
+                <input type="range"
+                  min="18"
+                  max="60"
+                  defaultValue={that.state.lf_max_age}
+                  onChange={this.update("lf_max_age")}
+                  className="slider"/>
+            </label>
+          </div>
 
-        <div className="filter-item">
-          <h4>Age</h4>
-          <input onChange={this.update("lf_min_age")}
-            className="small-input"
-            value={this.state.lf_min_age}/>
-          {"-"}
-          <input onChange={this.update("lf_max_age")}
-            className="small-input"
-            value={this.state.lf_max_age}/>
-          <h6>Ages range from 18 to 60</h6>
-        </div>
-
-        <br/>
-        <input type="submit" value="Update Results!" className="submit"/>
-      </form>
-    );
+          <br/>
+          <input type="submit" value="Update Results!" className="submit"/>
+        </form>
+      )
+    }
   }
 });
 

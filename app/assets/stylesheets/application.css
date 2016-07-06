@@ -106,10 +106,11 @@ h1, h5 {
 
 .browse-tile {
   display: inline-block;
-  width: 30%;
-  height: 200px;
+  width: 28%;
+  height: 150px;
   margin: 20px;
-  border: 10px solid white;
+  padding: 20px;
+  border: 3px solid rgb(16, 77, 161);
 }
 
 .browse-tile:hover {
@@ -131,8 +132,12 @@ h1, h5 {
 
 .user-basics-editable {
   margin: 20px;
+  padding: 20px;
   display: block;
   width: 300px;
+  border: 2px solid black;
+  text-align: center;
+  vertical-align: middle;
 }
 
 h3, h4, li {
@@ -146,7 +151,9 @@ h3, h4, li {
 }
 
 .submit {
-  margin: 6px 0 0 6px;
+  display: block;
+  clear: both;
+  margin: 10px auto;
   width: 173px;
 }
 
@@ -193,15 +200,40 @@ textarea {
 
 .filter-box{
   color: white;
-  border: 5px solid black;
   display: inline-block;
-  margin: 10px auto;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
   background-color: rgb(50, 96, 199);
 }
 
-.filter-box > h3 {
-  color: rgb(255, 51, 153);
+.filter-gender {
+  margin: 0 auto 10px auto;
+  padding: 0 auto 10px auto;
+}
+
+.gender-checkbox {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.filter-age {
+  margin: 10px;
+  padding: 0 5px 0 5px;
+  height: 101px;
+  width: auto;
+  display: inline-block;
+}
+
+.filter-location {
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.filter-box > h2 {
+  vertical-align: middle;
+  padding: 10px 0 0 0;
 }
 
 .browse-tile-box {
@@ -214,13 +246,6 @@ textarea {
   padding: 10px 20px;
   margin: 10px 20px;
   border: 2px solid black;
-}
-
-.filter-item {
-  border: 2px solid black;
-  margin: 10px;
-  padding: 10px;
-  float: left;
 }
 
 .react-select {
@@ -237,13 +262,20 @@ textarea {
 }
 
 .slider {
-  margin: 15px;
-  width: 400px;
+  display: block;
+  margin: 10px;
+  width: 200px;
   vertical-align: middle;
 }
 
+.slider-label{
+  display: block;
+  margin: 0;
+}
+
 .slider-small {
-  margin: 15px;
+  display: block;
+  margin: 10px auto;
   width: 200px;
   vertical-align: middle;
 }
