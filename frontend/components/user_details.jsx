@@ -224,10 +224,23 @@ const UserDetails = React.createClass({
     const that = this;
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
-        <b>Orientation: </b>
-        <input value={this.state.orientation}
-          onChange={this.update("orientation")}/>
-        <br/>
+
+        <label className="basic-orientation">	Orientation:
+            <select value={this.state.orientation}
+              onChange={this.update("orientation")}
+              className="basics-input"
+              >
+              {
+                TraitConstants.orientation.map( function(orientation){
+                  return (
+                    <option value={orientation.value} key={orientation.value}>
+                      {location.label}
+                    </option>
+                  );
+                })
+              }
+            </select>
+          </label>
 
         <b>Ethnicity: </b>
         <input value={this.state.ethnicity}

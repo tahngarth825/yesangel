@@ -140,11 +140,22 @@ const UserBasics = React.createClass({
 							className="slider-small"/>
 					</label>
 
-          <label> Location:
-            <input className="basics-input"
-            value={this.state.location}
-            onChange={this.update("location")}/>
-          </label>
+          <label className="basic-location">	Location:
+              <select value={this.state.location}
+                onChange={this.update("location")}
+                className="basics-input"
+                >
+                {
+                  TraitConstants.location.map( function(location){
+                    return (
+                      <option value={location.value} key={location.value}>
+                        {location.label}
+                      </option>
+                    );
+                  })
+                }
+              </select>
+            </label>
 
             <br />
   				<label>	Gender:

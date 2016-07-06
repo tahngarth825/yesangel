@@ -159,12 +159,7 @@ and others' profiles)
   larger; maybe dif color?)
 23. Check out bottom of heroku setup to make sure dyno stays awake
 24. Data persists in login when error is thrown
-25. Age EdgeModifier on signup
-26. SIGNUP DOESN'T WORK!
 27. Your own page orientation is not checkboxes
-28. Can make push one button for all submits on your profile
-29. Location should be a drop-down!
-30. HEIGHT DOESN'T START AT RIGHT DEFAULT :(
 31. change font
 
 ### Sources

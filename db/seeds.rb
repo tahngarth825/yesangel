@@ -20,7 +20,7 @@ User.create!({
   hobbies: "Hiking and exploring",
   favs: "I love action movies",
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494653/bradpitt_dqqcrg.jpg",
-  orientation: "non-conforming",
+  orientation: "Bisexual",
   ethnicity: "mixed",
   height: 72,
   body_type: "average"
@@ -39,7 +39,7 @@ User.create!({
   hobbies: "I like to karaoke and play video games.",
   favs: "I like lemon cake. My favorite movie is Ruby Sparks.",
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494208/Richard_Lau_e7cvij.jpg",
-  orientation: "straight",
+  orientation: "Straight",
   ethnicity: "Asian",
   height: 67,
   body_type: "skinny"
@@ -58,7 +58,7 @@ User.create!({
   hobbies: "I enjoy hunting for prey.",
   favs: "I like beer and classic karaoke songs.",
   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494246/Emily_Cheng_r2lw3x.jpg",
-  orientation: "bisexual",
+  orientation: "Bisexual",
   ethnicity: "Asian",
   height: 51,
   body_type: "chubby"

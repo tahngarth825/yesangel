@@ -137,27 +137,22 @@ const Filter = React.createClass({
               }
             </div>
 
-            <label>	Location:
-                <select value={this.state.gender}
-                  onChange={this.update("gender")}
+            <label className="filter-location">	Location:
+                <select value={this.state.location}
+                  onChange={this.update("location")}
                   className="basics-input"
                   >
                   {
-                    TraitConstants.gender.map( function(gender){
+                    TraitConstants.location.map( function(location){
                       return (
-                        <option value={gender.value} key={gender.value}>
-                          {gender.label}
+                        <option value={location.value} key={location.value}>
+                          {location.label}
                         </option>
                       );
                     })
                   }
                 </select>
               </label>
-          <div className="filter-location">
-            <h4>Location:</h4>
-            <input onChange={this.update("location")} value={this.state.location} disabled={"disabled"}/>
-            <h6>Only premium users can look for users in other locations!</h6>
-          </div>
 
           <div className="filter-age">
             <br />
