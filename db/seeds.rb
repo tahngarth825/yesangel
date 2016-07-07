@@ -57,7 +57,7 @@ User.create!({
   summary: "I'm a little bit evil and a lot of fun!",
   hobbies: "I enjoy hunting for prey.",
   favs: "I like beer and classic karaoke songs.",
-  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494246/Emily_Cheng_r2lw3x.jpg",
+  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467858492/50mayim_b_vs7dse.jpg",
   orientation: "Bisexual",
   ethnicity: "Asian",
   height: 51,

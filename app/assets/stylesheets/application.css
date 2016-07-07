@@ -128,10 +128,9 @@ h3, h4, li {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.browse-tile:hover {
+.browse-tile:hover, .navbar-profile-pic:hover{
   cursor: pointer;
   background-color: rgba(16, 77, 161, .2);
-  border: 10px solid rgb(16,77,161);
 }
 
 .profile-pic {
@@ -153,11 +152,11 @@ h3, h4, li {
 .user-basics-editable {
   margin: 20px;
   padding: 20px;
-  display: block;
+  display: inline-block;
   width: 300px;
   border: 2px solid black;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .user-tabs-item {

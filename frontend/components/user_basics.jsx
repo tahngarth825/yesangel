@@ -124,7 +124,6 @@ const UserBasics = React.createClass({
   handleEditable(){
     const that = this;
     return(
-      <div>
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
           <h3>Your Basic Info: </h3>
 
@@ -179,7 +178,6 @@ const UserBasics = React.createClass({
             <input className="submit" type="submit" value="Update Basic Info!"/>
           </div>
         </form>
-      </div>
     );
   },
 
@@ -202,9 +200,31 @@ const UserBasics = React.createClass({
     UserActions.updateUser(this.extractUser());
   },
 
+  displayPic(){
+    let user = undefined;
+    if (this.editable()){
+      user = SessionStore.currentUser();
+    } else {
+      user = UserStore.find(this.props.userId);
+    }
+
+    if (user === undefined) {
+      return (
+        <div>
+
+        </div>
+      );
+    } else {
+      return (
+        <img className="profile-pic" src={user.pic_url}/>
+      );
+    }
+  },
+
   render(){
     return(
       <div className="user-basics-box">
+        {this.displayPic()}
         {this.displayBasics()}
       </div>
     );
