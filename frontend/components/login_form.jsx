@@ -47,13 +47,15 @@ const LoginForm = React.createClass({
     }
   },
 
-	handleSubmit() {
+	handleSubmit(e) {
 		if (this.state.lf_min_age > this.state.lf_max_age){
+			e.preventDefault();
 			alert("Minimum age must be less than or equal to maximum age!");
 			return;
 		}
 
 		if (this.state.lf_gender.length === 0) {
+			e.preventDefault();
 			alert("Please select at least one gender to be interested in!");
 			return;
 		}
@@ -138,20 +140,27 @@ const LoginForm = React.createClass({
 				<div className="login-form">
 					<br />
 
-					<label> Age: {that.edgeModifier("age", that.state.age)}
+					<label className="unbold" htmlFor="age">
+						<b>Age:</b> {that.edgeModifier("age", that.state.age)}
+					</label>
 						<input type="range"
 							min="18"
 							max="60"
 							defaultValue="30"
 							onChange={this.update("age")}
+							id="age"
 							className="slider"/>
-					</label>
 
 					<br />
-					Location:
+
+
+					<label htmlFor="location">
+						Location:
+					</label>
 					<select value={this.state.location}
 						onChange={this.update("location")}
 						className="react-select"
+						id="location"
 					>
 						{
 							TraitConstants.location.map( function(location){
@@ -165,10 +174,11 @@ const LoginForm = React.createClass({
 					</select>
 
 					<br />
-					Gender:
+					<label htmlFor="gender">Gender:</label>
 					<select value={this.state.gender}
 						onChange={this.update("gender")}
 						className="react-select"
+						id="gender"
 					>
 						{
 							TraitConstants.gender.map( function(gender){
@@ -182,14 +192,18 @@ const LoginForm = React.createClass({
 					</select>
 
 					<br />
-					Which gender(s) are you interested in?
-					<div className="checkbox-box">
+
+					<label htmlFor="lf_gender">Which gender(s) are you interested in?</label>
+					<div className="checkbox-box" id="lf_gender">
 						{
 							TraitConstants.gender.map( function(gender){
 								return (
-									<div className="checkbox" key={gender.value}>
-										<label htmlFor={gender.value}> {gender.label} </label>
+									<div key={gender.value}>
+										<label htmlFor={gender.value} className="checkbox-label">
+											{gender.label}
+										</label>
 											<input type="checkbox"
+												className="checkbox"
 												id={gender.value}
 												value={gender.value}
 												onChange={that.update("lf_gender")} />
@@ -200,6 +214,7 @@ const LoginForm = React.createClass({
 					</div>
 
 					<br />
+
 					<label> What is the youngest age your desired person can be?
 						<br/>
 						{that.edgeModifier("age ", that.state.lf_min_age)}
@@ -245,17 +260,27 @@ const LoginForm = React.createClass({
 
 	render() {
 
-    let navLink;
+    let navLink, text, link;
+
     if (this.formType() === "login") {
-      navLink = <Link to="/signup">sign up instead</Link>;
+			link = "/signup";
+			text = "sign up instead";
     } else {
-      navLink = <Link to="/login">log in instead</Link>;
+			link = "/login";
+			text = "log in instead";
     }
+
+		navLink = <Link className="link" to={link}><b>{text}</b></Link>;
 
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-	        Welcome to Yes Angel!
+	        <h1>Welcome to Yes Angel!</h1>
+
+					<br/>
+
+					<h2>Find the love of your life!</h2>
+					
 					<br/>
 
 					<br/>

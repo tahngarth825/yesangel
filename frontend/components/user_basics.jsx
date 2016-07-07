@@ -127,11 +127,11 @@ const UserBasics = React.createClass({
       <div>
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
           <h3>Your Basic Info: </h3>
-          {"Username: "}
-          <b>{this.state.username}</b>
-            <br/>
 
-          <label className="slider-label"> Age: {that.edgeModifier("age", that.state.age)}
+          <label htmlFor="username"> Username: </label>
+            <p id="username">{this.state.username}</p>
+
+          <label className="slider-label"> <b>Age:</b> {that.edgeModifier("age", that.state.age)}
 						<input type="range"
 							min="18"
 							max="60"
@@ -204,7 +204,7 @@ const UserBasics = React.createClass({
 
   render(){
     return(
-      <div>
+      <div className="user-basics-box">
         {this.displayBasics()}
       </div>
     );

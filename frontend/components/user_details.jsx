@@ -222,10 +222,12 @@ const UserDetails = React.createClass({
 
   handleEditable(){
     const that = this;
+
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
 
-        <label className="basic-orientation">	Orientation:
+        <div className="detail">
+          <label>	Orientation:
             <select value={this.state.orientation}
               onChange={this.update("orientation")}
               className="basics-input"
@@ -234,76 +236,96 @@ const UserDetails = React.createClass({
                 TraitConstants.orientation.map( function(orientation){
                   return (
                     <option value={orientation.value} key={orientation.value}>
-                      {location.label}
+                      {orientation.label}
                     </option>
                   );
                 })
               }
             </select>
           </label>
+        </div>
 
-        <b>Ethnicity: </b>
-        <input value={this.state.ethnicity}
-          onChange={this.update("ethnicity")}/>
-        <br/>
+        <div className="detail">
+          <label> Ethnicity:
+            <input value={this.state.ethnicity}
+              onChange={this.update("ethnicity")}
+              className="basics-input"
+              />
+          </label>
+        </div>
 
-        <label> Height: {that.parser("height", this.state.height)}
+        <div className="detail">
+          <label htmlFor="height"> Height: </label>
+          {that.parser("height", this.state.height)}
           <input type="range"
             min="48"
             max="86"
             defaultValue={this.state.height}
             onChange={this.update("height")}
-            className="slider"/>
-        </label>
-        <br/>
+            className="slider"
+            id="height"/>
+        </div>
 
-        <b>Body Type: </b>
-        <input value={this.state.body_type}
-          onChange={this.update("body_type")}/>
-        <br/>
+        <div className="detail">
+          <label> Body type:
+            <input value={this.state.body_type}
+              onChange={this.update("body_type")}
+              className="basics-input"
+              />
+            <br/>
+          </label>
+        </div>
 
-          <br />
-          Gender(s) of interest:
-          <div className="checkbox-box">
-            {
-              TraitConstants.gender.map( function(gender){
-                return (
-                  <div className="checkbox" key={gender.value}>
-                    <label htmlFor={gender.value}> {gender.label} </label>
+        <div className="detail">
+          <label> Desired gender:
+            <div className="checkbox-box">
+              {
+                TraitConstants.gender.map( function(gender){
+                  return (
+                    <div className="checkbox-label" key={gender.value}>
+                      <label htmlFor={gender.value} className="checkbox-label">
+                        {gender.label}
+                      </label>
                       <input type="checkbox"
                         checked={that.checkGender(gender.value)}
                         id={gender.value}
                         value={gender.value}
                         onChange={that.update("lf_gender")} />
-                  </div>
-                );
-              })
-            }
-          </div>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </label>
+        </div>
 
-          <br />
-					<label> Youngest desired age: {that.parser("age", that.state.lf_min_age)}
-						<input type="range"
-							min="18"
-							max="60"
-							defaultValue={that.state.lf_min_age}
-							onChange={this.update("lf_min_age")}
-							className="slider"/>
-					</label>
+        <div className="detail">
+          <label htmlFor="lf_min_age"> Youngest desired age: </label>
+          {that.parser("age", that.state.lf_min_age)}
+          <input type="range"
+            min="18"
+            max="60"
+            defaultValue={that.state.lf_min_age}
+            onChange={this.update("lf_min_age")}
+            className="slider"
+            id="lf_min_age"/>
+        </div>
 
-					<br />
-					<label> Oldest desired age:	{that.parser("age", that.state.lf_max_age)}
-							<input type="range"
-								min="18"
-								max="60"
-								defaultValue={that.state.lf_max_age}
-								onChange={this.update("lf_max_age")}
-								className="slider"/>
-					</label>
+        <div className="detail">
+          <label htmlFor="lf_max_age"> Oldest desired age:	</label>
+          {that.parser("age", that.state.lf_max_age)}
+          <input type="range"
+            min="18"
+            max="60"
+            defaultValue={that.state.lf_max_age}
+            onChange={this.update("lf_max_age")}
+            className="slider"
+            id="lf_max_age"/>
+        </div>
 
-          <div className="submit-box">
-            <input className="submit" type="submit" value="Update Details!"/>
-          </div>
+        <div className="submit-box">
+          <input className="submit" type="submit" value="Update Details!"/>
+        </div>
       </form>
     );
   },

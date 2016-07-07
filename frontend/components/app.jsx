@@ -19,7 +19,7 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
     	return (
     		<hgroup className="header-group">
-    			<h2 className="header-name">Welcome, {SessionStore.currentUser().username}!</h2>
+    			<h3 className="header-name">Welcome, {SessionStore.currentUser().username}!</h3>
     			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
     		</hgroup>
     	);
@@ -34,14 +34,67 @@ const App = React.createClass({
     }
   },
 
+  renderNavBar(){
+    if (SessionStore.isUserLoggedIn()){
+      return(
+        <div className="navbar">
+          {this.renderBrowse()}
+          {this.renderMessages()}
+          {this.renderProfile()}
+        </div>
+      );
+    }
+  },
+
+  renderBrowse(){
+    return (
+      <div className="navbar-browse">
+        <Link className="navbar-link" to="/users">
+            <h2>Browse</h2>
+        </Link>
+      </div>
+    );
+  },
+
+  renderMessages(){
+    return (
+      <div className="navbar-messages">
+        <Link className="navbar-link" to="/users">
+          <img
+            className="navbar-messages-icon"
+            src="http://res.cloudinary.com/tahngarth825/image/upload/v1467848945/envelope_icon_r8yvzh.png"/>
+        </Link>
+      </div>
+    );
+  },
+
+  renderProfile(){
+    return (
+      <div className="navbar-profile">
+        <Link className="navbar-link" to={`/${SessionStore.currentUser().id}`}>
+          <img
+            className="navbar-profile-pic"
+            src={SessionStore.currentUser().pic_url}/>
+        </Link>
+      </div>
+    );
+  },
+
   render() {
     return (
       <div>
         <header>
-          <Link to="/" className="header-link"><h1>Yes Angel!</h1></Link>
-          { this.greeting() }
+          <div className="logo">
+            <Link to="/" className="header-link"><h1>Yes Angel!</h1></Link>
+            { this.greeting() }
+          </div>
+
+            {this.renderNavBar()}
         </header>
-        {this.props.children}
+
+        <div className="body">
+          {this.props.children}
+        </div>
       </div>
     );
   }

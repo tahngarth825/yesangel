@@ -19,7 +19,7 @@ User.create!({
   summary: "I'm new to San Francisco and looking for someone to explore the city!",
   hobbies: "Hiking and exploring",
   favs: "I love action movies",
-  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467494653/bradpitt_dqqcrg.jpg",
+  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
   orientation: "Bisexual",
   ethnicity: "mixed",
   height: 72,

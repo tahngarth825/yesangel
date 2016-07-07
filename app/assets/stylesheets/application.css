@@ -24,7 +24,9 @@ footer, header, menu, nav, section {
   border: 0;
   outline: 0;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+}
 
 ::-webkit-scrollbar {
     width: 12px;
@@ -49,13 +51,21 @@ body {
 }
 
 header {
-  padding: 2% 5%;
+  position: fixed;
   background-color: rgb(16, 77, 161);
   color: white;
+  height: 120px;
+  width: 100%;
+  z-index: 2;
 }
 
-h1, h5 {
+h1, h2, h5 {
   margin-bottom: 0px;
+  text-align: center;
+}
+
+h3, h4, li {
+  margin: 5px 0;
 }
 
 .header-name {
@@ -71,7 +81,11 @@ h1, h5 {
 .login-form-container {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  padding-top: 100px;
+  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/v1467840888/splash_image_oyfnsu.jpg");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 .login-form {
@@ -94,6 +108,7 @@ h1, h5 {
 .login-form-box {
   outline: 1px solid black;
   padding: 20px;
+  background-color:rgba(0, 0, 0, 0.5);
 }
 
 .header-link {
@@ -124,7 +139,7 @@ h1, h5 {
 }
 
 .user-basics {
-  display: block;
+  display: inline-block;
   text-align: center;
   width: 200px;
   margin: 20px;
@@ -140,8 +155,18 @@ h1, h5 {
   vertical-align: middle;
 }
 
-h3, h4, li {
-  margin: 5px 0;
+.user-tabs-item {
+  margin: 5px;
+}
+
+.user-tabs-box {
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+}
+
+.user-basics-box {
+  display: inline-block;
 }
 
 .basics-input {
@@ -187,15 +212,6 @@ textarea {
 
 .small-input {
   width: 30px;
-}
-
-.user-tabs {
-  margin: 5px;
-}
-
-.user-tabs-box {
-  text-align: center;
-  margin: auto;
 }
 
 .filter-box{
@@ -257,7 +273,6 @@ textarea {
 }
 
 .checkbox {
-  display: inline-block;
   padding: 5px 10px;
 }
 
@@ -271,6 +286,7 @@ textarea {
 .slider-label{
   display: block;
   margin: 0;
+  font-weight: normal;
 }
 
 .slider-small {
@@ -278,4 +294,90 @@ textarea {
   margin: 10px auto;
   width: 200px;
   vertical-align: middle;
+}
+
+label {
+  font-weight: bold;
+}
+
+.unbold {
+  font-weight: normal;
+}
+
+.checkbox-label {
+  font-weight: normal;
+  margin: 5px;
+}
+
+.detail {
+  margin: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: gold;
+}
+
+p {
+  display: inline-block;
+}
+
+.logo{
+  position: absolute;
+  padding: 10px;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+}
+
+.navbar {
+  position: absolute;
+  top: 0px;
+  left: 220px;
+  display: flex;
+  vertical-align: bottom;
+  height: 120px;
+  width: 600px;
+}
+
+.navbar-browse, .navbar-messages, .navbar-profile {
+  width: 100px;
+  height: 120px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 60px;
+}
+
+
+.navbar-link {
+  display: inline-block;
+  height: 120px;
+  width: 120px;
+  color: #9dbaf2;
+  text-decoration: none;
+  vertical-align: bottom;
+}
+
+.navbar-browse h2 {
+  position: absolute;
+  top: 43px;
+  left: 74px;
+  vertical-align: bottom;
+}
+
+.navbar-profile-pic {
+  height: 120px;
+  width: 120px;
+}
+
+.navbar-messages-icon {
+  height: 120px;
+  width: 120px;
+}
+
+.body{
+  position: absolute;
+  top: 120px;
 }

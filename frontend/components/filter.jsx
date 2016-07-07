@@ -118,23 +118,26 @@ const Filter = React.createClass({
         <form onSubmit={this.handleSubmit} className="filter-box">
           <h2>Your desired traits in your partner: </h2>
 
-            <br />
+
             <div className="filter-gender">
-              Gender(s) of interest:
-              {
-                TraitConstants.gender.map( function(gender){
-                  return (
-                    <div className="gender-checkbox" key={gender.value}>
-                      <label htmlFor={gender.value}> {gender.label} </label>
-                        <input type="checkbox"
-                          checked={that.checkGender(gender.value)}
-                          id={gender.value}
-                          value={gender.value}
-                          onChange={that.update("lf_gender")} />
-                    </div>
-                  );
-                })
-              }
+              <label> Gender(s) of interest:
+                  {
+                    TraitConstants.gender.map( function(gender){
+                      return (
+                        <div className="gender-checkbox" key={gender.value}>
+                          <label htmlFor={gender.value} className="checkbox-label">
+                            {gender.label}
+                          </label>
+                          <input type="checkbox"
+                            checked={that.checkGender(gender.value)}
+                            id={gender.value}
+                            value={gender.value}
+                            onChange={that.update("lf_gender")} />
+                        </div>
+                      );
+                    })
+                  }
+              </label>
             </div>
 
             <label className="filter-location">	Location:

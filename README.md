@@ -105,13 +105,14 @@ Implementation Timeline
 **Objective** Make layout look similar to OKC's for login/signup and profile views
 Also, make the `Navigation` component (links will be broken).
 
-- [ ] set up classes within html components to enable css styling
-- [ ] position elements as desired
-- [ ] setup colors and fonts as desired
-- [ ] add easier input for users to do age/location/desired_age (scrollers?)
-- [ ] Make front page pretty
+- [X] set up classes within html components to enable css styling
+- [X] position elements as desired
+- [X] setup colors and fonts as desired
+- [X] add easier input for users to do age/location/desired_age (scrollers?)
+- [X] Make front page pretty
+- [X] strong validations on signup components (mult-choice/sliders)
+- [ ] Navbar
 - [ ] seed database with small amount of test data (Do after mult-choice options!)
-- [ ] strong validations on signup components (mult-choice/sliders)
 
 ### Phase 6: Messaging (w9d3)
 
@@ -142,7 +143,6 @@ TODO:
 and db schema
 2. find a way to make the questions and photos the same for both yourself
 and others' profiles)
-3. Views: userdetails should include "looking for"
 7. Guest login for girls?
 10. SEED DATABASE ONCE I'VE FIGURED OUT HOW TO LIMIT CHOICES
 12. Clean CSS for toggle view to change from centered to fixed when viewport
@@ -153,18 +153,13 @@ and others' profiles)
 16. Make your own profile available on top right nav bar
 17. MAKE FILTERS WORK WITH AGE AND GENDER; FIX HEIGHT
 19. Add a "check all" for genders of interest
-20. Numbers like age in filter throw errors when typed (do slider?)
-21. Make splash page obvious of what it does!
 22. Browse page shows obvious meaning (make desired traits text
   larger; maybe dif color?)
 23. Check out bottom of heroku setup to make sure dyno stays awake
 24. Data persists in login when error is thrown
-27. Your own page orientation is not checkboxes
-31. change font
 
 ### Sources
-1. React-sliders: https://www.npmjs.com/package/react-slider
-2. React-select: http://jedwatson.github.io/react-select/
+1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
 
 
 {React.cloneElement(this.props.children, {siteData: this.props.siteData})}
