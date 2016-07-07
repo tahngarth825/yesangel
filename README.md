@@ -122,9 +122,10 @@ Also, make the `Navigation` component (links will be broken).
 - [ ] CSS Styling
 
 ### Phase 7: User Photos and User Questions (w9d4-d5)
-- [ ] Host pictures on 3rd party sites
-- [ ] Build out UserPhotos component and subcomponents
-- [ ] Build out UserQuestion component and subcomponents
+- [X] Host pictures on 3rd party sites
+- [X] Profile pic on Browse and profile page
+- [ ] Build out UserPhotos allowing a gallery of photos
+- [ ] Build out UserQuestion allowing a library of questions
 - [ ] Seed questions
 - [ ] CSS Styling
 
@@ -141,14 +142,12 @@ TODO:
 and db schema
 2. find a way to make the questions and photos the same for both yourself
 and others' profiles)
-15. Make it filter the browse page as you first load
 19. Add a "check all" for genders of interest
 23. Check out bottom of heroku setup to make sure dyno stays awake
-24. Data persists in login when error is thrown
-25. Bug: when you're on someone else's page and you try to go to your own profile, it doesn't work.
+24. Data persists in signup when error is thrown
 
 ### Sources
 1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
 
-
+Note: how to pass props to children for React elements
 {React.cloneElement(this.props.children, {siteData: this.props.siteData})}

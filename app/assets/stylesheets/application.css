@@ -51,7 +51,7 @@ body {
 }
 
 header {
-  position: fixed;
+  position: relative;
   background-color: rgb(16, 77, 161);
   color: white;
   height: 120px;
@@ -113,10 +113,23 @@ h3, h4, li {
 
 .header-link {
   display: inline-block;
-  width: 200px;
-  height: auto;
+  width: 300px;
+  height: 100px;
+  z-index: 2;
   text-decoration: none;
-  color: rgb(255, 51, 153);
+}
+
+.header-group {
+  position: absolute;
+  top: 30px;
+  left: 330px;
+  display: inline-block;
+  text-align: center;
+}
+
+.logo-pic {
+  width: 300px;
+  height: 100px;
 }
 
 .browse-tile {
@@ -328,10 +341,11 @@ p {
 
 .logo{
   position: absolute;
+  display: inline-block;
   padding: 10px;
   top: 0px;
   left: 0px;
-  width: 200px;
+  width: 300px;
   height: 100px;
   text-align: center;
 }
@@ -339,7 +353,7 @@ p {
 .navbar {
   position: absolute;
   top: 0px;
-  left: 220px;
+  left: 520px;
   display: flex;
   vertical-align: bottom;
   height: 120px;
@@ -350,13 +364,21 @@ p {
   width: 100px;
   height: 120px;
   text-align: center;
-  display: inline-block;
-  margin: 0 60px;
+  position: absolute;
+  left: 10px;
 }
 
+.navbar-browse {
+  position: absolute;
+  left: 170px;
+}
+
+.navbar-messages{
+  position: absolute;
+  left: 310px;
+}
 
 .navbar-link {
-  display: inline-block;
   height: 120px;
   width: 120px;
   color: #9dbaf2;
@@ -367,8 +389,6 @@ p {
 .navbar-browse h2 {
   position: absolute;
   top: 43px;
-  left: 74px;
-  vertical-align: bottom;
 }
 
 .navbar-profile h2 {
@@ -376,6 +396,11 @@ p {
   top: 43px;
   left: 524px;
   vertical-align: bottom;
+}
+
+.navbar-profile-pic-box {
+  height: 120px;
+  width: 120px
 }
 
 .navbar-profile-pic {

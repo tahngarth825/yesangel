@@ -16,9 +16,18 @@ class Message < ActiveRecord::Base
     user = User.find(sender_id)
 
     if (message.user1_id == user.id || message.user2_id == user.id)
-      message.content.push("#{user.username}: #{added_content}")
+      message.content.push("#{user.username} at #{parse_time}: #{added_content}")
+      return message
     else
       raise "Message does not belong to user"
     end
+  end
+
+  private
+
+  def parse_time
+    date = DateTime.current.readable_inspect
+    date = date.slice(0, date.length-6)
+    return date
   end
 end

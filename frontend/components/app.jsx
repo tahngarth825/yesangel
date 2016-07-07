@@ -41,9 +41,9 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()){
       return(
         <div className="navbar">
+          {this.renderProfile()}
           {this.renderBrowse()}
           {this.renderMessages()}
-          {this.renderProfile()}
         </div>
       );
     }
@@ -101,11 +101,16 @@ const App = React.createClass({
       <div>
         <header>
           <div className="logo">
-            <Link to="/" className="header-link"><h1>Yes Angel!</h1></Link>
-            { this.greeting() }
+            <Link to="/" className="header-link">
+              <img className="logo-pic"
+                src="http://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
+            </Link>
           </div>
 
-            {this.renderNavBar()}
+          { this.greeting() }
+
+          {this.renderNavBar()}
+
         </header>
 
         <div className="body">
