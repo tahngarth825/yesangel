@@ -42,7 +42,7 @@ User.create!({
   orientation: "Straight",
   ethnicity: "Asian",
   height: 67,
-  body_type: "skinny"
+  body_type: "Skinny"
 })
 
 User.create!({
@@ -61,7 +61,7 @@ User.create!({
   orientation: "Bisexual",
   ethnicity: "Asian",
   height: 51,
-  body_type: "chubby"
+  body_type: "Chubby"
 })
 
 User.create!({
@@ -410,6 +410,45 @@ User.create!({
   height: 66,
   body_type: "Average"
 })
+
+User.create!({
+  username: "YourAngel",
+  password: "YesAngel",
+  age: 22,
+  location: "Los Angeles",
+  gender: "Male-to-female transgender",
+  lf_gender: ["Female-to-male transgender", "Male", "Female",
+    "Male-to-female transgender", "Non-conforming/other"],
+  lf_min_age: 18,
+  lf_max_age: 30,
+  summary: "I am a very happy person :) I'm enjoying what life has to offer!",
+  hobbies: "Exploring the outdoors!",
+  favs: "My favorite movie is \"Up\" by Pixar!",
+  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467858101/19aly_hannigan_oop9yb.jpg",
+  orientation: "Bisexual",
+  ethnicity: "Mixed",
+  height: 52,
+  body_type: "Chubby"
+})
+
+User.create!({
+  username: "Hottie4ever",
+  password: "YesAngel",
+  age: 18,
+  location: "San Francisco",
+  gender: "Female",
+  lf_gender: ["Male"],
+  lf_min_age: 22,
+  lf_max_age: 40,
+  summary: "Hi, I'm Sunny! I'm a cheerful, fun-loving gal ;) Sorry, but I'm only into older white guys!",
+  hobbies: "Clubbing and shopping",
+  favs: "High heels are my fav! They shape my legs so well ;)",
+  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/v1467858101/20lyndsy_fonseca_fwkpfv.jpg",
+  orientation: "Bisexual",
+  ethnicity: "Mixed",
+  height: 65,
+  body_type: "Thin"
+})
 #
 # User.create!({
 #   username: "Guest",
@@ -470,47 +509,7 @@ User.create!({
 #   height: 72,
 #   body_type: "Average"
 # })
-#
-# User.create!({
-#   username: "Guest",
-#   password: "YesAngel",
-#   age: 24,
-#   location: "San Francisco",
-#   gender: "Male-to-female transgender",
-#   lf_gender: ["Female-to-male transgender", "Male", "Female",
-#     "Male-to-female transgender", "Non-conforming/other"],
-#   lf_min_age: 18,
-#   lf_max_age: 60,
-#   summary: "I'm new to San Francisco and looking for someone to explore the city!",
-#   hobbies: "Hiking and exploring",
-#   favs: "I love action movies",
-#   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
-#   orientation: "Bisexual",
-#   ethnicity: "Mixed",
-#   height: 72,
-#   body_type: "Average"
-# })
-#
-# User.create!({
-#   username: "Guest",
-#   password: "YesAngel",
-#   age: 24,
-#   location: "San Francisco",
-#   gender: "Male-to-female transgender",
-#   lf_gender: ["Female-to-male transgender", "Male", "Female",
-#     "Male-to-female transgender", "Non-conforming/other"],
-#   lf_min_age: 18,
-#   lf_max_age: 60,
-#   summary: "I'm new to San Francisco and looking for someone to explore the city!",
-#   hobbies: "Hiking and exploring",
-#   favs: "I love action movies",
-#   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
-#   orientation: "Bisexual",
-#   ethnicity: "Mixed",
-#   height: 72,
-#   body_type: "Average"
-# })
-#
+
 # User.create!({
 #   username: "Guest",
 #   password: "YesAngel",

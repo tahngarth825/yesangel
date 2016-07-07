@@ -110,7 +110,7 @@ Also, make the `Navigation` component (links will be broken).
 - [X] Make front page pretty
 - [X] strong validations on signup components (mult-choice/sliders)
 - [X] Navbar
-- [ ] seed database with 50 users
+- [ ] seed database with 50 users (23/50)
 
 ### Phase 6: Messaging (w9d3)
 

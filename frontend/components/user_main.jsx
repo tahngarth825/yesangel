@@ -8,6 +8,14 @@ const SessionAction = require("../actions/session_actions.js");
 
 const UserMain = React.createClass({
   componentDidMount(){
+    this.getUser();
+  },
+
+  componentWillReceiveProps(){
+    this.getUser();
+  },
+
+  getUser(){
     if (this.editable()){
       SessionAction.fetchCurrentUser();
     } else {
