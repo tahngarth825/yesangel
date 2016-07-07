@@ -63,6 +63,7 @@ const UsersMain = React.createClass({
             this.state.users.map(function (user) {
               return (
                 <div onClick={that.toUser(user.id)} className="browse-tile" key={user.id}>
+                  <img className="profile-pic" src={user.pic_url}/>
                   {that.displayUser(user)}
                 </div>
               );

@@ -16,6 +16,7 @@ const UserMain = require("./components/user_main.jsx");
 const UserAbout = require("./components/user_about.jsx");
 const UserPhotos = require("./components/user_photos.jsx");
 const UserQuestions = require("./components/user_questions.jsx");
+const Messages = require("./components/messages.jsx");
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -33,6 +34,7 @@ const appRouter = (
         <Route path="photos" component={ UserPhotos } onEnter={ _ensureLoggedIn } />
         <Route path="questions" component={ UserQuestions } onEnter={ _ensureLoggedIn } />
       </Route>
+      <Route path="messages" component={ Messages } onEnter={ _ensureLoggedIn } />
     </Route>
   </Router>
 );

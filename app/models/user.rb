@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
+	has_many :messages
 	# has_many :responses
 	# has_many :questions,
 	# 	through: :responses,
 	# 	source: :question
   # has_many :photos
-  # has_many :messages
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
