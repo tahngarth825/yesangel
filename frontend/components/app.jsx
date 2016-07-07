@@ -1,12 +1,15 @@
 "use strict";
 
 const React = require('react');
-const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 
-const App = React.createClass({
+const ReactRouter = require('react-router');
+const Link = ReactRouter.Link;
+const hashHistory = ReactRouter.hashHistory;
 
+
+const App = React.createClass({
   componentDidMount() {
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
@@ -68,6 +71,11 @@ const App = React.createClass({
     );
   },
 
+  toProfile(e){
+    e.preventDefault();
+    hashHistory.push(`/${SessionStore.currentUser().id}/about`);
+  },
+
   renderProfile(){
     let pic = (
       <h2>Profile</h2>
@@ -80,12 +88,10 @@ const App = React.createClass({
     }
 
     return (
-      <div className="navbar-profile">
-        <Link className="navbar-link" to={`/${SessionStore.currentUser().id}`}>
+      <div className="navbar-profile" onClick={this.toProfile}>
           <div className="navbar-profile-pic-box">
             {pic}
           </div>
-        </Link>
       </div>
     );
   },

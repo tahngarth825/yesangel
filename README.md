@@ -96,7 +96,7 @@ Implementation Timeline
   - [X] `Profile`
   - [X] `UserDetails`
 - [X] Implement sliders/checkboxes for profile and filter
-- [ ] Filter Sorts components
+- [ ] Filter sorts components
 
 ### Phase 5: Basic Styling (w9d2)
 
@@ -110,7 +110,7 @@ Also, make the `Navigation` component (links will be broken).
 - [X] Make front page pretty
 - [X] strong validations on signup components (mult-choice/sliders)
 - [X] Navbar
-- [ ] seed database with small amount of test data 
+- [ ] seed database with 50 users
 
 ### Phase 6: Messaging (w9d3)
 
@@ -141,20 +141,11 @@ TODO:
 and db schema
 2. find a way to make the questions and photos the same for both yourself
 and others' profiles)
-7. Guest login for girls?
-10. SEED DATABASE ONCE I'VE FIGURED OUT HOW TO LIMIT CHOICES
-12. Clean CSS for toggle view to change from centered to fixed when viewport
-  is too small to render two columns
-13. strong validations on inputs such as location
-14. SORTING COMPONENTS
 15. Make it filter the browse page as you first load
-16. Make your own profile available on top right nav bar
-17. MAKE FILTERS WORK WITH AGE AND GENDER; FIX HEIGHT
 19. Add a "check all" for genders of interest
-22. Browse page shows obvious meaning (make desired traits text
-  larger; maybe dif color?)
 23. Check out bottom of heroku setup to make sure dyno stays awake
 24. Data persists in login when error is thrown
+25. Bug: when you're on someone else's page and you try to go to your own profile, it doesn't work.
 
 ### Sources
 1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
