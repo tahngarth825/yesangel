@@ -19,9 +19,11 @@ class Api::UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 
+		@user = fill_in_the_blanks(@user)
 
 		if @user.save
 			login(@user)
+			@user
 			render "api/users/show"
 		else
 			render json: @user.errors, status: 422
@@ -75,5 +77,18 @@ class Api::UsersController < ApplicationController
 		}
 
 		return User.where(filter)
+	end
+
+	def fill_in_the_blanks(user)
+		user[:pic_url] = " "
+		user[:summary] = " "
+		user[:favs] = " "
+		user[:hobbies] = " "
+		user[:orientation] = " "
+		user[:ethnicity] = " "
+		user[:height] = " "
+		user[:body_type] = " "
+
+		return user
 	end
 end

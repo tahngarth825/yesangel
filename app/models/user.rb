@@ -7,13 +7,10 @@ class User < ActiveRecord::Base
 	validates :username, uniqueness: true
 	validates :password, length: {minimum: 6}, allow_nil: true
 	validates :age, :lf_min_age, :lf_max_age, numericality: true
-	validates :height, numericality: true, allow_nil: true
 	validates :age, numericality: { greater_than_or_equal_to: 18,
 	 	less_than_or_equal_to: 60 }
 	validates :lf_min_age, numericality: { greater_than_or_equal_to: 18 }
 	validates :lf_max_age, numericality: { less_than_or_equal_to: 60}
-	validates :height, numericality: { greater_than_or_equal_to: 48,
-	 	less_than_or_equal_to: 84}
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness

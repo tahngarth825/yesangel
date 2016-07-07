@@ -60,7 +60,6 @@ Implementation Timeline
 - [X] authentication
 - [X] user signup/signin pages
 - [X] blank landing page after signin
-- [X] make sure pw/session isn't exposed
 
 ### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
 
@@ -73,7 +72,6 @@ Implementation Timeline
 - [X] jBuilder views for `UserAbout`
 - [X] setup Webpack and flux scaffold
 - [X] setup `APIUtil` to interact with the API
-- [X] test out API interaction in console
 - [X] UserDetails
 
 ### Phase 3: UsersMain (w8d6)
@@ -111,8 +109,8 @@ Also, make the `Navigation` component (links will be broken).
 - [X] add easier input for users to do age/location/desired_age (scrollers?)
 - [X] Make front page pretty
 - [X] strong validations on signup components (mult-choice/sliders)
-- [ ] Navbar
-- [ ] seed database with small amount of test data (Do after mult-choice options!)
+- [X] Navbar
+- [ ] seed database with small amount of test data 
 
 ### Phase 6: Messaging (w9d3)
 

@@ -69,12 +69,22 @@ const App = React.createClass({
   },
 
   renderProfile(){
+    let pic = (
+      <h2>Profile</h2>
+    );
+
+    if (SessionStore.currentUser().pic_url !== " "){
+      pic = (<img
+        className="navbar-profile-pic"
+        src={SessionStore.currentUser().pic_url}/>);
+    }
+
     return (
       <div className="navbar-profile">
         <Link className="navbar-link" to={`/${SessionStore.currentUser().id}`}>
-          <img
-            className="navbar-profile-pic"
-            src={SessionStore.currentUser().pic_url}/>
+          <div className="navbar-profile-pic-box">
+            {pic}
+          </div>
         </Link>
       </div>
     );

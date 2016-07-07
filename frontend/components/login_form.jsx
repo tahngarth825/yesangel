@@ -280,7 +280,7 @@ const LoginForm = React.createClass({
 					<br/>
 
 					<h2>Find the love of your life!</h2>
-					
+
 					<br/>
 
 					<br/>

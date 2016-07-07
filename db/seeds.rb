@@ -63,3 +63,43 @@ User.create!({
   height: 51,
   body_type: "chubby"
 })
+
+# User.create!({
+#   username: "Guest",
+#   password: "YesAngel",
+#   age: 24,
+#   location: "San Francisco",
+#   gender: "Male-to-female transgender",
+#   lf_gender: ["Female-to-male transgender", "Male", "Female",
+#     "Male-to-female transgender", "Non-conforming/other"],
+#   lf_min_age: 18,
+#   lf_max_age: 60,
+#   summary: "I'm new to San Francisco and looking for someone to explore the city!",
+#   hobbies: "Hiking and exploring",
+#   favs: "I love action movies",
+#   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
+#   orientation: "Bisexual",
+#   ethnicity: "mixed",
+#   height: 72,
+#   body_type: "average"
+# })
+#
+# User.create!({
+#   username: "Guest",
+#   password: "YesAngel",
+#   age: 24,
+#   location: "San Francisco",
+#   gender: "Male-to-female transgender",
+#   lf_gender: ["Female-to-male transgender", "Male", "Female",
+#     "Male-to-female transgender", "Non-conforming/other"],
+#   lf_min_age: 18,
+#   lf_max_age: 60,
+#   summary: "I'm new to San Francisco and looking for someone to explore the city!",
+#   hobbies: "Hiking and exploring",
+#   favs: "I love action movies",
+#   pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
+#   orientation: "Bisexual",
+#   ethnicity: "mixed",
+#   height: 72,
+#   body_type: "average"
+# })

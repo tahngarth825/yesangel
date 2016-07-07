@@ -30,14 +30,14 @@ const SessionApiUtil = {
 		});
 	},
 
-	signUp(user, success, error) {
+	signUp(user, callback, error) {
 		$.ajax({
 			url: '/api/users',
 			type: 'POST',
 			dataType: 'json',
 			data: { user: user },
 			success(response){
-				success(response);
+				callback(response);
 			},
 			error(xhr) {
 				const errors = xhr.responseJSON;
