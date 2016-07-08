@@ -62,7 +62,7 @@ const App = React.createClass({
   renderMessages(){
     return (
       <div className="navbar-messages">
-        <Link className="navbar-link" to="/users">
+        <Link className="navbar-link" to="/messages">
           <img
             className="navbar-messages-icon"
             src="http://res.cloudinary.com/tahngarth825/image/upload/v1467848945/envelope_icon_r8yvzh.png"/>

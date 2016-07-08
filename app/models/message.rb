@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  validates :user_id1, :user_id2, :content, presence: true
+  validates :user1_id, :user2_id, :content, :last_update, presence: true
 
   belongs_to :user1,
   class_name: "User",
@@ -11,23 +11,16 @@ class Message < ActiveRecord::Base
   foreign_key: :user2_id,
   primary_key: :id
 
-  def append_message(message_id, sender_id, added_content)
-    message = Message.find(message_id)
+  def append_message(sender_id, added_content)
+    message = self
     user = User.find(sender_id)
+    message.last_update = DateTime.current
 
     if (message.user1_id == user.id || message.user2_id == user.id)
-      message.content.push("#{user.username} at #{parse_time}: #{added_content}")
+      message.content.push("#{user.username}: #{added_content}")
       return message
     else
       raise "Message does not belong to user"
     end
-  end
-
-  private
-
-  def parse_time
-    date = DateTime.current.readable_inspect
-    date = date.slice(0, date.length-6)
-    return date
   end
 end

@@ -17,6 +17,8 @@ const UserAbout = require("./components/user_about.jsx");
 const UserPhotos = require("./components/user_photos.jsx");
 const UserQuestions = require("./components/user_questions.jsx");
 const Messages = require("./components/messages.jsx");
+const MessageItem = require("./components/message_item.jsx");
+
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -28,13 +30,15 @@ const appRouter = (
       <Route path="login" component={ LoginForm } onEnter={_ensureLoggedOut}/>
       <Route path="signup" component={ LoginForm } onEnter={_ensureLoggedOut}/>
       <Route path="users" component={ UsersMain } onEnter={ _ensureLoggedIn }  />
+      <Route path="messages" component={ Messages } onEnter={ _ensureLoggedIn } >
+        <Route path=":messageId" component={ MessageItem } onEnter={ _ensureLoggedIn }/>
+      </Route>
       <Route path=":userId" component={ UserMain } onEnter={ _ensureLoggedIn } >
         <IndexRedirect to="about" />
         <Route path="about" component={ UserAbout } onEnter={ _ensureLoggedIn } />
         <Route path="photos" component={ UserPhotos } onEnter={ _ensureLoggedIn } />
         <Route path="questions" component={ UserQuestions } onEnter={ _ensureLoggedIn } />
       </Route>
-      <Route path="messages" component={ Messages } onEnter={ _ensureLoggedIn } />
     </Route>
   </Router>
 );
@@ -65,3 +69,4 @@ const UserStore = require ("./stores/user_store.js");
 window.UserStore = UserStore;
 window.SessionStore = SessionStore;
 window.TraitConstants = require("./constants/trait_constants.js");
+window.MessageStore = require("./stores/message_store.js");

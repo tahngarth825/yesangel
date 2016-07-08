@@ -419,3 +419,47 @@ p {
   top: 120px;
   width: 100%;
 }
+
+.td-label {
+  font-weight: bold;
+}
+
+.message-item-item {
+  display: block;
+  padding: 10px;
+}
+
+.message-item-content:hover {
+  cursor: pointer;
+  background-color: rgba(16, 77, 161, .2);
+}
+
+table, tr, td, th {
+  border: 1px solid black;
+}
+
+.th-user {
+  width: 100px;
+}
+
+.th-time {
+  width: 100px;
+}
+
+.messages-box {
+  padding: 30px 30px 120px 30px;
+  background-color: rgb(16, 77, 161);
+  display: block;
+  text-align: center;
+}
+
+.messages {
+  padding: 30px;
+  display: inline-block;
+  width: 650px;
+  background-color: rgb(243, 245, 249);
+}
+
+.messages h2 {
+  padding: 0 0 20px 0;
+}

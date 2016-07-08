@@ -1029,3 +1029,17 @@ User.create!({
 #   height: 72,
 #   body_type: "Average"
 # })
+
+
+
+
+
+Message.create!({
+  user1_id: 1,
+  user2_id: 2,
+  content: ["Guest: Hey there, how's it going? You interested in me?",
+    "Rich: I'm sorry, not interested.",
+    "Guest: Why? Because I'm a transgender?",
+    "Rich: I'm sorry, I really don't want to cause any trouble. I just am not interested."],
+  last_update: DateTime.now
+})

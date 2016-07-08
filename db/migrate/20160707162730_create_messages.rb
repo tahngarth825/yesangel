@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :user1_id, null:false, index: true
       t.integer :user2_id, null:false, index: true
       t.text :content, null:false, array: true
+      t.datetime :last_update, null:false
 
       t.timestamps null: false
     end

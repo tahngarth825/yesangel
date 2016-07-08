@@ -1,6 +1,6 @@
 const MessageConstants = {
-  MESSAGE_RECEIVED: "MESSAGE_RECEIVED",
-  MESSAGE_SENT: "MESSAGE_SENT"
+  RECEIVE_MESSAGES: "RECEIVE_MESSAGES",
+  RECEIVE_MESSAGE: "RECEIVE_MESSAGE"
 };
 
 module.exports = MessageConstants;

@@ -48,18 +48,6 @@ const LoginForm = React.createClass({
   },
 
 	handleSubmit(e) {
-		if (this.state.lf_min_age > this.state.lf_max_age){
-			e.preventDefault();
-			alert("Minimum age must be less than or equal to maximum age!");
-			return;
-		}
-
-		if (this.state.lf_gender.length === 0) {
-			e.preventDefault();
-			alert("Please select at least one gender to be interested in!");
-			return;
-		}
-
 		let formData = {};
 
 		if (this.formType() === "login"){
@@ -70,6 +58,18 @@ const LoginForm = React.createClass({
 			SessionActions.logIn(formData);
 		}
 		else {
+			if (this.state.lf_min_age > this.state.lf_max_age){
+				e.preventDefault();
+				alert("Minimum age must be less than or equal to maximum age!");
+				return;
+			}
+
+			if (this.state.lf_gender.length === 0) {
+				e.preventDefault();
+				alert("Please select at least one gender to be interested in!");
+				return;
+			}
+
 			Object.assign(formData, this.state);
 			SessionActions.signUp(formData);
 		}

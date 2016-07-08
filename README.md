@@ -13,10 +13,10 @@ following criteria:
 - [X] Hosting on Heroku
 - [X] New account creation, login, and a guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Browse & Search Users
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+- [X] Browse & Filter Users
+  - [X] Smooth, bug-free navigation
+  - [X] Adequate seed data to demonstrate the site's features
+  - [X] Adequate CSS styling
 - [ ] Messaging
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -116,9 +116,9 @@ Also, make the `Navigation` component (links will be broken).
 
 **Objective** Make messaging functions work
 
-- [ ] Build out MessageMain component
-- [ ] Build out MessageItem component
-- [ ] Connect them to the flux loop and make sure they interact properly
+- [X] Can see own messages
+- [ ] Can reply to others
+- [ ] Can message others directly
 - [ ] CSS Styling
 
 ### Phase 7: User Photos and User Questions (w9d4-d5)
@@ -151,3 +151,7 @@ and others' profiles)
 
 Note: how to pass props to children for React elements
 {React.cloneElement(this.props.children, {siteData: this.props.siteData})}
+
+
+Message.order(last_update: :desc).where("user1_id = ? OR user2_id = ?",
+  1, 1)
