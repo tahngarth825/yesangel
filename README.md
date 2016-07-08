@@ -118,7 +118,7 @@ Also, make the `Navigation` component (links will be broken).
 
 - [X] Can see own messages
 - [X] Can reply to others
-- [ ] Can message others directly
+- [X] Can message others directly
 - [ ] CSS Styling
 
 ### Phase 7: User Photos and User Questions (w9d4-d5)
