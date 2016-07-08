@@ -1033,9 +1033,20 @@ User.create!({
 Message.create!({
   user1_id: 1,
   user2_id: 2,
-  content: ["Guest: Hey there, how's it going? You interested in me?",
-    "Rich: I'm sorry, not interested.",
-    "Guest: Why? Because I'm a transgender?",
-    "Rich: I'm sorry, I really don't want to cause any trouble. I just am not interested."],
+  content: ["Guest: Hi, nice to meet you.",
+    "Rich: Hey! What are you up to?",
+    "Guest: Developing a website. How about you?",
+    "Rich: Just playing Monster Hunter."],
+  last_update: DateTime.now
+})
+
+Message.create!({
+  user1_id: 1,
+  user2_id: 3,
+  content: ["Guest: Hi, how are you?",
+    "Emily: Not too bad. How about you?",
+    "Guest: Not bad myself. Would you like to get some boba this afternoon?",
+    "Emily: Uh, I get off work at 6pm. We can meet at like 6:30pm?",
+    "Guest: Sure, message me when you're off work :)"],
   last_update: DateTime.now
 })

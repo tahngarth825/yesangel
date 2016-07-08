@@ -70,3 +70,4 @@ window.UserStore = UserStore;
 window.SessionStore = SessionStore;
 window.TraitConstants = require("./constants/trait_constants.js");
 window.MessageStore = require("./stores/message_store.js");
+window.PhotoStore = require("./stores/photo_store.js");

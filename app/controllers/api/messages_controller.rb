@@ -36,7 +36,9 @@ class Api::MessagesController < ApplicationController
     @messages = Message.order(last_update: :desc).where("user1_id = ? OR user2_id = ?",
       message_params[:user1_id], message_params[:user1_id])
 
-    render "api/messages/index"
+    if (@messages)
+      render "api/messages/index"
+    end
   end
 
   private

@@ -17,18 +17,20 @@ following criteria:
   - [X] Smooth, bug-free navigation
   - [X] Adequate seed data to demonstrate the site's features
   - [X] Adequate CSS styling
-- [ ] Messaging
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Photos
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+- [X] Messaging
+  - [X] Smooth, bug-free navigation
+  - [X] Adequate seed data to demonstrate the site's features
+  - [X] Adequate CSS styling
+- [X] Photos
+  - [X] Smooth, bug-free navigation
+  - [X] Adequate seed data to demonstrate the site's features
+  - [X] Adequate CSS styling
 - [ ] Personality Questions
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
+
+Optional:
 - [ ] Match % based on questions
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -124,10 +126,11 @@ Also, make the `Navigation` component (links will be broken).
 ### Phase 7: User Photos and User Questions (w9d4-d5)
 - [X] Host pictures on 3rd party sites
 - [X] Profile pic on Browse and profile page
-- [ ] Build out UserPhotos allowing a gallery of photos
+- [X] Build out UserPhotos allowing a gallery of photos
 - [ ] Build out UserQuestion allowing a library of questions
 - [ ] Seed questions
 - [ ] CSS Styling
+
 
 ### Bonus Features:
 - [ ] Matching based on questions
@@ -152,6 +155,6 @@ and others' profiles)
 Note: how to pass props to children for React elements
 {React.cloneElement(this.props.children, {siteData: this.props.siteData})}
 
-
+###Scratchpad:
 Message.order(last_update: :desc).where("user1_id = ? OR user2_id = ?",
   1, 1)

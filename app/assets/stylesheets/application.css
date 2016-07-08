@@ -488,3 +488,17 @@ table, tr, td, th {
   width: 250px;
   height: 500px;
 }
+
+.upload-form {
+  text-align: center;
+  padding: 20px;
+}
+
+.user-photos-box {
+  padding: 20px;
+}
+
+.user-photos-item{
+  padding: 20px;
+  display: inline-block;
+}

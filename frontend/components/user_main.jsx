@@ -6,6 +6,7 @@ const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const SessionAction = require("../actions/session_actions.js");
 const UserMessage = require("./user_message.jsx");
+const MessageStore = require("../stores/message_store.js");
 
 const UserMain = React.createClass({
   componentWillMount(){
@@ -42,7 +43,8 @@ const UserMain = React.createClass({
   },
 
   handleMessage(){
-    if (SessionStore.currentUser().id !== parseInt(this.props.params.userId)){
+    if (SessionStore.currentUser().id !== parseInt(this.props.params.userId)
+      && SessionStore.currentUser().keys !== undefined){
       return (<UserMessage userId={this.props.params.userId}/>);
     }
   },

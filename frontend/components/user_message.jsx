@@ -37,7 +37,7 @@ const UserMessage = React.createClass({
     }
   },
 
-  componentWillMount(){
+  componentDidMount(){
     this.sessionListener = SessionStore.addListener(this.handleChange);
     this.messageListener = MessageStore.addListener(this.handleChange);
     SessionAction.fetchCurrentUser();
