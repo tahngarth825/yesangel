@@ -65,7 +65,7 @@ const App = React.createClass({
         <Link className="navbar-link" to="/messages">
           <img
             className="navbar-messages-icon"
-            src="http://res.cloudinary.com/tahngarth825/image/upload/v1467848945/envelope_icon_r8yvzh.png"/>
+            src="https://res.cloudinary.com/tahngarth825/image/upload/v1467848945/envelope_icon_r8yvzh.png"/>
         </Link>
       </div>
     );
@@ -103,7 +103,7 @@ const App = React.createClass({
           <div className="logo">
             <Link to="/" className="header-link">
               <img className="logo-pic"
-                src="http://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
+                src="https://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
             </Link>
           </div>
 
