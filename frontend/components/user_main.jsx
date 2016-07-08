@@ -5,6 +5,7 @@ const SessionStore = require("../stores/session_store.js");
 const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const SessionAction = require("../actions/session_actions.js");
+const UserMessage = require("./user_message.jsx");
 
 const UserMain = React.createClass({
   componentDidMount(){
@@ -36,6 +37,7 @@ const UserMain = React.createClass({
       <div>
         <UserBasics userId={this.props.params.userId}/>
         <UserTabs userId={this.props.params.userId}/>
+        <UserMessage userId={this.props.params.userId}/>
         {this.props.children}
       </div>
     );

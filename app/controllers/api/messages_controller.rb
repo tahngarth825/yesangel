@@ -52,7 +52,7 @@ class Api::MessagesController < ApplicationController
 
     new_message = Message.new(new_params)
 
-    new_message.append_message(new_params[:user1_id],
+    new_message = new_message.create_message(new_params[:user1_id],
       message_params[:content])
 
     return new_message

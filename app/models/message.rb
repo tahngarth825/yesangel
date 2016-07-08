@@ -23,4 +23,14 @@ class Message < ActiveRecord::Base
       raise "Message does not belong to user"
     end
   end
+
+  def create_message(sender_id, content)
+    message = self
+    user = User.find(sender_id)
+    message.last_update = DateTime.current
+
+    message.content = ["#{user.username}: #{content}"]
+    
+    return message
+  end
 end

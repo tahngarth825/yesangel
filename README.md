@@ -117,7 +117,7 @@ Also, make the `Navigation` component (links will be broken).
 **Objective** Make messaging functions work
 
 - [X] Can see own messages
-- [ ] Can reply to others
+- [X] Can reply to others
 - [ ] Can message others directly
 - [ ] CSS Styling
 
