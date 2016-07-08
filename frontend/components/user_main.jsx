@@ -35,8 +35,10 @@ const UserMain = React.createClass({
   render(){
     return(
       <div>
-        <UserBasics userId={this.props.params.userId}/>
-        <UserTabs userId={this.props.params.userId}/>
+        <div className="profile-top-left">
+          <UserBasics userId={this.props.params.userId}/>
+          <UserTabs userId={this.props.params.userId}/>
+        </div>
         <UserMessage userId={this.props.params.userId}/>
         {this.props.children}
       </div>

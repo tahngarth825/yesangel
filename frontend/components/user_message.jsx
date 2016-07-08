@@ -1,4 +1,9 @@
 const React = require("react");
+const SessionStore = require("../stores/session_store.js");
+const SessionAction = require("../actions/session_actions.js");
+const MessageStore = require("../stores/message_store.js");
+const MessageAction = require("../actions/message_actions.js");
+const MessageItem = require("./message_item.jsx");
 
 const UserMessage = React.createClass({
   getInitialState(){
@@ -9,7 +14,7 @@ const UserMessage = React.createClass({
     if (this.existing()){
       return ({
         existing: true,
-        message: MessageStore.find(this.props.userId)
+        message: MessageStore.findByUser(this.props.userId)
       });
     } else {
       return ({
@@ -17,21 +22,21 @@ const UserMessage = React.createClass({
         message: {
           content: "",
           user1_id: SessionStore.currentUser().id,
-          user2_id: MessageStore.find(this.props.userId)
+          user2_id: this.props.userId
         }
       });
     }
   },
 
   existing(){
-    if (MessageStore.find(this.props.userId) === undefined){
+    if (MessageStore.findByUser(this.props.userId) === undefined){
       return false;
     } else {
       return true;
     }
   },
 
-  componentDidMount(){
+  componentWillMount(){
     this.sessionListener = SessionStore.addListener(this.handleChange);
     this.messageListener = MessageStore.addListener(this.handleChange);
     SessionAction.fetchCurrentUser();
@@ -44,12 +49,59 @@ const UserMessage = React.createClass({
   },
 
   handleChange(){
+    this.setState(this.setupState());
+  },
 
+  extractUser(message){
+    const result = message.user1_id === this.props.userId ?
+      message.user2 : message.user1;
+    return result;
+  },
+
+  handleDisplay(){
+    const that = this;
+    if (this.state.existing === true) {
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th className="th-user">User</th>
+              <th className="th-time">Last Update</th>
+              <th className="th-content">Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              <tr>
+                <td>{that.extractUser(that.state.message)}</td>
+
+                <td>{that.state.message.last_update}</td>
+
+                <td>
+                  <MessageItem
+                    message={that.state.message}/>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      );
+    } else {
+      return (
+        <div>
+          NO EXISTING MESSAGES
+        </div>
+      );
+    }
   },
 
   render () {
     const that = this;
     return (
+      <div className="user-message">
+        <h2>Messages</h2>
+        {that.handleDisplay()}
+      </div>
     );
   }
 });

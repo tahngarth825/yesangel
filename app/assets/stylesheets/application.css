@@ -147,6 +147,7 @@ h3, h4, li {
 }
 
 .profile-pic {
+  display: inline-block;
   height: 300px;
   width: 200px;
 }
@@ -179,7 +180,7 @@ h3, h4, li {
 .user-tabs-box {
   display: inline-block;
   text-align: center;
-  margin: 20px;
+  width: 100%;
 }
 
 .user-basics-box {
@@ -436,6 +437,7 @@ p {
 
 table, tr, td, th {
   border: 1px solid black;
+  text-align: center;
 }
 
 .th-user {
@@ -462,4 +464,31 @@ table, tr, td, th {
 
 .messages h2 {
   padding: 0 0 20px 0;
+}
+
+.user-message {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.user-message table {
+  width: 650px;
+  display: inline-block;
+  text-align: center;
+}
+
+.user-basics-box {
+  padding-top: 20px;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  height: 400px;
+  width: 250px;
+}
+
+.profile-top-left {
+  display: inline-block;
+  width: 250px;
+  height: 500px;
 }

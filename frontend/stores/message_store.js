@@ -20,6 +20,16 @@ MessageStore.find = function(id){
   return result;
 };
 
+MessageStore.findByUser = function(id) {
+  let result = undefined;
+  _messages.forEach(function(message){
+    if (message.user1_id === parseInt(id) || message.user2_id === parseInt(id)){
+      result = message;
+    }
+  });
+  return result;
+};
+
 MessageStore.addMessage = function (message) {
   let found = this.find(message.id);
 
