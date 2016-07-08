@@ -8,12 +8,21 @@ const SessionAction = require("../actions/session_actions.js");
 const UserMessage = require("./user_message.jsx");
 
 const UserMain = React.createClass({
-  componentDidMount(){
+  componentWillMount(){
+    this.userListener = UserStore.addListener(this.forceUpdate.bind(this));
+    this.messageListener = MessageStore.addListener(this.forceUpdate.bind(this));
+    this.sessionListener = SessionStore.addListener(this.forceUpdate.bind(this));
     this.getUser();
   },
 
   componentWillReceiveProps(){
     this.getUser();
+  },
+
+  componentWillUnmount(){
+    this.userListener.remove();
+    this.messageListener.remove();
+    this.sessionListener.remove();
   },
 
   getUser(){
@@ -32,6 +41,12 @@ const UserMain = React.createClass({
     }
   },
 
+  handleMessage(){
+    if (SessionStore.currentUser().id !== parseInt(this.props.params.userId)){
+      return (<UserMessage userId={this.props.params.userId}/>);
+    }
+  },
+
   render(){
     return(
       <div>
@@ -39,8 +54,8 @@ const UserMain = React.createClass({
           <UserBasics userId={this.props.params.userId}/>
           <UserTabs userId={this.props.params.userId}/>
         </div>
-        <UserMessage userId={this.props.params.userId}/>
-        {this.props.children}
+          {this.handleMessage()}
+          {this.props.children}
       </div>
     );
   }

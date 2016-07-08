@@ -170,7 +170,7 @@ h3, h4, li {
   width: 300px;
   border: 2px solid black;
   text-align: center;
-  vertical-align: top;
+  vertical-align: bottom;
 }
 
 .user-tabs-item {
@@ -181,10 +181,6 @@ h3, h4, li {
   display: inline-block;
   text-align: center;
   width: 100%;
-}
-
-.user-basics-box {
-  display: inline-block;
 }
 
 .basics-input {
@@ -487,8 +483,8 @@ table, tr, td, th {
   vertical-align: middle;
   text-align: center;
   display: inline-block;
-  height: 400px;
-  width: 250px;
+  width: auto;
+  height: auto;
 }
 
 .profile-top-left {
@@ -496,5 +492,3 @@ table, tr, td, th {
   width: 250px;
   height: 500px;
 }
-
-.th
