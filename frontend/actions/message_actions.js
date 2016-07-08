@@ -2,7 +2,7 @@ const MessageApiUtil = require("../util/message_api_util.js");
 const MessageConstants = require("../constants/message_constants.js");
 const AppDispatcher = require("../dispatcher/dispatcher.js");
 
-const MessageActions = {
+const MessageAction = {
   fetchMessages(userId){
     MessageApiUtil.fetchMessages(userId, this.receiveMessages);
   },
@@ -35,4 +35,4 @@ const MessageActions = {
   }
 };
 
-module.exports = MessageActions;
+module.exports = MessageAction;

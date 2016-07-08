@@ -448,6 +448,10 @@ table, tr, td, th {
   width: 100px;
 }
 
+.th-content {
+  width: 400px;
+}
+
 .messages-box {
   padding: 30px 30px 120px 30px;
   background-color: rgb(16, 77, 161);
@@ -492,3 +496,5 @@ table, tr, td, th {
   width: 250px;
   height: 500px;
 }
+
+.th

@@ -4,6 +4,7 @@ const SessionAction = require("../actions/session_actions.js");
 const MessageStore = require("../stores/message_store.js");
 const MessageAction = require("../actions/message_actions.js");
 const MessageItem = require("./message_item.jsx");
+const UserStore = require("../stores/user_store.js");
 
 const UserMessage = React.createClass({
   getInitialState(){
@@ -88,11 +89,42 @@ const UserMessage = React.createClass({
       );
     } else {
       return (
-        <div>
-          NO EXISTING MESSAGES
+        <div className="message-maker-box">
+          {that.messageMaker()}
         </div>
       );
     }
+  },
+
+  handleSubmit(e){
+    e.preventDefault();
+    MessageAction.createMessage(this.state.message);
+  },
+
+  changeContent(e){
+    e.preventDefault();
+
+    this.setState({
+      existing: false,
+      message: {
+        content: e.currentTarget.value,
+        user1_id: SessionStore.currentUser().id,
+        user2_id: this.props.userId
+      }
+    });
+  },
+
+  messageMaker(){
+    return (
+      <form className="message-maker" onSubmit={this.handleSubmit}>
+        <input type="textarea"
+          onChange={this.changeContent}
+          value={this.state.message.content}
+          className="message-maker-content"/>
+
+        <input type="submit" value="Send a Message!"/>
+      </form>
+    );
   },
 
   render () {

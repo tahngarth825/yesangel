@@ -15,10 +15,10 @@ const MessageItem = React.createClass({
   toggleContent(content, idx){
     if (this.state.clicked === false){
       if (this.props.message.content.length > 1) {
-        if (idx === 0) {
+        if (idx === this.props.message.content.length-1) {
           return (
             <div className="message-item-item" key={idx}>
-              {content} <br/> {" . . ."}
+              {" . . ."} <br/> {content}
             </div>
           );
         } else {
@@ -60,7 +60,7 @@ const MessageItem = React.createClass({
   },
 
   toggleReply(){
-    if (this.state.clicked === true){
+    // if (this.state.clicked === true){
       return (
         <form className="message-reply" onSubmit={this.handleSubmit}>
           <input type="textarea"
@@ -70,7 +70,7 @@ const MessageItem = React.createClass({
           <input type="submit" value="Reply!"/>
         </form>
       );
-    };
+    // }
   },
 
   render () {
