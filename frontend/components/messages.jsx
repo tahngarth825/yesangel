@@ -5,6 +5,14 @@ const MessageStore = require("../stores/message_store.js");
 const MessageAction = require("../actions/message_actions.js");
 const MessageItem = require("./message_item.jsx");
 
+//History stuff
+const ReactRouter = require('react-router');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const IndexRedirect = ReactRouter.IndexRedirect;
+const hashHistory = ReactRouter.hashHistory;
+
 const Messages = React.createClass({
   getInitialState(){
     return this.extractData();
@@ -39,6 +47,14 @@ const Messages = React.createClass({
     return result;
   },
 
+  toUser(message){
+    const result = message.user1_id === this.state.user.id ?
+      message.user2_id : message.user1_id;
+    return ( function (){
+      hashHistory.push(`/${result}`);
+    });
+  },
+
   renderContent(){
     const that = this;
     if (this.state.messages === undefined || this.state.messages.length === 0) {
@@ -64,7 +80,10 @@ const Messages = React.createClass({
             that.state.messages.map(function (message) {
               return (
                 <tr key={message.id}>
-                  <td>{that.extractUser(message)}</td>
+                  <td className="message-content"
+                    onClick={that.toUser(message)}>
+                    {that.extractUser(message)}
+                  </td>
 
                   <td>{message.last_update}</td>
 
