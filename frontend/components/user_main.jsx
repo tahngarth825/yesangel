@@ -44,7 +44,7 @@ const UserMain = React.createClass({
 
   handleMessage(){
     if (SessionStore.currentUser().id !== parseInt(this.props.params.userId)
-      && SessionStore.currentUser().keys !== undefined){
+      && Object.keys(SessionStore.currentUser()).length > 0){
       return (<UserMessage userId={this.props.params.userId}/>);
     }
   },
