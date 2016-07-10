@@ -49,24 +49,30 @@ const App = React.createClass({
     }
   },
 
+  toUsers(e){
+    e.preventDefault();
+    hashHistory.push("/users");
+  },
+
   renderBrowse(){
     return (
-      <div className="navbar-browse">
-        <Link className="navbar-link" to="/users">
-            <h2>Browse</h2>
-        </Link>
+      <div className="navbar-browse" onClick={this.toUsers}>
+        <h2>Browse</h2>
       </div>
     );
   },
 
+  toMessages(e){
+    e.preventDefault();
+    hashHistory.push("/messages");
+  },
+
   renderMessages(){
     return (
-      <div className="navbar-messages">
-        <Link className="navbar-link" to="/messages">
+      <div className="navbar-messages" onClick={this.toMessages}>
           <img
             className="navbar-messages-icon"
-            src="https://res.cloudinary.com/tahngarth825/image/upload/v1467848945/envelope_icon_r8yvzh.png"/>
-        </Link>
+            src="http://res.cloudinary.com/tahngarth825/image/upload/v1468186495/message-icon_vmetxc.png"/>
       </div>
     );
   },
@@ -78,7 +84,7 @@ const App = React.createClass({
 
   renderProfile(){
     let pic = (
-      <h2>Profile</h2>
+      <h2 className="navbar-profile-words">Profile</h2>
     );
 
     if (SessionStore.currentUser().pic_url !== " "){
