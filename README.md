@@ -90,7 +90,7 @@ YesAngel! enables users to upload pictures that others will see when visiting th
 ![image of your photos](http://res.cloudinary.com/tahngarth825/image/upload/v1468222103/Profilepictures1_ddhir2.png)
 
 
-###[ ] Personality Questions
+###Personality Questions
 
 Last but not least, YesAngel! features a questions component that allows users to answer questions hosted by YesAngel! and see how others have answered their questions. In the future, I plan to implement match percentages to sort other users based on their match percentage with the current user, add more questions, and allow side-by-side comparison of the current user's answers with the other person's answers. This was implemented by having a Question model and a Response model, with the response model referencing to the Question model by foreign key. This allows me to add more questions easily.
 
