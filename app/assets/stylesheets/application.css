@@ -474,7 +474,7 @@ table, tr, td, th {
 }
 
 .user-message {
-  display: inline-block;
+  display: block;
   text-align: center;
   vertical-align: top;
 }

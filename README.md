@@ -17,7 +17,7 @@ YesAngel! features a single webpage that changes the contents on it through the 
 
 YesAngel! features a Browse component labeled `UsersMain` that houses the components needed to show and filter all the users. I filter all the users at the very start before grabbing them to be stored in the `UserStore`. I have `UsersMain` listen to the `UserStore` (shown in code example 1) so that I can fetch all the users as soon as they are loaded into the store. This means that I now have the information needed to render each user as a tile (shown as code example 2).
 
-####Code Example 1
+####Code Example 1: Store Listening
 ```javascript
 componentWillMount(){
   this.listener = UserStore.addListener(this.handleChange);
@@ -29,7 +29,7 @@ handleChange(e){
 },
 ```
 
-####Code Example 2
+####Code Example 2: Making a Browse Tile
 ```javascript
 displayUser(user){
   return (
@@ -51,13 +51,10 @@ displayUser(user){
 },
 ```
 
-- [X] Hosting on Heroku
-- [X] New account creation, login, and a guest/demo login
-- [ ] A production README, replacing this README
-- [X] Browse & Filter Users
-  - [X] Smooth, bug-free navigation
-  - [X] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
+###Messaging
+
+YesAngel! Features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information.
+
 - [X] Messaging
   - [X] Smooth, bug-free navigation
   - [X] Adequate seed data to demonstrate the site's features
