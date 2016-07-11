@@ -51,153 +51,61 @@ displayUser(user){
 },
 ```
 
+###Detailed Profile Page
+
+YesAngel! features a detailed profile page using the component labeled `UserMain` allowing users to edit basic information about themselves such as gender and height as well as customizable information such as summaries or hobbies. The profile page was rendered using multiple smaller components to compartmentalize each of the components' responsibilities. This makes expanding or editing one component easier, as well as finding bugs easier.
+
+####Components Used to Render the UserMain page
+```javascript
+}  render(){
+    return(
+      <div>
+        <div className="profile-top-left">
+          <UserBasics userId={this.props.params.userId}/>
+          <UserTabs userId={this.props.params.userId}/>
+        </div>
+          {this.handleMessage()}
+          {this.props.children}
+      </div>
+    );
+  }
+```
+
 ###Messaging
 
-YesAngel! Features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information. To start a message, you must visit another user's profile.
+YesAngel! features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information. To start a message, you must visit another user's profile.
 
+####Main Message Page
 ![image of main message page](http://res.cloudinary.com/tahngarth825/image/upload/c_crop,h_1080,w_1651,x_420/v1468221316/Messaging1_anwo6s.png)
 
+####Messaging a Person Through Profile
 ![image of messaging a person](http://res.cloudinary.com/tahngarth825/image/upload/c_crop,h_1080,w_970,x_328,y_68/v1468221534/Messaging4_wacmvm.png)
 
 
-- [X] Photos
-  - [X] Smooth, bug-free navigation
-  - [X] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Personality Questions
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+###Pictures
 
-Optional:
-- [ ] Match % based on questions
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+YesAngel! enables users to upload pictures that others will see when visiting their profile. They simply need to click on the "Photo" button. If you are on your own profile, you will instead see an option to add photos.
 
-## Design Docs
-* [View Wireframes][views]
-  (TODO: Massive redo)
-* [React Components][components] (Complete)
-* [Flux Cycles][flux-cycles] (Complete)
-* [API endpoints][api-endpoints] (Complete)
-* [DB schema][schema] (Complete)
-
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-
-Implementation Timeline
-
-### Phase 1: Backend setup and Front End User Auth (w8d2-3)
-
-**Objective** Functioning rails project with authentication
-
-- [X] create new project
-- [X] create `Session` component
-- [X] create `User` model
-- [X] authentication
-- [X] user signup/signin pages
-- [X] blank landing page after signin
-
-### Phase 2: UserMain and UserAbout components (w8d4-w8d5)
-
-**Objective** Functional profile for self and others through API interaction
-
-- [X] Demo log-in
-- [X] create `UserMain` and `UserAbout` components
-- [X] show information of profiles
-- [X] allow editing of own profile
-- [X] jBuilder views for `UserAbout`
-- [X] setup Webpack and flux scaffold
-- [X] setup `APIUtil` to interact with the API
-- [X] UserDetails
-
-### Phase 3: UsersMain (w8d6)
-
-**Objective** Make browse page by building out UsersMain component and subcomponents
-
-- [X] Filters component
-- [X] Browse and Browse Item components
-- [X] ensure flux cycle interaction works
-- [X] style it functionally
-
-### Phase 4: Flux Architecture and Router (w8d7-w9d1)
-
-**Objective** Functional profiles through user interface
-
-- [X] setup flux loop
-- [X] setup React Router
-- [X] implement each UserMain and UserAbout component, building out flux
-  loop as needed
-  - [X] `UserBasics`
-  - [X] `UserTabs`
-  - [X] `Profile`
-  - [X] `UserDetails`
-- [X] Implement sliders/checkboxes for profile and filter
-- [ ] Filter sorts components
-
-### Phase 5: Basic Styling (w9d2)
-
-**Objective** Make layout look similar to OKC's for login/signup and profile views
-Also, make the `Navigation` component (links will be broken).
-
-- [X] set up classes within html components to enable css styling
-- [X] position elements as desired
-- [X] setup colors and fonts as desired
-- [X] add easier input for users to do age/location/desired_age (scrollers?)
-- [X] Make front page pretty
-- [X] strong validations on signup components (mult-choice/sliders)
-- [X] Navbar
-- [ ] seed database with 50 users (28/50)
-
-### Phase 6: Messaging (w9d3)
-
-**Objective** Make messaging functions work
-
-- [X] Can see own messages
-- [X] Can reply to others
-- [X] Can message others directly
-- [ ] CSS Styling
-
-### Phase 7: User Photos and User Questions (w9d4-d5)
-- [X] Host pictures on 3rd party sites
-- [X] Profile pic on Browse and profile page
-- [X] Build out UserPhotos allowing a gallery of photos
-- [X] Build out UserQuestion allowing a library of questions
-- [X] Seed questions
-- [ ] CSS Styling
+####Adding Your Own Photos
+![image of your photos](http://res.cloudinary.com/tahngarth825/image/upload/v1468222103/Profilepictures1_ddhir2.png)
 
 
-### Bonus Features:
-- [ ] Matching based on questions
-- [ ] News page
-- [ ] QuickMatch
-- [ ] Suggested Matches
-- [ ] Enable albums for photos
+###[ ] Personality Questions
 
-# FOR MYSELF:
-TODO:
-1. Add photos and questions to views, flux-cycles, api endpoints,
-and db schema
-2. find a way to make the questions and photos the same for both yourself
-and others' profiles)
-19. Add a "check all" for genders of interest
-23. Check out bottom of heroku setup to make sure dyno stays awake
-24. Data persists in signup when error is thrown
-25. make sure responses starts out as an empty array of length 10
-for responses, order is important because it's index is question id
-26. make new users create an empty response w/ 10 empty array and user id
-27. SEED PHOTOS
+Last but not least, YesAngel! features a questions component that allows users to answer questions hosted by YesAngel! and see how others have answered their questions. In the future, I plan to implement match percentages to sort other users based on their match percentage with the current user, add more questions, and allow side-by-side comparison of the current user's answers with the other person's answers. This was implemented by having a Question model and a Response model, with the response model referencing to the Question model by foreign key. This allows me to add more questions easily.
 
-### Sources
-1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
+####Schema for Questions and Responses
+```ruby
+create_table "questions", force: :cascade do |t|
+  t.string   "content",    null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
 
-Note: how to pass props to children for React elements
-{React.cloneElement(this.props.children, {siteData: this.props.siteData})}
-
-###Scratchpad:
-Message.order(last_update: :desc).where("user1_id = ? OR user2_id = ?",
-  1, 1)
+create_table "responses", force: :cascade do |t|
+  t.integer  "user_id",    null: false
+  t.string   "response",   null: false, array: true
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+```

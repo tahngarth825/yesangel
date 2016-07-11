@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#Seeds Photos
+Photo.create!({
+  user_id: 1,
+  url: "http://res.cloudinary.com/tahngarth825/image/upload/v1468221956/bradpitt2_pxivac.jpg"
+})
+
 #Seeds questions
 Question.create!({
   content: "Your ideal partner is independent and gives you the space you need."
