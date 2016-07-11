@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location, null: false
       t.string :gender, null:false
       t.string :pic_url
-      t.string :lf_gender, null:false
+      t.string :lf_gender, null:false, array: true
       t.integer :lf_min_age, null: false
       t.integer :lf_max_age, null: false
       t.text :summary

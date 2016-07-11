@@ -72,7 +72,6 @@ const UserMessage = React.createClass({
             </tr>
           </thead>
           <tbody>
-            {
               <tr>
                 <td>{that.extractUser(that.state.message)}</td>
 
@@ -83,7 +82,6 @@ const UserMessage = React.createClass({
                     message={that.state.message}/>
                 </td>
               </tr>
-            }
           </tbody>
         </table>
       );

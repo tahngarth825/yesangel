@@ -23,7 +23,12 @@ class Api::UsersController < ApplicationController
 
 		if @user.save
 			login(@user)
-			@user
+			response = []
+			10.times {response.push("")}
+			Response.create({
+				user_id: @user.id,
+				response: response
+			})
 			render "api/users/show"
 		else
 			render json: @user.errors, status: 422

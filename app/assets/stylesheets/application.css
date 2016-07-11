@@ -44,6 +44,7 @@ footer, header, menu, nav, section {
 
 body {
    font-family: 'Abel', sans-serif;
+   text-align: center;
  }
 
 .content {
@@ -202,15 +203,15 @@ h3, h4, li {
 }
 
 .user-about {
-  float: left;
   margin: 10px 20px;
 }
 
 .user-about-editable {
   border: 2px solid black;
-  float: left;
   padding: 10px;
   margin: 10px 20px;
+  text-align: center;
+  display: inline-block;
 }
 
 input {
@@ -271,8 +272,8 @@ textarea {
 }
 
 .user-details-box {
+  display: inline-block;
   width: 480px;
-  float: left;
   padding: 10px 20px;
   margin: 10px 20px;
   border: 2px solid black;
@@ -423,6 +424,7 @@ p {
 .body{
   display: block;
   position: absolute;
+  text-align: center;
   top: 120px;
   width: 100%;
 }
@@ -510,4 +512,13 @@ table, tr, td, th {
 .user-photos-item{
   padding: 20px;
   display: inline-block;
+}
+
+.user-questions-box{
+  margin: 20px;
+  display:inline-block;
+}
+
+.th-question, .th-response {
+  font-size: 18px;
 }

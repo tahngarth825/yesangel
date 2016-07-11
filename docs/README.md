@@ -6,50 +6,9 @@
 
 ## Minimum Viable Product
 
-YesAngel! is a web application inspired by dating sites such as OKCupid that is builtv using Ruby on
-Rails and React.js.
-
-##Features & Implementation
-
-YesAngel! features a single webpage that changes the contents on it through the use of React components and the FLUX cycle used and created by Facebook. It features a login/signup component that creates a new session or creates a new user, accordingly. Validations are done in both the front and back end, and user authentication is done on the front-end.
-
-### Browse and Filter Users
-
-YesAngel! features a Browse component labeled `UsersMain` that houses the components needed to show and filter all the users. I filter all the users at the very start before grabbing them to be stored in the `UserStore`. I have `UsersMain` listen to the `UserStore` (shown in code example 1) so that I can fetch all the users as soon as they are loaded into the store. This means that I now have the information needed to render each user as a tile (shown as code example 2).
-
-####Code Example 1
-```javascript
-componentWillMount(){
-  this.listener = UserStore.addListener(this.handleChange);
-  UserActions.fetchUsers();
-},
-
-handleChange(e){
-  this.setState({users: UserStore.all()});
-},
-```
-
-####Code Example 2
-```javascript
-displayUser(user){
-  return (
-    <ul className="browse-tile-detail">
-      <li>
-        <b>Username:</b> {user.username}
-      </li>
-      <li>
-        <b>Age:</b> {user.age}
-      </li>
-      <li>
-        <b>Location:</b> {user.location}
-      </li>
-      <li>
-        <b>Gender:</b> {user.gender}
-      </li>
-    </ul>
-  );
-},
-```
+YesAngel! is a web application inspired by OKCupid that will be built using using Ruby on
+Rails and React.js. By the end of Week 9, this app will, at the minimum, satisfy the
+following criteria:
 
 - [X] Hosting on Heroku
 - [X] New account creation, login, and a guest/demo login

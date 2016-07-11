@@ -5,6 +5,7 @@
 
 module.exports = {
 
+  responses: ["Pick your opinion","Agree", "Disagree"],
 
   location: [
     { value: "San Francisco", label: "San Francisco"},

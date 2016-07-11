@@ -17,10 +17,7 @@ class User < ActiveRecord::Base
 
 	has_many :messages
 	has_many :photos
-	# has_many :responses
-	# has_many :questions,
-	# 	through: :responses,
-	# 	source: :question
+	has_many :responses
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
