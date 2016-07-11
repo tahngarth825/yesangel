@@ -70,6 +70,12 @@ const LoginForm = React.createClass({
 				return;
 			}
 
+			if (this.state.password.length < 6) {
+				e.preventDefault();
+				alert("Your password must have a minimum length of 6!");
+				return;
+			}
+
 			Object.assign(formData, this.state);
 			SessionActions.signUp(formData);
 		}
@@ -260,14 +266,16 @@ const LoginForm = React.createClass({
 
 	render() {
 
-    let navLink, text, link;
+    let navLink, text, link, passwordCheck;
 
     if (this.formType() === "login") {
 			link = "/signup";
 			text = "sign up instead";
+			passwordCheck = "";
     } else {
 			link = "/login";
 			text = "log in instead";
+			passwordCheck = " (minimum length 6) ";
     }
 
 		navLink = <Link className="link" to={link}><b>{text}</b></Link>;
@@ -305,7 +313,7 @@ const LoginForm = React.createClass({
 						</label>
 
 		        <br />
-						<label> Password:
+						<label> Password{passwordCheck}:
 		          { this.fieldErrors("password") }
 		          <input type="password"
 		            value={this.state.password}

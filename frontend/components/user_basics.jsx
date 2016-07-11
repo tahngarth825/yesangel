@@ -208,10 +208,10 @@ const UserBasics = React.createClass({
       user = UserStore.find(this.props.userId);
     }
 
-    if (user === undefined) {
+    if (user === undefined || user.pic_url === " " || !user.pic_url) {
       return (
         <div>
-
+          No picture to show
         </div>
       );
     } else {

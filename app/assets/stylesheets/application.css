@@ -494,8 +494,8 @@ table, tr, td, th {
 
 .profile-top-left {
   display: inline-block;
-  width: 250px;
-  height: 500px;
+  width: auto;
+  height: auto;
 }
 
 .upload-form {
