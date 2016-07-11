@@ -1,7 +1,9 @@
 const UserActions = require('../actions/user_actions');
 const UserStore = require('../stores/user_store');
 const Filter = require("./filter.jsx");
-const SessionActions = require("../actions/session_actions");
+const SessionActions = require("../actions/session_actions.js");
+const SessionStore = require("../stores/session_store.js");
+const ResponseStore = require("../stores/response_store.js");
 
 const React = require("react");
 //Router
@@ -15,7 +17,8 @@ const UsersMain = React.createClass({
   },
 
   componentWillMount(){
-    this.listener = UserStore.addListener(this.handleChange);
+    this.userListener = UserStore.addListener(this.handleChange);
+    this.sessionListener = SessionStore.addListener(this.handleChange);
     UserActions.fetchUsers();
   },
 
@@ -24,7 +27,7 @@ const UsersMain = React.createClass({
   },
 
   componentWillUnmount(){
-    this.listener.remove();
+    this.userListener.remove();
   },
 
   displayUser(user){
