@@ -17,7 +17,7 @@ YesAngel! features a single webpage that changes the contents on it through the 
 
 YesAngel! features a Browse component labeled `UsersMain` that houses the components needed to show and filter all the users. I filter all the users at the very start before grabbing them to be stored in the `UserStore`. I have `UsersMain` listen to the `UserStore` (shown in code example 1) so that I can fetch all the users as soon as they are loaded into the store. This means that I now have the information needed to render each user as a tile (shown as code example 2).
 
-####Code Example 1: Store Listening
+####Code Example 1: Store-Listening
 ```javascript
 componentWillMount(){
   this.listener = UserStore.addListener(this.handleChange);
@@ -53,12 +53,13 @@ displayUser(user){
 
 ###Messaging
 
-YesAngel! Features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information.
+YesAngel! Features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information. To start a message, you must visit another user's profile.
 
-- [X] Messaging
-  - [X] Smooth, bug-free navigation
-  - [X] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
+![image of main message page](http://res.cloudinary.com/tahngarth825/image/upload/c_crop,h_1080,w_1651,x_420/v1468221316/Messaging1_anwo6s.png)
+
+![image of messaging a person](http://res.cloudinary.com/tahngarth825/image/upload/c_crop,h_1080,w_970,x_328,y_68/v1468221534/Messaging4_wacmvm.png)
+
+
 - [X] Photos
   - [X] Smooth, bug-free navigation
   - [X] Adequate seed data to demonstrate the site's features
