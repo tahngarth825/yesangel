@@ -6,12 +6,14 @@
 
 ## Minimum Viable Product
 
-YesAngel! is a web application inspired by dating sites such as OKCupid that is builtv using Ruby on
+YesAngel! is a web application inspired by dating sites such as OKCupid that is built using Ruby on
 Rails and React.js.
+
 
 ##Features & Implementation
 
 YesAngel! features a single webpage that changes the contents on it through the use of React components and the FLUX cycle used and created by Facebook. It features a login/signup component that creates a new session or creates a new user, accordingly. Validations are done in both the front and back end, and user authentication is done on the front-end.
+
 
 ### Browse and Filter Users
 
@@ -51,6 +53,7 @@ displayUser(user){
 },
 ```
 
+
 ###Detailed Profile Page
 
 YesAngel! features a detailed profile page using the component labeled `UserMain` allowing users to edit basic information about themselves such as gender and height as well as customizable information such as summaries or hobbies. The profile page was rendered using multiple smaller components to compartmentalize each of the components' responsibilities. This makes expanding or editing one component easier, as well as finding bugs easier.
@@ -71,6 +74,7 @@ YesAngel! features a detailed profile page using the component labeled `UserMain
   }
 ```
 
+
 ###Messaging
 
 YesAngel! features messaging built into the webpage. You can either access all of your messages by clicking on the envelope icon in the top navigation bar, or you can visit a user's profile and it will be loaded under their basic information. To start a message, you must visit another user's profile.
@@ -82,12 +86,14 @@ YesAngel! features messaging built into the webpage. You can either access all o
 ![image of messaging a person](http://res.cloudinary.com/tahngarth825/image/upload/c_crop,h_1080,w_970,x_328,y_68/v1468221534/Messaging4_wacmvm.png)
 
 
+
 ###Pictures
 
 YesAngel! enables users to upload pictures that others will see when visiting their profile. They simply need to click on the "Photo" button. If you are on your own profile, you will instead see an option to add photos.
 
 ####Adding Your Own Photos
 ![image of your photos](http://res.cloudinary.com/tahngarth825/image/upload/v1468222103/Profilepictures1_ddhir2.png)
+
 
 
 ###Personality Questions
