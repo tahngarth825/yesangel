@@ -23,7 +23,7 @@ const UserTabs = React.createClass({
         <button className="user-tabs-item" onClick={this.toPhotos}>Photos</button>
         <button className="user-tabs-item" onClick={this.toQuestions}>Questions</button>
       </div>
-    )
+    );
   }
 });
 

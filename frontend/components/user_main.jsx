@@ -9,7 +9,7 @@ const UserMessage = require("./user_message.jsx");
 const MessageStore = require("../stores/message_store.js");
 
 const UserMain = React.createClass({
-  componentWillMount(){
+  componentDidMount(){
     this.userListener = UserStore.addListener(this.forceUpdate.bind(this));
     this.messageListener = MessageStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.forceUpdate.bind(this));

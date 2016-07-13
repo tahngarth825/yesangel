@@ -7,9 +7,6 @@ const ResponseApiUtil = {
       data: {response: responseData},
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   },
@@ -20,9 +17,6 @@ const ResponseApiUtil = {
       method: "GET",
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   },
@@ -35,9 +29,6 @@ const ResponseApiUtil = {
       data: {response: responseData},
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   }

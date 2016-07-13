@@ -7,9 +7,6 @@ const PhotoApiUtil = {
       data: {photo: {user_id: userId}},
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   },
@@ -22,9 +19,6 @@ const PhotoApiUtil = {
       data: {photo: photoData},
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   },
@@ -35,9 +29,6 @@ const PhotoApiUtil = {
       method: "DELETE",
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   }

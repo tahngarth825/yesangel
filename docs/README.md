@@ -141,18 +141,11 @@ Also, make the `Navigation` component (links will be broken).
 
 # FOR MYSELF:
 TODO:
-1. Add photos and questions to views, flux-cycles, api endpoints,
-and db schema
-2. find a way to make the questions and photos the same for both yourself
-and others' profiles)
 19. Add a "check all" for genders of interest
 23. Check out bottom of heroku setup to make sure dyno stays awake
 24. Data persists in signup when error is thrown
-25. make sure responses starts out as an empty array of length 10
-for responses, order is important because it's index is question id
-26. make new users create an empty response w/ 10 empty array and user id
 27. SEED PHOTOS
-28. Remove all alerts and console logs and window.___ = 
+
 
 ### Sources
 1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat

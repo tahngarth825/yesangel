@@ -7,9 +7,6 @@ const MessageApiUtil = {
       dataType: "json",
       success (response) {
         callback(response);
-      },
-      error (response) {
-        alert(response);
       }
     });
   },
@@ -20,9 +17,6 @@ const MessageApiUtil = {
       method: "GET",
       success (response) {
         callback(response);
-      },
-      error (response) {
-        alert(response);
       }
     });
   },
@@ -35,9 +29,6 @@ const MessageApiUtil = {
       dataType: "json",
       success (response) {
         callback(response);
-      },
-      error (response) {
-        alert(response);
       }
     });
   },
@@ -50,9 +41,6 @@ const MessageApiUtil = {
       dataType: "json",
       success (response) {
         callback(response);
-      },
-      error (response) {
-        alert(response);
       }
     });
   }

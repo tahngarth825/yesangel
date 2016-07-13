@@ -5,9 +5,6 @@ const QuestionApiUtil = {
       method: "GET",
       success(response){
         callback(response);
-      },
-      error(response){
-        alert(response);
       }
     });
   },

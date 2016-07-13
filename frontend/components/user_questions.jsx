@@ -37,31 +37,24 @@ const UserQuestions = React.createClass({
   },
 
   componentDidMount(){
+    this.listener = [];
+
     if (this.editable()){
-      this.sessionListener = SessionStore.addListener(this.handleChange);
+      this.listener.push(SessionStore.addListener(this.handleChange));
     } else {
-      this.userListener = UserStore.addListener(this.handleChange);
+      this.listener.push(UserStore.addListener(this.handleChange));
     }
-    this.questionListener = QuestionStore.addListener(this.handleChange);
-    this.responseListener = ResponseStore.addListener(this.handleChange);
+    this.listener.push(QuestionStore.addListener(this.handleChange));
+    this.listener.push(ResponseStore.addListener(this.handleChange));
 
     QuestionActions.fetchQuestions();
     ResponseActions.fetchResponses(this.props.params.userId);
   },
 
   componentWillUnmount(){
-    if (this.sessionListener) {
-      this.sessionListener.remove();
-    }
-    if (this.questionListener){
-      this.questionListener.remove();
-    }
-    if (this.userListener){
-      this.userListener.remove();
-    }
-    if (this.responseListener){
-      this.responseListener.remove();
-    }
+    this.listener.forEach(function(listener){
+      listener.remove();
+    });
   },
 
   handleChange(){

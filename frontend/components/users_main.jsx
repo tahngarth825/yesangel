@@ -28,6 +28,7 @@ const UsersMain = React.createClass({
 
   componentWillUnmount(){
     this.userListener.remove();
+    this.sessionListener.remove();
   },
 
   displayUser(user){
