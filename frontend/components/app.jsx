@@ -72,7 +72,7 @@ const App = React.createClass({
       <div className="navbar-messages" onClick={this.toMessages}>
           <img
             className="navbar-messages-icon"
-            src="http://res.cloudinary.com/tahngarth825/image/upload/v1468186495/message-icon_vmetxc.png"/>
+            src="https://res.cloudinary.com/tahngarth825/image/upload/v1468186495/message-icon_vmetxc.png"/>
       </div>
     );
   },

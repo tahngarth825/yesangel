@@ -26,7 +26,8 @@ const Filter = React.createClass({
   },
 
   componentWillMount(){
-    this.listener = SessionStore.addListener(this.handleChange);
+    this.sessionListener = SessionStore.addListener(this.handleChange);
+    this.userListener = UserStore.addListener(this.handleChange);
     SessionActions.fetchCurrentUser();
     UserActions.filterUsers(this.state);
   },
@@ -40,7 +41,8 @@ const Filter = React.createClass({
   },
 
   componentWillUnmount(){
-    this.listener.remove();
+    this.sessionListener.remove();
+    this.userListener.remove();
   },
 
   handleSubmit(){
@@ -120,24 +122,23 @@ const Filter = React.createClass({
 
 
             <div className="filter-gender">
-              <label> Gender(s) of interest:
+              Gender(s) of interest:
                   {
                     TraitConstants.gender.map( function(gender){
                       return (
                         <div className="gender-checkbox" key={gender.value}>
-                          <label htmlFor={gender.value} className="checkbox-label">
+                          <label htmlFor={gender.label} className="checkbox-label">
                             {gender.label}
                           </label>
                           <input type="checkbox"
                             checked={that.checkGender(gender.value)}
-                            id={gender.value}
+                            id={gender.label}
                             value={gender.value}
                             onChange={that.update("lf_gender")} />
                         </div>
                       );
                     })
                   }
-              </label>
             </div>
 
             <label className="filter-location">	Location:
@@ -184,7 +185,7 @@ const Filter = React.createClass({
           <br/>
           <input type="submit" value="Update Results!" className="submit"/>
         </form>
-      )
+      );
     }
   }
 });
