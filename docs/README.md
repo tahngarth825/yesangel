@@ -152,6 +152,7 @@ and others' profiles)
 for responses, order is important because it's index is question id
 26. make new users create an empty response w/ 10 empty array and user id
 27. SEED PHOTOS
+28. Remove all alerts and console logs and window.___ = 
 
 ### Sources
 1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
