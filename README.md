@@ -21,7 +21,7 @@ YesAngel! features a Browse component labeled `UsersMain` that houses the compon
 
 ####Code Example 1: Store-Listening
 ```javascript
-componentWillMount(){
+componentDidMount(){
   this.listener = UserStore.addListener(this.handleChange);
   UserActions.fetchUsers();
 },

@@ -25,7 +25,7 @@ const Filter = React.createClass({
     this.setState(this.extractData());
   },
 
-  componentWillMount(){
+  componentDidMount(){
     this.sessionListener = SessionStore.addListener(this.handleChange);
     this.userListener = UserStore.addListener(this.handleChange);
     SessionActions.fetchCurrentUser();
