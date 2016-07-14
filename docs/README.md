@@ -142,10 +142,17 @@ Also, make the `Navigation` component (links will be broken).
 # FOR MYSELF:
 TODO:
 19. Add a "check all" for genders of interest
-23. Check out bottom of heroku setup to make sure dyno stays awake
 24. Data persists in signup when error is thrown
-27. SEED PHOTOS
-
+28. Move background image from login into a div and make overflow:hidden
+  height: x%; width is auto? (if not showing up, check height of parent divs)
+29. DOUBLE SLIDER!!!! npm install --save react-slider
+  const reactslider = require("react-slider")
+  <ReactSlider>
+  </ReactSlider>
+32. UPLOAD IMAGE NOT WORKING
+33. Move messages to the side
+34. Light blue background
+35. Try Flex in navbar? (divs within divs!)
 
 ### Sources
 1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat

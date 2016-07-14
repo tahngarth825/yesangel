@@ -4,12 +4,11 @@ const UserStore = require("../stores/user_store.js");
 const PhotoStore = require("../stores/photo_store.js");
 const PhotoActions = require("../actions/photo_actions.js");
 const UploadButton = require("./upload_button.jsx");
-const Photo = require("./photo.jsx");
 
 const UserPhotos = React.createClass({
   getInitialState(){
     return {
-      photos: PhotoStore.all()
+      photos: PhotoStore.findByUser(parseInt(this.props.params.userId))
     };
   },
 
@@ -44,10 +43,24 @@ const UserPhotos = React.createClass({
   },
 
   handleChange(){
-    this.setState({photos: PhotoStore.all()});
+    this.setState({photos: PhotoStore.findByUser(parseInt(this.props.params.userId))});
+  },
+
+  handleDelete(photoId){
+    return (function (event){
+      event.preventDefault();
+
+      const choice = confirm("Are you sure you want to delete the photo?");
+
+      if (choice === true){
+        PhotoActions.deletePhoto(photoId);
+      }
+    })
   },
 
   handleDisplay(){
+    const that = this;
+
     if ( this.editable() ){
       return (
         <div>
@@ -57,7 +70,8 @@ const UserPhotos = React.createClass({
               this.state.photos.map(function (photo){
                 return (
                   <li className="user-photos-item" key={photo.id}>
-                    <Photo photo={photo} edit={true}/>
+                    <img src={photo.url}/>
+                    <button onClick={that.handleDelete(photo.id)}>Delete Photo</button>
                   </li>
                 );
               })
@@ -72,7 +86,7 @@ const UserPhotos = React.createClass({
           {
             this.state.photos.map(function (photo){
               return (
-                <Photo photo={photo} key={photo.id} edit={false}/>
+                <img src={photo.url} key={photo.id}/>
               );
             })
           }

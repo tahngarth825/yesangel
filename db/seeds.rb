@@ -17,7 +17,7 @@ Question.create!({
   content: "Your ideal partner is independent and gives you the space you need."
 })
 Question.create!({
-  content: "Physical intimiacy is an important part of relationships."
+  content: "Physical intimacy is an important part of relationships."
 })
 Question.create!({
   content: "Money is important for a healthy relationship."

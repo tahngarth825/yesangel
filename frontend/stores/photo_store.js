@@ -38,6 +38,16 @@ PhotoStore.find = function(id) {
   return result;
 };
 
+PhotoStore.findByUser = function(userId){
+  let result = [];
+  _photos.forEach(function(photo){
+    if (photo.user_id === userId){
+      result.push(photo);
+    }
+  })
+  return result;
+}
+
 PhotoStore.all = function () {
   return _photos.slice();
 };
