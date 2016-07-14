@@ -44,16 +44,6 @@ Question.create!({
   content: "It's better to lie if it will benefit me or someone I love."
 })
 
-
-#Seeds responses
-choices = ["Agree", "Disagree"]
-28.times do |i|
-  response = []
-  10.times {response.push(choices.sample)}
-  Response.create({response: response, user_id: i})
-end
-
-
 User.create!({
   username: "Guest",
   password: "YesAngel",
@@ -635,3 +625,13 @@ Message.create!({
     "Guest: Sure, message me when you're off work :)"],
   last_update: DateTime.now
 })
+
+#Seeds responses
+choices = ["Agree", "Disagree"]
+28.times do |i|
+  response = []
+  10.times {response.push(choices.sample)}
+  Response.create({response: response, user_id: (i+1)})
+
+  Photo.create({url: User.find(i+1)[:pic_url], user_id: (i+1)})
+end

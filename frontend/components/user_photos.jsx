@@ -24,10 +24,10 @@ const UserPhotos = React.createClass({
   componentDidMount(){
     if (this.editable()){
       this.sessionListener = SessionStore.addListener(this.handleChange);
-      this.photoListener = PhotoStore.addListener(this.handleChange);
     } else {
       this.userListener = UserStore.addListener(this.handleChange);
     }
+    this.photoListener = PhotoStore.addListener(this.handleChange);
     PhotoActions.fetchPhotos(parseInt(this.props.params.userId));
   },
 
