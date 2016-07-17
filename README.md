@@ -56,6 +56,8 @@ displayUser(user){
 },
 ```
 
+####Users Main Page
+![image of users main page](http://res.cloudinary.com/tahngarth825/image/upload/v1468741984/usersmain_y8yc8b.png)
 
 ###Detailed Profile Page
 
