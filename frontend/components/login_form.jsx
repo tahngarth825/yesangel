@@ -147,7 +147,10 @@ const LoginForm = React.createClass({
 					<br />
 
 					<label className="unbold" htmlFor="age">
-						<b>Age:</b> {that.edgeModifier("age", that.state.age)}
+						<b>Age: </b>
+							<p className="edge-modifier">
+								{that.edgeModifier("age", that.state.age)}
+							</p>
 					</label>
 						<input type="range"
 							min="18"
@@ -230,7 +233,9 @@ const LoginForm = React.createClass({
 					<label htmlFor="lf_min_age">
 						What is the youngest age your desired person can be?
 						<br/>
-						{that.edgeModifier("age ", that.state.lf_min_age)}
+						<p className="edge-modifier">
+							{that.edgeModifier("age ", that.state.lf_min_age)}
+						</p>
 					</label>
 						<input type="range"
 							id="lf_min_age"
@@ -245,7 +250,9 @@ const LoginForm = React.createClass({
 					<label htmlFor="lf_max_age">
 						What is the oldest age your desired person can be?
 						<br/>
-						{that.edgeModifier("age ", that.state.lf_max_age)}
+						<p className="edge-modifier">
+							{that.edgeModifier("age ", that.state.lf_max_age)}
+						</p>
 					</label>
 						<br/>
 							<input type="range"
@@ -306,7 +313,7 @@ const LoginForm = React.createClass({
 						<br/>
 
 						<br/>
-						<button className="guest-login"
+						<button className="yellow-button"
 							onClick={this.demoLogin}>
 							Browse as Guest
 						</button>
@@ -338,7 +345,9 @@ const LoginForm = React.createClass({
 							{this.signUpForm()}
 
 							<br />
-							<input type="submit" value={this.formType().toUpperCase() + "!"} />
+							<input type="submit"
+								value={this.formType().toUpperCase() + "!"}
+								className="yellow-button"/>
 						</div>
 					</form>
 				</div>
