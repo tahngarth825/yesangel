@@ -163,39 +163,45 @@ const LoginForm = React.createClass({
 					<label htmlFor="location">
 						Location:
 					</label>
-					<select value={this.state.location}
-						onChange={this.update("location")}
-						className="react-select"
-						id="location"
-					>
-						{
-							TraitConstants.location.map( function(location){
-								return (
-									<option value={location.value} key={location.value}>
-										{location.label}
-									</option>
-								);
-							})
-						}
-					</select>
+
+					<div className="select-box">
+						<select value={this.state.location}
+							onChange={this.update("location")}
+							className="react-select"
+							id="location"
+							>
+							{
+								TraitConstants.location.map( function(location){
+									return (
+										<option value={location.value} key={location.value}>
+											{location.label}
+										</option>
+									);
+								})
+							}
+						</select>
+					</div>
+
 
 					<br />
 					<label htmlFor="gender">Gender:</label>
-					<select value={this.state.gender}
-						onChange={this.update("gender")}
-						className="react-select"
-						id="gender"
-					>
-						{
-							TraitConstants.gender.map( function(gender){
-								return (
-									<option value={gender.value} key={gender.value}>
-										{gender.label}
-									</option>
-								);
-							})
-						}
-					</select>
+					<div className="select-box">
+						<select value={this.state.gender}
+							onChange={this.update("gender")}
+							className="react-select"
+							id="gender"
+							>
+							{
+								TraitConstants.gender.map( function(gender){
+									return (
+										<option value={gender.value} key={gender.value}>
+											{gender.label}
+										</option>
+									);
+								})
+							}
+						</select>
+					</div>
 
 					<br />
 
@@ -221,9 +227,11 @@ const LoginForm = React.createClass({
 
 					<br />
 
-					<label> What is the youngest age your desired person can be?
+					<label htmlFor="lf_min_age">
+						What is the youngest age your desired person can be?
 						<br/>
 						{that.edgeModifier("age ", that.state.lf_min_age)}
+					</label>
 						<input type="range"
 							id="lf_min_age"
 							min="18"
@@ -231,12 +239,15 @@ const LoginForm = React.createClass({
 							defaultValue="18"
 							onChange={this.update("lf_min_age")}
 							className="slider"/>
-					</label>
 
 					<br />
-					<label> What is the oldest age your desired person can be?
+
+					<label htmlFor="lf_max_age">
+						What is the oldest age your desired person can be?
 						<br/>
 						{that.edgeModifier("age ", that.state.lf_max_age)}
+					</label>
+						<br/>
 							<input type="range"
 								id="lf_max_age"
 								min="18"
@@ -244,7 +255,6 @@ const LoginForm = React.createClass({
 								defaultValue="60"
 								onChange={this.update("lf_max_age")}
 								className="slider"/>
-					</label>
 				</div>
 			);
 		}
@@ -281,52 +291,57 @@ const LoginForm = React.createClass({
 		navLink = <Link className="link" to={link}><b>{text}</b></Link>;
 
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-	        <h1>Welcome to Yes Angel!</h1>
+			<div className="login-background-box">
+				<div className="login-background">
+				</div>
 
-					<br/>
+				<div className="login-form-container">
+					<form onSubmit={this.handleSubmit} className="login-form-box">
+						<h1>Welcome to Yes Angel!</h1>
 
-					<h2>Find the love of your life!</h2>
+						<br/>
 
-					<br/>
+						<h2>Find the love of your life!</h2>
 
-					<br/>
-					<button className="guest-login"
-						onClick={this.demoLogin}>
-						Browse as Guest
-					</button>
-					<br/>
+						<br/>
 
-					<br/>
-					Please { this.formType() }, or { navLink }
+						<br/>
+						<button className="guest-login"
+							onClick={this.demoLogin}>
+							Browse as Guest
+						</button>
+						<br/>
 
-	        { this.fieldErrors("base") }
-					<div className="login-form">
-		        <br />
-						<label> Username:
-		          { this.fieldErrors("username") }
-							<input type="text"
-		            value={this.state.username}
-		            onChange={this.update("username")}
-								className="login-input" />
-						</label>
+						<br/>
+						Please { this.formType() }, or { navLink }
 
-		        <br />
-						<label> Password{passwordCheck}:
-		          { this.fieldErrors("password") }
-		          <input type="password"
-		            value={this.state.password}
-		            onChange={this.update("password")}
-								className="login-input" />
-						</label>
+						{ this.fieldErrors("base") }
+						<div className="login-form">
+							<br />
+							<label> Username:
+								{ this.fieldErrors("username") }
+								<input type="text"
+									value={this.state.username}
+									onChange={this.update("username")}
+									className="login-input" />
+							</label>
 
-						{this.signUpForm()}
+							<br />
+							<label> Password{passwordCheck}:
+								{ this.fieldErrors("password") }
+								<input type="password"
+									value={this.state.password}
+									onChange={this.update("password")}
+									className="login-input" />
+							</label>
 
-		        <br />
-						<input type="submit" value={this.formType().toUpperCase() + "!"} />
-					</div>
-				</form>
+							{this.signUpForm()}
+
+							<br />
+							<input type="submit" value={this.formType().toUpperCase() + "!"} />
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}
