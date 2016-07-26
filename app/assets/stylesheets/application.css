@@ -112,7 +112,6 @@ h3, h4, li {
   background: url("https://res.cloudinary.com/tahngarth825/image/upload/v1467840888/splash_image_oyfnsu.jpg") no-repeat center center scroll;
   background-size: cover;
   z-index: -1;
-  min-width: 1200px;
   min-height: 1160px;
 }
 
@@ -364,7 +363,7 @@ textarea {
 
 .react-select {
   padding: 5px 10px;
-  width: 300px;
+  width: 200px;
   margin: 10px;
   -webkit-appearance: button;
   -webkit-border-radius: 2px;

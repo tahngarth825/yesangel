@@ -130,7 +130,7 @@ const LoginForm = React.createClass({
 
 	edgeModifier(property, value){
 		if (property === "age") {
-			if (value === "60"){
+			if (value === 60){
 				return (value + "+");
 			}
 		}
@@ -153,9 +153,9 @@ const LoginForm = React.createClass({
 							</p>
 					</label>
 						<input type="range"
-							min="18"
-							max="60"
-							defaultValue="30"
+							min={18}
+							max={60}
+							defaultValue={30}
 							onChange={this.update("age")}
 							id="age"
 							className="slider"/>
@@ -234,7 +234,7 @@ const LoginForm = React.createClass({
 						What is the youngest age your desired person can be?
 						<br/>
 						<p className="edge-modifier">
-							{that.edgeModifier("age ", that.state.lf_min_age)}
+							{that.edgeModifier("age", that.state.lf_min_age)}
 						</p>
 					</label>
 						<input type="range"
@@ -251,7 +251,7 @@ const LoginForm = React.createClass({
 						What is the oldest age your desired person can be?
 						<br/>
 						<p className="edge-modifier">
-							{that.edgeModifier("age ", that.state.lf_max_age)}
+							{that.edgeModifier("age", that.state.lf_max_age)}
 						</p>
 					</label>
 						<br/>
