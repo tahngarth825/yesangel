@@ -20,7 +20,6 @@ hobbies     | text      |
 orientation | string    |
 ethnicity   | string    |
 height      | integer   |
-body_type   | string    |
 
 ## questions
 column name | data type | details

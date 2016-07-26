@@ -30,7 +30,6 @@ const UserDetails = React.createClass({
     const orientation = user.orientation ? user.orientation : " ";
     const ethnicity = user.ethnicity ? user.ethnicity : " ";
     const height = user.height ? user.height : " ";
-    const body_type = user.body_type ? user.body_type : " ";
     const lf_gender = user.lf_gender ? user.lf_gender : " ";
     const lf_min_age = user.lf_min_age ? user.lf_min_age : " ";
     const lf_max_age = user.lf_max_age ? user.lf_max_age : " ";
@@ -40,7 +39,6 @@ const UserDetails = React.createClass({
       orientation: orientation,
       ethnicity: ethnicity,
       height: height,
-      body_type: body_type,
       lf_gender: lf_gender,
       lf_min_age: lf_min_age,
       lf_max_age: lf_max_age
@@ -53,7 +51,6 @@ const UserDetails = React.createClass({
       orientation: " ",
       ethnicity: " ",
       height: " ",
-      body_type: " ",
       lf_gender: " ",
       lf_min_age: " ",
       lf_max_age: " "
@@ -65,7 +62,6 @@ const UserDetails = React.createClass({
       orientation: this.state.orientation,
       ethnicity: this.state.ethnicity,
       height: this.state.height,
-      body_type: this.state.body_type,
       lf_gender: this.state.lf_gender,
       lf_min_age: this.state.lf_min_age,
       lf_max_age: this.state.lf_max_age
@@ -128,9 +124,6 @@ const UserDetails = React.createClass({
 
           <h4>Height:</h4>
           {this.state.height}
-
-          <h4>Body Type:</h4>
-          {this.state.body_type}
 
           <h4>Gender of interest:</h4>
           {this.splitArray(this.state.lf_gender)}
@@ -264,16 +257,6 @@ const UserDetails = React.createClass({
             onChange={this.update("height")}
             className="slider"
             id="height"/>
-        </div>
-
-        <div className="detail">
-          <label> Body type:
-            <input value={this.state.body_type}
-              onChange={this.update("body_type")}
-              className="basics-input"
-              />
-            <br/>
-          </label>
         </div>
 
         <div className="detail">

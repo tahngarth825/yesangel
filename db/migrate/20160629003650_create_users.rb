@@ -17,7 +17,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :orientation
       t.string :ethnicity
       t.integer :height
-      t.string :body_type
 
       t.timestamps null: false
     end

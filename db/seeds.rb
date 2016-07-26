@@ -60,8 +60,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
   orientation: "Bisexual",
   ethnicity: "Mixed",
-  height: 72,
-  body_type: "Average"
+  height: 72
 })
 
 
@@ -80,8 +79,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467494208/Richard_Lau_e7cvij.jpg",
   orientation: "Straight",
   ethnicity: "Asian",
-  height: 67,
-  body_type: "Skinny"
+  height: 67
 })
 
 
@@ -95,13 +93,12 @@ User.create!({
   lf_min_age: 18,
   lf_max_age: 24,
   summary: "I'm a little bit evil and a lot of fun!",
-  hobbies: "I enjoy hunting for prey.",
+  hobbies: "I enjoy hunting.",
   favs: "I like beer and classic karaoke songs.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858492/50mayim_b_vs7dse.jpg",
   orientation: "Bisexual",
   ethnicity: "Asian",
-  height: 51,
-  body_type: "Chubby"
+  height: 51
 })
 
 
@@ -114,14 +111,13 @@ User.create!({
   lf_gender: ["Female", "Male-to-female transgender", "Non-conforming/other"],
   lf_min_age: 18,
   lf_max_age: 21,
-  summary: "I'm rich and awesome! Who wouldn't want me?",
+  summary: "I'm rich :)",
   hobbies: "Working out and sharp-shooting",
-  favs: "I love pretty girls! ;)",
+  favs: "My favorite means of travel is by air.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/1robert_downey_lpmbfb.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 65,
-  body_type: "Ripped"
+  height: 65
 })
 
 
@@ -135,14 +131,13 @@ User.create!({
     "Male-to-female transgender", "Non-conforming/other"],
   lf_min_age: 18,
   lf_max_age: 60,
-  summary: "Check out these guns, baby!",
+  summary: "I like going to the gym every day and pushing myself to the limits.",
   hobbies: "Working out and traveling",
   favs: "My favorite cake is Angel food cake",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/2chris_hemsworth_lw6sfb.jpg",
   orientation: "Other",
   ethnicity: "Caucasian",
-  height: 70,
-  body_type: "Athletic"
+  height: 70
 })
 
 
@@ -156,14 +151,13 @@ User.create!({
     "Male-to-female transgender", "Non-conforming/other"],
   lf_min_age: 40,
   lf_max_age: 55,
-  summary: "I have to admit, I have a pretty bad temper :/ But I'm a very loving person, otherwise!",
+  summary: "I'm just looking for a connection.",
   hobbies: "Skateboarding and tennis",
   favs: "I love the color green",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/3mark_ruffalo_vatvq8.jpg",
   orientation: "Gay/Lesbian",
   ethnicity: "Mixed",
-  height: 72,
-  body_type: "Average"
+  height: 72
 })
 
 
@@ -177,18 +171,17 @@ User.create!({
   lf_min_age: 18,
   lf_max_age: 33,
   summary: "I'm a pretty chill guy just looking for someone to have fun with!",
-  hobbies: "Traveling the world and lookin' good ;)",
+  hobbies: "Traveling the world",
   favs: "My favorite food is pizza and my favorite vacation destination is Machu Pichu.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/4chris_evans_ktzz2b.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 80,
-  body_type: "Muscular"
+  height: 80
 })
 
 
 User.create!({
-  username: "PrayingMantis<3",
+  username: "BugLover",
   password: "YesAngel",
   age: 40,
   location: "San Francisco",
@@ -197,13 +190,12 @@ User.create!({
   lf_min_age: 18,
   lf_max_age: 30,
   summary: "I'm looking to enjoy the company of a younger guy",
-  hobbies: "Hiking, surfing, back-stabbing people, shopping",
-  favs: "I love thriller movies",
+  hobbies: "Hiking, surfing, shopping",
+  favs: "I love thriller movies and bugs. There is no correlation between those. I think.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/5scarlett_johansson_y5lhsp.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 54,
-  body_type: "Slim"
+  height: 54
 })
 
 
@@ -223,8 +215,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/6jeremy_renner_cr0hxq.jpg",
   orientation: "Other",
   ethnicity: "Caucasian",
-  height: 67,
-  body_type: "Thin"
+  height: 67
 })
 
 
@@ -237,14 +228,13 @@ User.create!({
   lf_gender: ["Female"],
   lf_min_age: 18,
   lf_max_age: 22,
-  summary: "I'm a billionaire looking for a hot-young-thang to share my money with ;)",
+  summary: "I'm looking for someone to spoil.",
   hobbies: "Spending money",
-  favs: "My favorite day of the year is every day because every day is wonderful when you've got money!",
+  favs: "My favorite property is probably my yacht.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858099/7james_spader_ldsbvu.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 65,
-  body_type: "Fit"
+  height: 65
 })
 
 
@@ -258,14 +248,13 @@ User.create!({
     "Male-to-female transgender", "Non-conforming/other"],
   lf_min_age: 18,
   lf_max_age: 60,
-  summary: "My friends forced me to try this \"online dating\" crap.",
-  hobbies: "Sulking and moping",
-  favs: "I hate everything.",
+  summary: "My friends convinced me to try this \"online dating\". ",
+  hobbies: "Playing video games",
+  favs: "My favorite video game is Crash Bandicoot.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/8sam_jackson_dk1ini.jpg",
   orientation: "Other",
   ethnicity: "African American",
-  height: 68,
-  body_type: "Athletic"
+  height: 68
 })
 
 
@@ -281,12 +270,11 @@ User.create!({
   lf_max_age: 60,
   summary: "I'm a huge Pokemon fan and I'm looking for someone to trade and battle with.",
   hobbies: "Gaming",
-  favs: "My favorite game is Pokemon (any version).",
+  favs: "My favorite game is Pokemon Go!",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/9don_cheadle_hdfvva.jpg",
   orientation: "Other",
   ethnicity: "African American",
-  height: 74,
-  body_type: "Slim"
+  height: 74
 })
 
 
@@ -305,8 +293,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/10aaron_johnson_fseopd.jpg",
   orientation: "Straight",
   ethnicity: "Mixed",
-  height: 65,
-  body_type: "Average"
+  height: 65
 })
 
 
@@ -319,14 +306,13 @@ User.create!({
   lf_gender: ["Female-to-male transgender", "Male", "Non-conforming/other"],
   lf_min_age: 22,
   lf_max_age: 35,
-  summary: "\"I'm a Barbie girl, in a Barbie world. Life in plastic, it's fantastic!\"",
+  summary: "I'm an ambitious gal that's looking for someone who can keep up!",
   hobbies: "Shopping",
-  favs: "I love Couture!",
+  favs: "My favorite brand is Couture.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/11liz_olsen_ymnzrq.jpg",
   orientation: "Straight",
   ethnicity: "White",
-  height: 55,
-  body_type: "Skinny"
+  height: 55
 })
 
 
@@ -345,8 +331,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/12paul_bettany_tvs15v.jpg",
   orientation: "Gay/Lesbian",
   ethnicity: "Caucasian",
-  height: 72,
-  body_type: "Average"
+  height: 72
 })
 
 
@@ -365,8 +350,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/13colby_smulders_y27cno.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 62,
-  body_type: "Slim"
+  height: 62
 })
 
 
@@ -385,8 +369,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/14anthony_mackie_xscwzm.jpg",
   orientation: "Straight",
   ethnicity: "African American",
-  height: 69,
-  body_type: "Athletic"
+  height: 69
 })
 
 
@@ -405,13 +388,12 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/15hayley_atwell_fugcqh.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 52,
-  body_type: "Skinny"
+  height: 52
 })
 
 
 User.create!({
-  username: "MotherHunter",
+  username: "BabyBoy",
   password: "YesAngel",
   age: 34,
   location: "Los Angeles",
@@ -419,14 +401,13 @@ User.create!({
   lf_gender: ["Female"],
   lf_min_age: 35,
   lf_max_age: 50,
-  summary: "I love older women ;)",
+  summary: "I'm looking for a woman with an attitude",
   hobbies: "Snowboarding and skiing",
-  favs: "Older women are my favorite ;)",
+  favs: "My favorite language is sarcasm.",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/16josh_radnor_glq9zf.jpg",
   orientation: "Straight",
   ethnicity: "Mixed",
-  height: 68,
-  body_type: "Athletic"
+  height: 68
 })
 
 
@@ -445,8 +426,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/17jason_segel_du5bri.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 72,
-  body_type: "Athletic"
+  height: 72
 })
 
 
@@ -465,8 +445,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858100/18neil_harris_dpxvaf.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 66,
-  body_type: "Average"
+  height: 66
 })
 
 
@@ -486,12 +465,11 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858101/19aly_hannigan_oop9yb.jpg",
   orientation: "Bisexual",
   ethnicity: "Mixed",
-  height: 52,
-  body_type: "Chubby"
+  height: 52
 })
 
 User.create!({
-  username: "Hottie4ever",
+  username: "CadenceUnrising",
   password: "YesAngel",
   age: 18,
   location: "San Francisco",
@@ -499,14 +477,13 @@ User.create!({
   lf_gender: ["Male"],
   lf_min_age: 22,
   lf_max_age: 40,
-  summary: "Hi, I'm Sunny! I'm a cheerful, fun-loving gal ;) Sorry, but I'm only into older white guys!",
+  summary: "Hi, I'm Sunny! I'm a cheerful, fun-loving gal!",
   hobbies: "Clubbing and shopping",
-  favs: "High heels are my fav! They shape my legs so well ;)",
+  favs: "My favorite movie is Moulin Rouge",
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/v1467858101/20lyndsy_fonseca_fwkpfv.jpg",
   orientation: "Bisexual",
   ethnicity: "Mixed",
-  height: 65,
-  body_type: "Thin"
+  height: 65
 })
 
 User.create!({
@@ -524,8 +501,7 @@ User.create!({
   pic_url: "https://randomuser.me/api/portraits/women/53.jpg",
   orientation: "Straight",
   ethnicity: "Mixed",
-  height: 70,
-  body_type: "Average"
+  height: 70
 })
 
 User.create!({
@@ -543,8 +519,7 @@ User.create!({
   pic_url: "https://randomuser.me/api/portraits/women/44.jpg",
   orientation: "Straight",
   ethnicity: "Chinese",
-  height: 68,
-  body_type: "Athletic"
+  height: 68
 })
 
 User.create!({
@@ -563,8 +538,7 @@ User.create!({
   pic_url: "https://randomuser.me/api/portraits/men/46.jpg",
   orientation: "Bisexual",
   ethnicity: "Mixed",
-  height: 76,
-  body_type: "Athletic"
+  height: 76
 })
 
 User.create!({
@@ -582,8 +556,7 @@ User.create!({
   pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 72,
-  body_type: "Trim"
+  height: 72
 })
 
 User.create!({
@@ -601,8 +574,7 @@ User.create!({
   pic_url: "https://randomuser.me/api/portraits/women/7.jpg",
   orientation: "Straight",
   ethnicity: "Caucasian",
-  height: 62,
-  body_type: "Average"
+  height: 62
 })
 
 Message.create!({

@@ -47,7 +47,7 @@ class Api::UsersController < ApplicationController
 	def user_params
 		result = params.require(:user).permit(:username, :password, :age, :location,
 			:gender, :lf_min_age, :lf_max_age, :summary, :hobbies,
-			:favs, :pic_url, :orientation, :ethnicity, :height, :body_type,
+			:favs, :pic_url, :orientation, :ethnicity, :height,
 			:lf_gender => [])
 
 		result[:age] = result[:age].to_i if result[:age]
@@ -92,7 +92,6 @@ class Api::UsersController < ApplicationController
 		user[:orientation] = " "
 		user[:ethnicity] = " "
 		user[:height] = " "
-		user[:body_type] = " "
 
 		return user
 	end

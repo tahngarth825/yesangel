@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160711033202) do
     t.string   "orientation"
     t.string   "ethnicity"
     t.integer  "height"
-    t.string   "body_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
