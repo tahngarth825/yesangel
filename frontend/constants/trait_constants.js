@@ -15,15 +15,12 @@ module.exports = {
   gender: [
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },
-    { value: "Male-to-female transgender", label: "Male-to-female transgender"},
-    { value: "Female-to-male transgender", label: "Female-to-male transgender"},
-    { value: "Non-conforming/other", label: "Non-conforming/other"}
+    { value: "Other", label: "Nonbinary/Genderqueer"}
   ],
 
-  orientation: [
-    { value: "Straight", label: "Straight"},
-    { value: "Gay/Lesbian", label: "Gay/Lesbian"},
-    { value: "Bisexual", label: "Bisexual"},
+  lf_gender: [
+    { value: "Male", label: "Men"},
+    { value: "Female", label: "Women"},
     { value: "Other", label: "Other"}
   ],
 

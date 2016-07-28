@@ -17,7 +17,6 @@ lf_max_age  | integer   | not null
 summary     | text      |
 favs        | text      |
 hobbies     | text      |
-orientation | string    |
 ethnicity   | string    |
 height      | integer   |
 

@@ -27,19 +27,17 @@ const UserDetails = React.createClass({
   },
 
   renderGiven(user, editState){
-    const orientation = user.orientation ? user.orientation : " ";
+    const lf_gender = user.lf_gender ? user.lf_gender : " ";
     const ethnicity = user.ethnicity ? user.ethnicity : " ";
     const height = user.height ? user.height : " ";
-    const lf_gender = user.lf_gender ? user.lf_gender : " ";
     const lf_min_age = user.lf_min_age ? user.lf_min_age : " ";
     const lf_max_age = user.lf_max_age ? user.lf_max_age : " ";
 
     return ({
       edit: editState,
-      orientation: orientation,
+      lf_gender: lf_gender,
       ethnicity: ethnicity,
       height: height,
-      lf_gender: lf_gender,
       lf_min_age: lf_min_age,
       lf_max_age: lf_max_age
     });
@@ -48,10 +46,9 @@ const UserDetails = React.createClass({
   renderBlank(editState){
     return {
       edit: editState,
-      orientation: " ",
+      lf_gender: " ",
       ethnicity: " ",
       height: " ",
-      lf_gender: " ",
       lf_min_age: " ",
       lf_max_age: " "
     };
@@ -59,10 +56,9 @@ const UserDetails = React.createClass({
 
   extractUser(){
     return ({
-      orientation: this.state.orientation,
+      lf_gender: this.state.lf_gender,
       ethnicity: this.state.ethnicity,
       height: this.state.height,
-      lf_gender: this.state.lf_gender,
       lf_min_age: this.state.lf_min_age,
       lf_max_age: this.state.lf_max_age
     });
@@ -116,17 +112,14 @@ const UserDetails = React.createClass({
     if (this.state.edit === false) {
       return (
         <div className="user-details">
-          <h4>Orientation:</h4>
-          {this.state.orientation}
+          <h4>Gender(s) of interest:</h4>
+          {this.splitArray(this.state.lf_gender)}
 
           <h4>Ethnicity:</h4>
           {this.state.ethnicity}
 
           <h4>Height:</h4>
           {this.state.height}
-
-          <h4>Gender of interest:</h4>
-          {this.splitArray(this.state.lf_gender)}
 
           <h4>I'm looking for someone ages:</h4>
           {this.state.lf_min_age + "-" + this.state.lf_max_age}
@@ -218,23 +211,26 @@ const UserDetails = React.createClass({
 
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
-
         <div className="detail">
-          <label>	Orientation:
-            <select value={this.state.orientation}
-              onChange={this.update("orientation")}
-              className="basics-input"
-              >
+          <label> Desired gender:
+            <div className="checkbox-box">
               {
-                TraitConstants.orientation.map( function(orientation){
+                TraitConstants.lf_gender.map( function(lf_gender){
                   return (
-                    <option value={orientation.value} key={orientation.value}>
-                      {orientation.label}
-                    </option>
+                    <div className="checkbox-label" key={lf_gender.value}>
+                      <label htmlFor={lf_gender.value} className="checkbox-label">
+                        {lf_gender.label}
+                      </label>
+                      <input type="checkbox"
+                        checked={that.checkGender(lf_gender.value)}
+                        id={lf_gender.value}
+                        value={lf_gender.value}
+                        onChange={that.update("lf_gender")} />
+                    </div>
                   );
                 })
               }
-            </select>
+            </div>
           </label>
         </div>
 
@@ -257,29 +253,6 @@ const UserDetails = React.createClass({
             onChange={this.update("height")}
             className="slider"
             id="height"/>
-        </div>
-
-        <div className="detail">
-          <label> Desired gender:
-            <div className="checkbox-box">
-              {
-                TraitConstants.gender.map( function(gender){
-                  return (
-                    <div className="checkbox-label" key={gender.value}>
-                      <label htmlFor={gender.value} className="checkbox-label">
-                        {gender.label}
-                      </label>
-                      <input type="checkbox"
-                        checked={that.checkGender(gender.value)}
-                        id={gender.value}
-                        value={gender.value}
-                        onChange={that.update("lf_gender")} />
-                    </div>
-                  );
-                })
-              }
-            </div>
-          </label>
         </div>
 
         <div className="detail">

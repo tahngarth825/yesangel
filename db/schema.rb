@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160711033202) do
     t.text     "summary"
     t.text     "favs"
     t.text     "hobbies"
-    t.string   "orientation"
     t.string   "ethnicity"
     t.integer  "height"
     t.datetime "created_at",      null: false

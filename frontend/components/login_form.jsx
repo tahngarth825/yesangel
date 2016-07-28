@@ -104,15 +104,15 @@ const LoginForm = React.createClass({
 				let value = event.target.value;
 
 				if (property === "lf_gender"){
-					const gender = that.state.lf_gender;
-					const index = gender.indexOf(value);
+					const lf_gender = that.state.lf_gender;
+					const index = lf_gender.indexOf(value);
 
 					if (index === -1){
-						gender.push(value);
-						that.setState({[property]: gender});
+						lf_gender.push(value);
+						that.setState({[property]: lf_gender});
 					} else {
-						gender.splice(index, 1);
-						that.setState({[property]: gender});
+						lf_gender.splice(index, 1);
+						that.setState({[property]: lf_gender});
 					}
 
 					return;
@@ -211,16 +211,16 @@ const LoginForm = React.createClass({
 					<label htmlFor="lf_gender">Which gender(s) are you interested in?</label>
 					<div className="checkbox-box" id="lf_gender">
 						{
-							TraitConstants.gender.map( function(gender){
+							TraitConstants.lf_gender.map( function(lf_gender){
 								return (
-									<div key={gender.value}>
-										<label htmlFor={gender.value} className="checkbox-label">
-											{gender.label}
+									<div key={lf_gender.value}>
+										<label htmlFor={lf_gender.value} className="checkbox-label">
+											{lf_gender.label}
 										</label>
 											<input type="checkbox"
 												className="checkbox"
-												id={gender.value}
-												value={gender.value}
+												id={lf_gender.value}
+												value={lf_gender.value}
 												onChange={that.update("lf_gender")} />
 									</div>
 								);

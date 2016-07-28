@@ -14,7 +14,6 @@ class CreateUsers < ActiveRecord::Migration
       t.text :summary
       t.text :favs
       t.text :hobbies
-      t.string :orientation
       t.string :ethnicity
       t.integer :height
 

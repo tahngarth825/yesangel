@@ -47,7 +47,7 @@ class Api::UsersController < ApplicationController
 	def user_params
 		result = params.require(:user).permit(:username, :password, :age, :location,
 			:gender, :lf_min_age, :lf_max_age, :summary, :hobbies,
-			:favs, :pic_url, :orientation, :ethnicity, :height,
+			:favs, :pic_url, :ethnicity, :height,
 			:lf_gender => [])
 
 		result[:age] = result[:age].to_i if result[:age]
@@ -78,7 +78,7 @@ class Api::UsersController < ApplicationController
 		filter = {
 			location: filter[:location],
 			age: (filter[:lf_min_age]..filter[:lf_max_age]),
-			gender: filter[:lf_gender]
+			gender: filter[:lf_gender] #Gets user where is other's lf_gender
 		}
 
 		return User.where(filter)
@@ -89,7 +89,6 @@ class Api::UsersController < ApplicationController
 		user[:summary] = " "
 		user[:favs] = " "
 		user[:hobbies] = " "
-		user[:orientation] = " "
 		user[:ethnicity] = " "
 		user[:height] = " "
 

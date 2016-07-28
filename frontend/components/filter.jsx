@@ -124,16 +124,16 @@ const Filter = React.createClass({
             <div className="filter-gender">
               Gender(s) of interest:
                   {
-                    TraitConstants.gender.map( function(gender){
+                    TraitConstants.lf_gender.map( function(lf_gender){
                       return (
-                        <div className="gender-checkbox" key={gender.value}>
-                          <label htmlFor={gender.label} className="checkbox-label">
-                            {gender.label}
+                        <div className="lf_gender-checkbox" key={lf_gender.value}>
+                          <label htmlFor={lf_gender.value} className="checkbox-label">
+                            {lf_gender.label}
                           </label>
                           <input type="checkbox"
-                            checked={that.checkGender(gender.value)}
-                            id={gender.label}
-                            value={gender.value}
+                            checked={that.checkGender(lf_gender.value)}
+                            id={lf_gender.value}
+                            value={lf_gender.value}
                             onChange={that.update("lf_gender")} />
                         </div>
                       );
