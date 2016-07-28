@@ -52,7 +52,8 @@ const Filter = React.createClass({
       let value = event.currentTarget.value;
 
       if (property === "lf_gender"){
-        const gender = that.data.lf_gender;
+        const gender = that.data.lf_gender.slice();
+        const old_gender = gender.splice();
         const index = gender.indexOf(value);
 
         if (index === -1){
@@ -61,10 +62,10 @@ const Filter = React.createClass({
           gender.splice(index, 1);
         }
 
-        if (gender.length == 0){
+        if (gender.length === 0){
           alert("You must have at least one gender selected");
         } else {
-          that.data.lf_gender = gender
+          that.data.lf_gender = gender;
           UserActions.filterUsers(that.data);
         }
         return;
