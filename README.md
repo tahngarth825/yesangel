@@ -1,3 +1,6 @@
+Note to self: fix filter
+doesn't register last checkbox uncheck
+
 # Yes Angel!
 
 [Heroku Link][heroku]

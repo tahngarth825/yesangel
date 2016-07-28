@@ -5,15 +5,23 @@ const UserStore = require("../stores/user_store.js");
 const TraitConstants = require("../constants/trait_constants.js");
 const SessionActions = require("../actions/session_actions.js");
 
+window.SessionStore = SessionStore;
+
 const Filter = React.createClass({
-  getInitialState(){
-    return(this.extractData());
+  shouldComponentUpdate(nextProp, nextState){
+    const user = SessionStore.currentUser();
+    if (Object.keys(user).length === 0 && user.constructor === Object){
+      return false;
+    } else {
+      this.extractData();
+      return true;
+    }
   },
 
   extractData(){
     const user = SessionStore.currentUser();
 
-    return ({
+    this.data = ({
       lf_gender: user.lf_gender,
       location: user.location,
       lf_min_age: user.lf_min_age,
@@ -21,41 +29,18 @@ const Filter = React.createClass({
     });
   },
 
-  handleChange(){
-    this.setState(this.extractData());
-  },
-
-  componentDidMount(){
-    this.sessionListener = SessionStore.addListener(this.handleChange);
-    this.userListener = UserStore.addListener(this.handleChange);
+  componentWillMount(){
+    this.sessionListener = SessionStore.addListener(this.extractData);
+    this.userListener = UserStore.addListener(this.extractData);
     SessionActions.fetchCurrentUser();
-    UserActions.filterUsers(this.state);
-  },
-
-  shouldComponentUpdate(nextProp, nextState){
-    const user = SessionStore.currentUser();
-    if (Object.keys(user).length === 0 && user.constructor === Object){
-      return false;
-    }
-    return true;
+    this.extractData();
+    UserActions.filterUsers(this.data);
   },
 
   componentWillUnmount(){
     this.sessionListener.remove();
     this.userListener.remove();
   },
-
-  // handleSubmit(){
-  //   if (this.state.lf_min_age > this.state.lf_max_age){
-  //     alert("Minimum age must be less than or equal to maximum age!");
-  //     return;
-  //   }
-  //
-  //   if (this.state.lf_gender.length === 0) {
-  //     alert("Please select at least one gender to be interested in!");
-  //     return;
-  //   }
-  // },
 
   update(property){
     const that = this;
@@ -65,17 +50,17 @@ const Filter = React.createClass({
       let value = event.currentTarget.value;
 
       if (property === "lf_gender"){
-        const gender = that.state.lf_gender;
+        const gender = that.data.lf_gender;
         const index = gender.indexOf(value);
 
         if (index === -1){
           gender.push(value);
-          that.setState({[property]: gender});
         } else {
           gender.splice(index, 1);
-          that.setState({[property]: gender});
         }
-        UserActions.filterUsers(this.state);
+        that.data.lf_gender = gender
+
+        UserActions.filterUsers(that.data);
         return;
       }
 
@@ -84,14 +69,14 @@ const Filter = React.createClass({
         value = parseInt(value);
       }
 
-      that.setState({[property]: value});
+      that.data[property] = value;
 
-      UserActions.filterUsers(this.state);
+      UserActions.filterUsers(that.data);
     });
   },
 
   checkGender(gender){
-    if (this.state.lf_gender.indexOf(gender) !== -1) {
+    if (this.data.lf_gender.indexOf(gender) !== -1) {
       return "checked";
     } else {
       return false;
@@ -118,7 +103,7 @@ const Filter = React.createClass({
       );
     } else {
       return (
-        <form onSubmit={this.handleSubmit} className="filter-box">
+        <form className="filter-box">
           <h2>Your desired traits in your partner: </h2>
 
 
@@ -143,7 +128,7 @@ const Filter = React.createClass({
             </div>
 
             <label className="filter-location">	Location:
-                <select value={this.state.location}
+                <select value={this.data.location}
                   onChange={this.update("location")}
                   className="basics-input"
                   >
@@ -161,11 +146,11 @@ const Filter = React.createClass({
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Youngest desired age: {that.parser("age", that.state.lf_min_age)}
+            <label className="slider-label"> Youngest desired age: {that.parser("age", that.data.lf_min_age)}
               <input type="range"
                 min="18"
                 max="60"
-                defaultValue={that.state.lf_min_age}
+                defaultValue={that.data.lf_min_age}
                 onChange={this.update("lf_min_age")}
                 className="slider"/>
             </label>
@@ -173,18 +158,15 @@ const Filter = React.createClass({
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.state.lf_max_age)}
+            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.data.lf_max_age)}
                 <input type="range"
                   min="18"
                   max="60"
-                  defaultValue={that.state.lf_max_age}
+                  defaultValue={that.data.lf_max_age}
                   onChange={this.update("lf_max_age")}
                   className="slider"/>
             </label>
           </div>
-
-          <br/>
-          <input type="submit" value="Update Results!" className="submit"/>
         </form>
       );
     }
