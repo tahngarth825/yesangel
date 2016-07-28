@@ -45,19 +45,17 @@ const Filter = React.createClass({
     this.userListener.remove();
   },
 
-  handleSubmit(){
-    if (this.state.lf_min_age > this.state.lf_max_age){
-      alert("Minimum age must be less than or equal to maximum age!");
-      return;
-    }
-
-    if (this.state.lf_gender.length === 0) {
-      alert("Please select at least one gender to be interested in!");
-      return;
-    }
-
-    UserActions.filterUsers(this.state);
-  },
+  // handleSubmit(){
+  //   if (this.state.lf_min_age > this.state.lf_max_age){
+  //     alert("Minimum age must be less than or equal to maximum age!");
+  //     return;
+  //   }
+  //
+  //   if (this.state.lf_gender.length === 0) {
+  //     alert("Please select at least one gender to be interested in!");
+  //     return;
+  //   }
+  // },
 
   update(property){
     const that = this;
@@ -77,6 +75,7 @@ const Filter = React.createClass({
           gender.splice(index, 1);
           that.setState({[property]: gender});
         }
+        UserActions.filterUsers(this.state);
         return;
       }
 
@@ -86,6 +85,8 @@ const Filter = React.createClass({
       }
 
       that.setState({[property]: value});
+
+      UserActions.filterUsers(this.state);
     });
   },
 
