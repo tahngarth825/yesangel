@@ -19,7 +19,6 @@ const UsersMain = React.createClass({
   componentDidMount(){
     this.userListener = UserStore.addListener(this.handleChange);
     this.sessionListener = SessionStore.addListener(this.handleChange);
-    UserActions.fetchUsers();
   },
 
   handleChange(e){

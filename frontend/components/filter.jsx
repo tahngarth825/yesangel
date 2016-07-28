@@ -6,19 +6,14 @@ const TraitConstants = require("../constants/trait_constants.js");
 const SessionActions = require("../actions/session_actions.js");
 
 window.SessionStore = SessionStore;
+window.UserStore = UserStore;
 
 const Filter = React.createClass({
-  shouldComponentUpdate(nextProp, nextState){
-    const user = SessionStore.currentUser();
-    if (Object.keys(user).length === 0 && user.constructor === Object){
-      return false;
-    } else {
-      this.extractData();
-      return true;
-    }
+  componentWillUpdate(){
+    this.extractData();
   },
 
-  extractData(){
+  extractData(callback){
     const user = SessionStore.currentUser();
 
     this.data = ({
@@ -27,14 +22,21 @@ const Filter = React.createClass({
       lf_min_age: user.lf_min_age,
       lf_max_age: user.lf_max_age
     });
+
+    if (callback !== undefined) {
+      callback(this.data);
+    }
+  },
+
+  getUser(callback){
+    SessionActions.fetchCurrentUser();
+    this.extractData(callback);
   },
 
   componentWillMount(){
     this.sessionListener = SessionStore.addListener(this.extractData);
     this.userListener = UserStore.addListener(this.extractData);
-    SessionActions.fetchCurrentUser();
-    this.extractData();
-    UserActions.filterUsers(this.data);
+    this.getUser(UserActions.filterUsers.bind(this));
   },
 
   componentWillUnmount(){
@@ -58,14 +60,17 @@ const Filter = React.createClass({
         } else {
           gender.splice(index, 1);
         }
-        that.data.lf_gender = gender
 
-        UserActions.filterUsers(that.data);
+        if (gender.length == 0){
+          alert("You must have at least one gender selected");
+        } else {
+          that.data.lf_gender = gender
+          UserActions.filterUsers(that.data);
+        }
         return;
       }
 
-      if (property === "lf_min_age" || property === "lf_max_age")
-      {
+      if (property === "lf_min_age" || property === "lf_max_age") {
         value = parseInt(value);
       }
 

@@ -29,13 +29,14 @@ const UserActions = {
     });
   },
 
-  updateUser(user){
+  updateUser(user, callback){
     UserApiUtil.editUser(user, SessionActions.receiveCurrentUser);
+    callback();
   },
 
   filterUsers(filter){
-    UserActions.updateUser(filter);
-    UserApiUtil.filterUsers(filter, UserActions.receiveUsers);
+    UserActions.updateUser(filter,
+    UserApiUtil.filterUsers.bind(this, filter, UserActions.receiveUsers));
   }
 };
 
