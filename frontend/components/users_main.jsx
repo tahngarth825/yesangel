@@ -58,6 +58,14 @@ const UsersMain = React.createClass({
   render () {
     const that = this;
 
+    if (Object.keys(SessionStore.currentUser()).length === 0){
+      return (
+        <div>
+          
+        </div>
+      )
+    }
+
     return(
       <div>
         <Filter/>

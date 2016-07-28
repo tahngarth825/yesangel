@@ -1,5 +1,6 @@
 Note to self: fix filter
 doesn't register last checkbox uncheck
+Logout doesn't work
 
 # Yes Angel!
 
