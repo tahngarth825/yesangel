@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+Note to self: fix filter
+doesn't register last checkbox uncheck
+
+>>>>>>> 2523a29... Filter should be fully functional to filter dynamically and be bug-free
 # Yes Angel!
 
 [Heroku Link][heroku]

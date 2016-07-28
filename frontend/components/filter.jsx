@@ -67,7 +67,12 @@ const Filter = React.createClass({
       let value = event.currentTarget.value;
 
       if (property === "lf_gender"){
+<<<<<<< HEAD
         const gender = that.state.lf_gender;
+=======
+        const gender = that.data.lf_gender.slice();
+        const old_gender = gender.splice();
+>>>>>>> 2523a29... Filter should be fully functional to filter dynamically and be bug-free
         const index = gender.indexOf(value);
 
         if (index === -1){
@@ -75,7 +80,17 @@ const Filter = React.createClass({
           that.setState({[property]: gender});
         } else {
           gender.splice(index, 1);
+<<<<<<< HEAD
           that.setState({[property]: gender});
+=======
+        }
+
+        if (gender.length === 0){
+          alert("You must have at least one gender selected");
+        } else {
+          that.data.lf_gender = gender;
+          UserActions.filterUsers(that.data);
+>>>>>>> 2523a29... Filter should be fully functional to filter dynamically and be bug-free
         }
         return;
       }
