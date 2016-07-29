@@ -79,7 +79,7 @@ const Filter = React.createClass({
 
       UserActions.filterUsers(that.data);
     });
-  },y
+  },
 
   checkGender(gender){
     if (this.data.lf_gender.indexOf(gender) !== -1) {
