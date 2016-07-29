@@ -19,7 +19,6 @@ const UsersMain = React.createClass({
   componentDidMount(){
     this.userListener = UserStore.addListener(this.handleChange);
     this.sessionListener = SessionStore.addListener(this.handleChange);
-    UserActions.fetchUsers();
   },
 
   handleChange(e){
@@ -58,6 +57,14 @@ const UsersMain = React.createClass({
 
   render () {
     const that = this;
+
+    if (Object.keys(SessionStore.currentUser()).length === 0){
+      return (
+        <div>
+          
+        </div>
+      )
+    }
 
     return(
       <div>

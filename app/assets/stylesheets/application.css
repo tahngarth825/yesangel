@@ -43,15 +43,7 @@ footer, header, menu, nav, section {
 }
 
 body {
-   text-align: center;
-}
-
-.body{
- display: block;
- position: absolute;
  text-align: center;
- width: 100%;
- height: 100%;
 }
 
 .content {
@@ -86,33 +78,15 @@ h3, h4, li {
   flex-direction: column;
 }
 
-.login-background-box {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
 .login-form-container {
   display: inline-block;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   text-align: center;
   color: white;
   padding-top: 50px;
   z-index: 2;
-}
-
-.login-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://res.cloudinary.com/tahngarth825/image/upload/v1467840888/splash_image_oyfnsu.jpg") no-repeat center center scroll;
-  background-size: cover;
-  z-index: -1;
-  min-height: 1160px;
+  background-color: rgb(16, 77, 161);
 }
 
 .login-input {
@@ -127,9 +101,11 @@ h3, h4, li {
 }
 
 .login-form-box {
-  outline: 1px solid black;
   padding: 20px;
-  background-color:rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  width: auto;
+  height: auto;
+  text-align: center;
 }
 
 .header-link {
@@ -210,43 +186,23 @@ h3, h4, li {
   padding: 3px;
 }
 
-/*.submit {
-  display: block;
-  clear: both;
-  margin: 10px auto;
-  width: 173px;
-}*/
-/*.submit-box {
-  display: block;
-  text-align: center;
-}*/
-
 .yellow-button{
- display: inline-block;
- border:1px solid #c9ae34;
- color: #705D07;
- border-radius: 3px 3px 3px 3px;
- -webkit-border-radius: 3px 3px 3px 3px;
- -moz-border-radius: 3px 3px 3px 3px;
- font-family: "Montserrat", sans-serif;
- width: 220px;
- height: auto;
- font-size: 16px;
- padding: 10px 40px;
- box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
- -moz-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
- -webkit-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
- text-shadow: 0 1px 0 #fff;
- background-image: linear-gradient(to top, #fce374, #fcdf5b);
- background-color: #fce374;
+  display: inline-block;
+  border:1px solid #4879c1;
+  color: white;
+  border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  font-family: "Montserrat", sans-serif;
+  width: 220px;
+  height: auto;
+  font-size: 16px;
+  padding: 10px 40px;
+  background: #07408d;
 }
 .yellow-button:hover, .yellow-button:active{
- border:1px solid #967d09;
- color: #705D07;
- box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
- -moz-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
- -webkit-box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
- background-color: #fcdf5b;
+  color: white;
+  background-color: #4c7bd9;
 }
 
 .blue-button {
@@ -618,4 +574,8 @@ table, tr, td, th {
 
 .edge-modifier {
   color: yellow;
+}
+
+button:hover{
+  cursor: pointer;
 }

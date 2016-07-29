@@ -298,10 +298,6 @@ const LoginForm = React.createClass({
 		navLink = <Link className="link" to={link}><b>{text}</b></Link>;
 
 		return (
-			<div className="login-background-box">
-				<div className="login-background">
-				</div>
-
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
 						<h1>Welcome to Yes Angel!</h1>
@@ -351,7 +347,6 @@ const LoginForm = React.createClass({
 						</div>
 					</form>
 				</div>
-			</div>
 		);
 	}
 });

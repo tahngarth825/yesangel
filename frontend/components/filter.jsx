@@ -5,58 +5,43 @@ const UserStore = require("../stores/user_store.js");
 const TraitConstants = require("../constants/trait_constants.js");
 const SessionActions = require("../actions/session_actions.js");
 
+window.SessionStore = SessionStore;
+window.UserStore = UserStore;
+
 const Filter = React.createClass({
-  getInitialState(){
-    return(this.extractData());
+  componentWillUpdate(){
+    this.extractData();
   },
 
-  extractData(){
+  extractData(callback){
     const user = SessionStore.currentUser();
 
-    return ({
+    this.data = ({
       lf_gender: user.lf_gender,
       location: user.location,
       lf_min_age: user.lf_min_age,
       lf_max_age: user.lf_max_age
     });
-  },
 
-  handleChange(){
-    this.setState(this.extractData());
-  },
-
-  componentDidMount(){
-    this.sessionListener = SessionStore.addListener(this.handleChange);
-    this.userListener = UserStore.addListener(this.handleChange);
-    SessionActions.fetchCurrentUser();
-    UserActions.filterUsers(this.state);
-  },
-
-  shouldComponentUpdate(nextProp, nextState){
-    const user = SessionStore.currentUser();
-    if (Object.keys(user).length === 0 && user.constructor === Object){
-      return false;
+    if (callback !== undefined) {
+      callback(this.data);
     }
-    return true;
+  },
+
+  getUser(callback){
+    SessionActions.fetchCurrentUser();
+    this.extractData(callback);
+  },
+
+  componentWillMount(){
+    this.sessionListener = SessionStore.addListener(this.extractData);
+    this.userListener = UserStore.addListener(this.extractData);
+    this.getUser(UserActions.filterUsers.bind(this));
   },
 
   componentWillUnmount(){
     this.sessionListener.remove();
     this.userListener.remove();
-  },
-
-  handleSubmit(){
-    if (this.state.lf_min_age > this.state.lf_max_age){
-      alert("Minimum age must be less than or equal to maximum age!");
-      return;
-    }
-
-    if (this.state.lf_gender.length === 0) {
-      alert("Please select at least one gender to be interested in!");
-      return;
-    }
-
-    UserActions.filterUsers(this.state);
   },
 
   update(property){
@@ -97,7 +82,7 @@ const Filter = React.createClass({
   },y
 
   checkGender(gender){
-    if (this.state.lf_gender.indexOf(gender) !== -1) {
+    if (this.data.lf_gender.indexOf(gender) !== -1) {
       return "checked";
     } else {
       return false;
@@ -124,7 +109,7 @@ const Filter = React.createClass({
       );
     } else {
       return (
-        <form onSubmit={this.handleSubmit} className="filter-box">
+        <form className="filter-box">
           <h2>Your desired traits in your partner: </h2>
 
 
@@ -149,7 +134,7 @@ const Filter = React.createClass({
             </div>
 
             <label className="filter-location">	Location:
-                <select value={this.state.location}
+                <select value={this.data.location}
                   onChange={this.update("location")}
                   className="basics-input"
                   >
@@ -167,11 +152,11 @@ const Filter = React.createClass({
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Youngest desired age: {that.parser("age", that.state.lf_min_age)}
+            <label className="slider-label"> Youngest desired age: {that.parser("age", that.data.lf_min_age)}
               <input type="range"
                 min="18"
                 max="60"
-                defaultValue={that.state.lf_min_age}
+                defaultValue={that.data.lf_min_age}
                 onChange={this.update("lf_min_age")}
                 className="slider"/>
             </label>
@@ -179,18 +164,15 @@ const Filter = React.createClass({
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.state.lf_max_age)}
+            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.data.lf_max_age)}
                 <input type="range"
                   min="18"
                   max="60"
-                  defaultValue={that.state.lf_max_age}
+                  defaultValue={that.data.lf_max_age}
                   onChange={this.update("lf_max_age")}
                   className="slider"/>
             </label>
           </div>
-
-          <br/>
-          <input type="submit" value="Update Results!" className="submit"/>
         </form>
       );
     }
