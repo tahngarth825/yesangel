@@ -86,14 +86,15 @@ const Filter = React.createClass({
         return;
       }
 
-      if (property === "lf_min_age" || property === "lf_max_age")
-      {
+      if (property === "lf_min_age" || property === "lf_max_age") {
         value = parseInt(value);
       }
 
-      that.setState({[property]: value});
+      that.data[property] = value;
+
+      UserActions.filterUsers(that.data);
     });
-  },
+  },y
 
   checkGender(gender){
     if (this.state.lf_gender.indexOf(gender) !== -1) {
