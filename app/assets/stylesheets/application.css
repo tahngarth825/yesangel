@@ -25,7 +25,8 @@ footer, header, menu, nav, section {
   outline: 0;
   vertical-align: baseline;
   background: transparent;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
 }
 
 ::-webkit-scrollbar {
@@ -51,12 +52,14 @@ body {
 }
 
 header {
+  display: block;
   position: relative;
   background-color: rgb(16, 77, 161);
   color: white;
   height: 120px;
   width: 100%;
   z-index: 2;
+  text-align: left;
 }
 
 h1, h2, h5 {
@@ -132,19 +135,6 @@ h3, h4, li {
   text-decoration: none;
 }
 
-.header-group {
-  position: absolute;
-  top: 30px;
-  left: 330px;
-  display: inline-block;
-  text-align: center;
-}
-
-.logo-pic {
-  width: 300px;
-  height: 100px;
-}
-
 .browse-tile {
   display: inline-block;
   width: 200px;
@@ -209,16 +199,16 @@ h3, h4, li {
   border-radius: 3px 3px 3px 3px;
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   width: 220px;
   height: auto;
   font-size: 16px;
   padding: 10px 40px;
-  background: #07408d;
+  background: #4c7bd9;
 }
 .blue-button:hover, .blue-button:active{
-  color: white;
-  background-color: #4c7bd9;
+  background-color: #618bdd;
+  cursor: pointer;
 }
 
 .user-about {
@@ -355,10 +345,6 @@ textarea {
   vertical-align: middle;
 }
 
-label {
-  font-weight: bold;
-}
-
 .unbold {
   font-weight: normal;
 }
@@ -381,43 +367,53 @@ p {
   display: inline-block;
 }
 
+.header-inner {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  width: 1500px;
+}
+
+.header-left {
+  display: inline-block;
+  width: 600px;
+  margin-right: auto;
+}
+
 .logo{
-  position: absolute;
   display: inline-block;
   padding: 10px;
-  top: 0px;
-  left: 0px;
   width: 300px;
   height: 100px;
   text-align: center;
 }
 
+.logo-pic {
+  width: 300px;
+  height: 100px;
+}
+
+.header-welcome-box {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
 .navbar {
-  position: absolute;
-  top: 0px;
-  left: 520px;
-  display: flex;
-  vertical-align: bottom;
+  display: inline-block;
+  vertical-align: top;
   height: 120px;
   width: 600px;
+  margin-left: auto;
 }
 
 .navbar-browse, .navbar-messages, .navbar-profile {
+  display: inline-block;
   width: 120px;
   height: 120px;
   text-align: center;
-  position: absolute;
   left: 10px;
-}
-
-.navbar-browse {
-  position: absolute;
-  left: 170px;
-}
-
-.navbar-messages{
-  position: absolute;
-  left: 310px;
+  vertical-align: middle;
 }
 
 .navbar-link {
@@ -429,8 +425,6 @@ p {
 }
 
 .navbar-profile-words {
-  position: absolute;
-  top: 43px;
   height: 75px;
   width: 120px;
   color: #9dbaf2;
@@ -438,18 +432,12 @@ p {
 }
 
 .navbar-browse h2 {
-  position: absolute;
-  top: 43px;
-  left: 15px;
   color: #9dbaf2;
 }
 
 .navbar-profile > h2 {
-  position: absolute;
-  top: 43px;
-  left: 524px;
-  vertical-align: bottom;
   display: inline-block;
+  vertical-align: bottom;
 }
 
 .navbar-profile-pic-box, .navbar-profile-pic {
@@ -458,9 +446,6 @@ p {
 }
 
 .navbar-messages-icon {
-  position: absolute;
-  top: 30px;
-  left: 31px;
   height: 50px;
   width: 60px;
 }

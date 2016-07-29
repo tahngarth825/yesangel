@@ -155,7 +155,7 @@ TODO:
 35. Try Flex in navbar? (divs within divs!)
 
 ### Sources
-1. Google Font (Montserrat): https://fonts.google.com/?category=Sans+Serif&selection.family=Montserrat
+1. Google Font (Open Sans): https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans
 
 Note: how to pass props to children for React elements
 {React.cloneElement(this.props.children, {siteData: this.props.siteData})}

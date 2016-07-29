@@ -25,9 +25,12 @@ const App = React.createClass({
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
     	return (
-    		<hgroup className="header-group">
-    			<h3 className="header-name">Welcome, {SessionStore.currentUser().username}!</h3>
-    			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
+    		<hgroup className="header-welcome-box">
+    			<h3 className="header-welcome">Welcome, {SessionStore.currentUser().username}!</h3>
+    			<input className="blue-button"
+            type="submit"
+            value="Log out"
+            onClick={ this._handleLogOut } />
     		</hgroup>
     	);
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
@@ -45,9 +48,9 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()){
       return(
         <div className="navbar">
-          {this.renderProfile()}
           {this.renderBrowse()}
           {this.renderMessages()}
+          {this.renderProfile()}
         </div>
       );
     }
@@ -110,17 +113,20 @@ const App = React.createClass({
     return (
       <div>
         <header>
-          <div className="logo">
-            <Link to="/" className="header-link">
-              <img className="logo-pic"
-                src="https://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
-            </Link>
+          <div className="header-inner">
+            <div className="header-left">
+              <div className="logo">
+                <Link to="/" className="header-link">
+                  <img className="logo-pic"
+                    src="https://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
+                </Link>
+              </div>
+
+              { this.greeting() }
+            </div>
+
+            {this.renderNavBar()}
           </div>
-
-          { this.greeting() }
-
-          {this.renderNavBar()}
-
         </header>
 
         <div className="body">
