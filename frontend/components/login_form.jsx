@@ -143,7 +143,7 @@ const LoginForm = React.createClass({
 
 		if (this.formType() === "signup"){
 			return (
-				<div className="login-form">
+				<div className="login-column-2">
 					<br />
 
 					<label className="unbold" htmlFor="age">
@@ -262,6 +262,7 @@ const LoginForm = React.createClass({
 								defaultValue="60"
 								onChange={this.update("lf_max_age")}
 								className="slider"/>
+					<br/>
 				</div>
 			);
 		}
@@ -300,50 +301,62 @@ const LoginForm = React.createClass({
 		return (
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
-						<h1>Welcome to Yes Angel!</h1>
+						<div className="login-column-1">
+							<h1>Welcome to Yes Angel!</h1>
 
-						<br/>
+							<br/>
 
-						<h2>Find the love of your life!</h2>
+							<h2>Find the love of your life!</h2>
 
-						<br/>
+							<br/>
 
-						<br/>
-						<button className="yellow-button"
-							onClick={this.demoLogin}>
-							Browse as Guest
-						</button>
-						<br/>
+							<button className="blue-button"
+								onClick={this.demoLogin}>
+								Browse as Guest
+							</button>
 
-						<br/>
-						Please { this.formType() }, or { navLink }
+							<br/>
 
-						{ this.fieldErrors("base") }
-						<div className="login-form">
-							<br />
-							<label> Username:
-								{ this.fieldErrors("username") }
-								<input type="text"
-									value={this.state.username}
-									onChange={this.update("username")}
-									className="login-input" />
-							</label>
+							<br/>
 
-							<br />
-							<label> Password{passwordCheck}:
-								{ this.fieldErrors("password") }
-								<input type="password"
-									value={this.state.password}
-									onChange={this.update("password")}
-									className="login-input" />
-							</label>
+							Please { this.formType() }, or { navLink }
 
-							{this.signUpForm()}
+							{ this.fieldErrors("base") }
+							<div className="login-form">
 
-							<br />
+								<br />
+
+								<label htmlFor="username"> Username
+									{ this.fieldErrors("username") }
+								</label>
+								<br/>
+									<input type="text"
+										id="username"
+										value={this.state.username}
+										onChange={this.update("username")}
+										className="login-input" />
+
+									<br/>
+
+								<label htmlFor="password"> Password{passwordCheck}
+									{ this.fieldErrors("password") }
+								</label>
+									<br/>
+									<input type="password"
+										id="password"
+										value={this.state.password}
+										onChange={this.update("password")}
+										className="login-input" />
+								<br/>
+							</div>
+						</div>
+
+						{this.signUpForm()}
+
+						<div className="login-submit">
 							<input type="submit"
 								value={this.formType().toUpperCase() + "!"}
-								className="yellow-button"/>
+								className="blue-button"/>
 						</div>
 					</form>
 				</div>

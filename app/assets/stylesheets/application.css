@@ -84,13 +84,13 @@ h3, h4, li {
   height: 100%;
   text-align: center;
   color: white;
-  padding-top: 50px;
   z-index: 2;
   background-color: rgb(16, 77, 161);
 }
 
 .login-input {
   margin: 10px;
+  width: 150px;
 }
 
 .guest-login {
@@ -106,6 +106,22 @@ h3, h4, li {
   width: auto;
   height: auto;
   text-align: center;
+}
+
+.login-column-1 {
+  vertical-align: top;
+  display: inline-block;
+  width: auto;
+}
+
+.login-column-2 {
+  vertical-align: top;
+  display: inline-block;
+  width: auto;
+}
+
+.login-submit {
+  display: block;
 }
 
 .header-link {
@@ -186,7 +202,7 @@ h3, h4, li {
   padding: 3px;
 }
 
-.yellow-button{
+.blue-button{
   display: inline-block;
   border:1px solid #4879c1;
   color: white;
@@ -200,38 +216,9 @@ h3, h4, li {
   padding: 10px 40px;
   background: #07408d;
 }
-.yellow-button:hover, .yellow-button:active{
+.blue-button:hover, .blue-button:active{
   color: white;
   background-color: #4c7bd9;
-}
-
-.blue-button {
-  display: inline-block;
-  border:1px solid #4DB6EB;
-  color: #317596;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  font-family: "Montserrat", sans-serif;
-  width: auto;
-  height: auto;
-  font-size: 16px;
-  padding: 10px 40px;
-  box-shadow: inset 0px 0px 1px 0 #FCFCFC;
-  -moz-box-shadow: inset 0px 0px 1px 0 #FCFCFC;
-  -webkit-box-shadow: inset 0px 0px 1px 0 #FCFCFC;
-  text-shadow: 1px 1px 1px #C1E2FB;
-  background-image: linear-gradient(to top, #4FBCF2, #53C6FF);
-  background-color: #52C3FB;
-}
-
-.blue-button:hover, .blue-button:active{
- border:1px solid #46D4D9;
- color: #317596;
- box-shadow: inset 0px 2px 9px 0 #3989B0;
- -moz-box-shadow: inset 0px 2px 9px 0 #3989B0;
- -webkit-box-shadow: inset 0px 2px 9px 0 #3989B0;
- background-color: #52C3FB;
 }
 
 .user-about {
@@ -319,7 +306,7 @@ textarea {
 
 .react-select {
   padding: 5px 10px;
-  width: 200px;
+  width: 170px;
   margin: 10px;
   -webkit-appearance: button;
   -webkit-border-radius: 2px;
@@ -336,8 +323,8 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align-last:center;
 }
-
 
 .checkbox-box {
   width: 460px;
@@ -349,9 +336,10 @@ textarea {
 
 .slider {
   display: block;
-  margin: 10px;
-  width: 100%;
+  width: 300px;
   vertical-align: middle;
+  text-align: center;
+  margin: auto;
 }
 
 .slider-label{
