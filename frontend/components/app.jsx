@@ -64,7 +64,7 @@ const App = React.createClass({
   renderBrowse(){
     return (
       <div className="navbar-browse" onClick={this.toUsers}>
-        <h2>Browse</h2>
+          <h2>Browse</h2>
       </div>
     );
   },

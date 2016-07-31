@@ -23,10 +23,10 @@ footer, header, menu, nav, section {
   padding: 0;
   border: 0;
   outline: 0;
-  vertical-align: baseline;
   background: transparent;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -196,11 +196,10 @@ h3, h4, li {
   display: inline-block;
   border:1px solid #4879c1;
   color: white;
-  border-radius: 3px 3px 3px 3px;
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   font-family: "Open Sans", sans-serif;
-  width: 220px;
+  width: 210px;
   height: auto;
   font-size: 16px;
   padding: 10px 40px;
@@ -367,24 +366,11 @@ p {
   display: inline-block;
 }
 
-.header-inner {
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-  width: 1500px;
-}
-
-.header-left {
-  display: inline-block;
-  width: 600px;
-  margin-right: auto;
-}
-
 .logo{
   display: inline-block;
   padding: 10px;
   width: 300px;
-  height: 100px;
+  height: 120px;
   text-align: center;
 }
 
@@ -397,22 +383,46 @@ p {
   display: inline-block;
   text-align: center;
   vertical-align: top;
+  margin: 10px 0 0 10px;
+}
+
+.header-inner {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+  min-width: 1140px;
+  height: 120px;
+}
+
+.header-left {
+  display: inline-block;
+  height: 120px;
+  width: 50%;
+  min-width: 550px;
 }
 
 .navbar {
   display: inline-block;
-  vertical-align: top;
   height: 120px;
-  width: 600px;
-  margin-left: auto;
+  width: 50%;
+  min-width: 570px;
+  text-align: center;
+  letter-spacing: 2px;
+  vertical-align: top;
 }
 
 .navbar-browse, .navbar-messages, .navbar-profile {
   display: inline-block;
   width: 120px;
   height: 120px;
-  text-align: center;
-  left: 10px;
+  vertical-align: middle;
+  margin: 0px 35px;
+}
+
+.navbar-browse-title {
+  display: inline-block;
+  height: 40px;
   vertical-align: middle;
 }
 
@@ -431,8 +441,9 @@ p {
   text-decoration: none;
 }
 
-.navbar-browse h2 {
+.navbar-browse h2, .navbar-messages-icon {
   color: #9dbaf2;
+  margin-top: 40px;
 }
 
 .navbar-profile > h2 {
