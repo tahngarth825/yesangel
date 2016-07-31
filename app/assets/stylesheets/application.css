@@ -144,7 +144,7 @@ h3, h4, li {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.browse-tile:hover, .navbar-profile:hover, .navbar-browse, .navbar-messages,
+.browse-tile:hover, .navbar-profile:hover, .browse, .navbar-messages-icon,
 .message-item-content:hover, .message-content:hover{
   cursor: pointer;
 }
@@ -391,7 +391,7 @@ p {
   text-align: left;
   vertical-align: top;
   width: 100%;
-  min-width: 1140px;
+  min-width: 1060px;
   height: 120px;
 }
 
@@ -399,31 +399,23 @@ p {
   display: inline-block;
   height: 120px;
   width: 50%;
-  min-width: 550px;
 }
 
 .navbar {
   display: inline-block;
   height: 120px;
   width: 50%;
-  min-width: 570px;
   text-align: center;
   letter-spacing: 2px;
   vertical-align: top;
 }
 
-.navbar-browse, .navbar-messages, .navbar-profile {
+.navbar-messages, .navbar-profile {
   display: inline-block;
   width: 120px;
   height: 120px;
   vertical-align: middle;
-  margin: 0px 35px;
-}
-
-.navbar-browse-title {
-  display: inline-block;
-  height: 40px;
-  vertical-align: middle;
+  margin-right: 35px;
 }
 
 .navbar-link {
@@ -441,24 +433,25 @@ p {
   text-decoration: none;
 }
 
-.navbar-browse h2, .navbar-messages-icon {
+.browse {
+  display: inline-block;
+  vertical-align: top;
   color: #9dbaf2;
-  margin-top: 40px;
+  width: 120px;
+  height: 40px;
+  margin: 40px 35px;
 }
 
-.navbar-profile > h2 {
-  display: inline-block;
-  vertical-align: bottom;
+.navbar-messages-icon {
+  color: #9dbaf2;
+  margin-top: 40px;
+  height: 50px;
+  width: 60px;
 }
 
 .navbar-profile-pic-box, .navbar-profile-pic {
   height: 120px;
   width: 120px;
-}
-
-.navbar-messages-icon {
-  height: 50px;
-  width: 60px;
 }
 
 .td-label {

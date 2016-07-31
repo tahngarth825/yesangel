@@ -509,7 +509,7 @@ User.create!({
 })
 
 User.create!({
-  username: "https://randomuser.me/api/portraits/men/61.jpg",
+  username: "AmazingGabe",
   password: "YesAngel",
   age: 30,
   location: "San Francisco",
@@ -520,7 +520,7 @@ User.create!({
   summary: "I like the outdoors, you can regularly find me along the PCT. Looking for someone who's interested in joining me on my adventures",
   hobbies: "Backpacking, camping, outdoor bouldering",
   favs: "Sleeping outdoors under a starry night sky",
-  pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_600,w_600/v1467850837/bradpitt_dqqcrg.jpg",
+  pic_url: "https://randomuser.me/api/portraits/men/61.jpg",
   ethnicity: "Caucasian",
   height: 72
 })

@@ -48,9 +48,9 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()){
       return(
         <div className="navbar">
-          {this.renderBrowse()}
           {this.renderMessages()}
           {this.renderProfile()}
+          { this.greeting() }
         </div>
       );
     }
@@ -63,9 +63,7 @@ const App = React.createClass({
 
   renderBrowse(){
     return (
-      <div className="navbar-browse" onClick={this.toUsers}>
-          <h2>Browse</h2>
-      </div>
+      <h2 className="browse" onClick={this.toUsers}>Browse</h2>
     );
   },
 
@@ -76,10 +74,11 @@ const App = React.createClass({
 
   renderMessages(){
     return (
-      <div className="navbar-messages" onClick={this.toMessages}>
+      <div className="navbar-messages">
           <img
             className="navbar-messages-icon"
-            src="https://res.cloudinary.com/tahngarth825/image/upload/v1468186495/message-icon_vmetxc.png"/>
+            src="http://res.cloudinary.com/tahngarth825/image/upload/v1469992729/blue_speech_bubble_hbqjs4.png"
+            onClick={this.toMessages}/>
       </div>
     );
   },
@@ -121,8 +120,7 @@ const App = React.createClass({
                     src="https://res.cloudinary.com/tahngarth825/image/upload/v1467914754/yesangel_d8mvr3.png"/>
                 </Link>
               </div>
-
-              { this.greeting() }
+              {this.renderBrowse()}
             </div>
 
             {this.renderNavBar()}
