@@ -1,5 +1,3 @@
-todo: make logout on right; browse on left
-
 # Yes Angel!
 
 [Heroku Link][heroku]
