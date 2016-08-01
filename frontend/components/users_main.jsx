@@ -61,7 +61,7 @@ const UsersMain = React.createClass({
     if (Object.keys(SessionStore.currentUser()).length === 0){
       return (
         <div>
-          
+
         </div>
       )
     }

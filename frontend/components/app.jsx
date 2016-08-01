@@ -75,10 +75,7 @@ const App = React.createClass({
   renderMessages(){
     return (
       <div className="navbar-messages">
-          <img
-            className="navbar-messages-icon"
-            src="http://res.cloudinary.com/tahngarth825/image/upload/v1469992729/blue_speech_bubble_hbqjs4.png"
-            onClick={this.toMessages}/>
+          <div className="navbar-messages-icon" onClick={this.toMessages}/>
       </div>
     );
   },
@@ -101,9 +98,7 @@ const App = React.createClass({
 
     return (
       <div className="navbar-profile" onClick={this.toProfile}>
-          <div className="navbar-profile-pic-box">
-            {pic}
-          </div>
+        {pic}
       </div>
     );
   },

@@ -144,9 +144,10 @@ h3, h4, li {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.browse-tile:hover, .navbar-profile:hover, .browse, .navbar-messages-icon,
+.browse-tile:hover, .navbar-profile:hover, .browse:hover, .navbar-messages-icon:hover,
 .message-item-content:hover, .message-content:hover{
   cursor: pointer;
+  color: white;
 }
 
 .profile-pic {
@@ -184,12 +185,6 @@ h3, h4, li {
   display: inline-block;
   text-align: center;
   width: 100%;
-}
-
-.basics-input {
-  vertical-align: middle;
-  margin: 6px;
-  padding: 3px;
 }
 
 .blue-button{
@@ -443,16 +438,46 @@ p {
 }
 
 .navbar-messages-icon {
-  color: #9dbaf2;
-  margin-top: 40px;
-  height: 50px;
+  display: inline-block;
+  margin-top: 34px;
   width: 60px;
+  height: 54px;
+  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_60/v1469992729/blue_speech_bubble_hbqjs4.png");
+  background-repeat: no-repeat;
 }
 
-.navbar-profile-pic-box, .navbar-profile-pic {
+.navbar-messages-icon:hover {
+  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_60/v1469926301/speech_bubble_wp5r0y.png");
+  background-repeat: no-repeat;
+}
+
+.navbar-profile-pic {
   height: 120px;
   width: 120px;
+  border-radius: 50%;
+  transition: all 0.4s ease;
 }
+
+.navbar-profile-pic:hover
+{
+  transform: scale(1.1);
+}
+
+/*.navbar-profile-pic:hover {
+  animation: popout 1s ease;
+  -webkit-animation: popout 1s ease;
+}
+
+@keyframes popout {
+    from{transform:scale(.8)}
+    to 80%{transform:scale(1.2)}
+    to{transform:scale(1.2)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(.8)}
+    to 80%{-webkit-transform:scale(1.2)}
+    to{-webkit-transform:scale(1.2)}
+}*/
 
 .td-label {
   font-weight: bold;

@@ -136,7 +136,7 @@ const Filter = React.createClass({
             <label className="filter-location">	Location:
                 <select value={this.data.location}
                   onChange={this.update("location")}
-                  className="basics-input"
+                  className="react-select"
                   >
                   {
                     TraitConstants.location.map( function(location){
