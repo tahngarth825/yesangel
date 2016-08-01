@@ -92,7 +92,7 @@ const Filter = React.createClass({
   parser(property, value){
     if (property === "age") {
       if (value === 60){
-        return (value + " or more");
+        return (value + "+");
       }
     }
     return value;
@@ -152,26 +152,38 @@ const Filter = React.createClass({
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Youngest desired age: {that.parser("age", that.data.lf_min_age)}
+            <label className="slider-label" htmlFor="lf_min_age">
+              Youngest desired age
+              <br/>
+              <p className="edge-modifier">
+                {that.parser("age", that.data.lf_min_age)}
+              </p>
+            </label>
               <input type="range"
                 min="18"
                 max="60"
                 defaultValue={that.data.lf_min_age}
                 onChange={this.update("lf_min_age")}
-                className="slider"/>
-            </label>
+                className="slider"
+                id="lf_min_age"/>
           </div>
 
           <div className="filter-age">
             <br />
-            <label className="slider-label"> Oldest desired age:	{that.parser("age", that.data.lf_max_age)}
+            <label className="slider-label" htmlFor="lf_max_age">
+              Oldest desired age
+              <br/>
+              <p className="edge-modifier">
+                {that.parser("age", that.data.lf_max_age)}
+              </p>
+            </label>
                 <input type="range"
                   min="18"
                   max="60"
                   defaultValue={that.data.lf_max_age}
                   onChange={this.update("lf_max_age")}
-                  className="slider"/>
-            </label>
+                  className="slider"
+                  id="lf_max_age"/>
           </div>
         </form>
       );
