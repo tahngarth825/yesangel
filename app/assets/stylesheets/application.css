@@ -27,6 +27,9 @@ footer, header, menu, nav, section {
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  vertical-align: top;
 }
 
 ::-webkit-scrollbar {
@@ -121,6 +124,7 @@ h3, h4, li {
   vertical-align: top;
   display: inline-block;
   width: auto;
+  text-align: center;
 }
 
 .login-submit {
@@ -244,27 +248,35 @@ textarea {
   background-color: rgb(50, 96, 199);
 }
 
-.filter-gender {
-  margin: 0 auto 10px auto;
-  padding: 0 auto 10px auto;
+.filter-lf_gender {
+  margin-top: 5px;
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  height: auto;
 }
 
-.gender-checkbox {
+.checkbox-box {
   display: inline-block;
-  padding: 5px 10px;
+  text-align: left;
+  width: auto;
+}
+
+li {
+  width: auto;
 }
 
 .filter-age {
-  margin: 10px;
-  padding: 0 5px 0 5px;
-  height: 101px;
+  margin: 0 10px;
+  padding: 0 5px;
+  height: auto;
   width: auto;
   display: inline-block;
 }
 
 .filter-location {
-  margin: 10px;
-  padding: 10px;
+  margin: 0 10px;
+  padding: 0 10px;
   display: inline-block;
 }
 
@@ -294,7 +306,7 @@ textarea {
 .react-select {
   padding: 5px 10px;
   width: 170px;
-  margin: 10px;
+  margin: 0 10px;
   -webkit-appearance: button;
   -webkit-border-radius: 2px;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -313,12 +325,20 @@ textarea {
   text-align-last:center;
 }
 
-.checkbox-box {
-  width: 460px;
+input[type="checkbox"] {
+  display:none;
 }
-
-.checkbox {
-  padding: 5px 10px;
+input[type="checkbox"] + label span {
+  display:inline-block;
+  width:19px;
+  height:19px;
+  margin:-1px 4px 0 0;
+  vertical-align:middle;
+  background:url("http://res.cloudinary.com/tahngarth825/image/upload/v1470075627/okc_checkboxes_do5qpv.png") left top no-repeat;
+  cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+  background:url("http://res.cloudinary.com/tahngarth825/image/upload/v1470075627/okc_checkboxes_do5qpv.png") left -77px no-repeat;
 }
 
 .slider {

@@ -113,25 +113,29 @@ const Filter = React.createClass({
           <h2>Your desired traits in your partner: </h2>
 
 
-            <div className="filter-gender">
-              Gender(s) of interest:
-                  {
-                    TraitConstants.lf_gender.map( function(lf_gender){
-                      return (
-                        <div className="lf_gender-checkbox" key={lf_gender.value}>
-                          <label htmlFor={lf_gender.value} className="checkbox-label">
-                            {lf_gender.label}
-                          </label>
-                          <input type="checkbox"
-                            checked={that.checkGender(lf_gender.value)}
-                            id={lf_gender.value}
-                            value={lf_gender.value}
-                            onChange={that.update("lf_gender")} />
-                        </div>
-                      );
-                    })
-                  }
-            </div>
+          <div className="filter-lf_gender">
+            <label htmlFor="lf_gender">Gender(s) of interest</label>
+            <br/>
+            <ul className="checkbox-box" id="lf_gender">
+              {
+                TraitConstants.lf_gender.map( function(lf_gender){
+                  return (
+                    <li key={lf_gender.value}>
+                      <input type="checkbox"
+                        checked={that.checkGender(lf_gender.value)}
+                        id={lf_gender.value}
+                        value={lf_gender.value}
+                        onChange={that.update("lf_gender")} />
+                      <label htmlFor={lf_gender.value} className="checkbox-label">
+                        <span></span>
+                        {lf_gender.label}
+                      </label>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
 
             <label className="filter-location">	Location:
                 <select value={this.data.location}
@@ -151,7 +155,6 @@ const Filter = React.createClass({
               </label>
 
           <div className="filter-age">
-            <br />
             <label className="slider-label" htmlFor="lf_min_age">
               Youngest desired age
               <br/>
@@ -169,7 +172,6 @@ const Filter = React.createClass({
           </div>
 
           <div className="filter-age">
-            <br />
             <label className="slider-label" htmlFor="lf_max_age">
               Oldest desired age
               <br/>

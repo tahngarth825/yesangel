@@ -209,26 +209,27 @@ const LoginForm = React.createClass({
 					<br />
 
 					<label htmlFor="lf_gender">Which gender(s) are you interested in?</label>
-					<div className="checkbox-box" id="lf_gender">
+					<br/>
+					<ul className="checkbox-box" id="lf_gender">
 						{
 							TraitConstants.lf_gender.map( function(lf_gender){
 								return (
-									<div key={lf_gender.value}>
+									<li key={lf_gender.value}>
+										<input type="checkbox"
+											id={lf_gender.value}
+											value={lf_gender.value}
+											onChange={that.update("lf_gender")} />
 										<label htmlFor={lf_gender.value} className="checkbox-label">
+											<span></span>
 											{lf_gender.label}
 										</label>
-											<input type="checkbox"
-												className="checkbox"
-												id={lf_gender.value}
-												value={lf_gender.value}
-												onChange={that.update("lf_gender")} />
-									</div>
+									</li>
 								);
 							})
 						}
-					</div>
+					</ul>
 
-					<br />
+					<br/> <br/>
 
 					<label htmlFor="lf_min_age">
 						What is the youngest age your desired person can be?
