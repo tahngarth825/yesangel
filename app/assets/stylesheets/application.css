@@ -59,10 +59,11 @@ header {
   position: relative;
   background-color: rgb(16, 77, 161);
   color: white;
-  height: 120px;
+  height: 66px;
   width: 100%;
   z-index: 2;
   text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 h1, h2, h5 {
@@ -136,7 +137,7 @@ h3, h4, li {
 .header-link {
   display: inline-block;
   width: 300px;
-  height: 100px;
+  height: 66px;
   z-index: 2;
   text-decoration: none;
 }
@@ -150,19 +151,20 @@ h3, h4, li {
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.browse-tile:hover, .navbar-profile:hover, .browse:hover, .navbar-messages-icon:hover,
+.browse-tile:hover, .navbar-profile:hover, .browse:hover,
 .message-item-content:hover, .message-content:hover{
   cursor: pointer;
 }
 
-.browse:hover, .navbar-messages-icon:hover, .navbar-profile:hover, .navbar-profile-words:hover{
+.browse:hover, .navbar-profile:hover, .navbar-profile-words:hover{
   color: white;
 }
 
 .profile-pic {
+  vertical-align: middle;
   display: inline-block;
   height: 300px;
-  width: 200px;
+  width: 300px;
 }
 
 .browse-tile-detail {
@@ -207,6 +209,19 @@ h3, h4, li {
   height: auto;
   font-size: 16px;
   padding: 10px 20px;
+  background: #4c7bd9;
+}
+.blue-button-logout {
+  display: inline-block;
+  border:1px solid #4879c1;
+  color: white;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  font-family: "Open Sans", sans-serif;
+  width: auto;
+  height: auto;
+  font-size: 12px;
+  padding: 5px 10px;
   background: #4c7bd9;
 }
 .blue-button:hover, .blue-button:active{
@@ -400,22 +415,21 @@ p {
 
 .logo{
   display: inline-block;
-  padding: 10px;
-  width: 300px;
-  height: 120px;
-  text-align: center;
+  width: 200px;
+  height: 66px;
 }
 
 .logo-pic {
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 66px;
 }
 
 .header-welcome-box {
   display: inline-block;
   text-align: center;
   vertical-align: top;
-  margin: 10px 0 0 10px;
+  font-size: 12px;
+  height: 66px;
 }
 
 .header-inner {
@@ -424,18 +438,18 @@ p {
   vertical-align: top;
   width: 100%;
   min-width: 1060px;
-  height: 120px;
+  height: 66px;
 }
 
 .header-left {
   display: inline-block;
-  height: 120px;
+  height: 66px;
   width: 50%;
 }
 
 .navbar {
   display: inline-block;
-  height: 120px;
+  height: 66px;
   width: 50%;
   text-align: center;
   letter-spacing: 2px;
@@ -444,8 +458,8 @@ p {
 
 .navbar-messages, .navbar-profile {
   display: inline-block;
-  width: 120px;
-  height: 120px;
+  width: 66px;
+  height: 66px;
   vertical-align: middle;
   margin-right: 35px;
 }
@@ -472,50 +486,36 @@ p {
   color: #9dbaf2;
   width: 120px;
   height: 40px;
-  margin: 40px 35px;
+  margin: 13px 35px;
 }
 
 .navbar-messages-icon {
   display: inline-block;
-  margin-top: 34px;
-  width: 60px;
-  height: 54px;
-  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_60/v1469992729/blue_speech_bubble_hbqjs4.png");
+  margin-top: 16px;
+  width: 40px;
+  height: 36px;
+  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_40/v1469992729/blue_speech_bubble_hbqjs4.png");
   background-repeat: no-repeat;
 }
 
 .navbar-messages-icon:hover {
-  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_60/v1469926301/speech_bubble_wp5r0y.png");
+  background-image: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,w_40/v1469926301/speech_bubble_wp5r0y.png");
   background-repeat: no-repeat;
+  color: white;
+  cursor: pointer;
 }
 
 .navbar-profile-pic {
-  padding: 20px;
-  height: 120px;
-  width: 120px;
+  padding: 10px;
+  height: 66px;
+  width: 66px;
   border-radius: 50%;
   transition: all 0.4s ease;
 }
 
 .navbar-profile-pic:hover, .browse-tile:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
-
-/*.navbar-profile-pic:hover {
-  animation: popout 1s ease;
-  -webkit-animation: popout 1s ease;
-}
-
-@keyframes popout {
-    from{transform:scale(.8)}
-    to 80%{transform:scale(1.2)}
-    to{transform:scale(1.2)}
-}
-@-webkit-keyframes popout {
-    from{-webkit-transform:scale(.8)}
-    to 80%{-webkit-transform:scale(1.2)}
-    to{-webkit-transform:scale(1.2)}
-}*/
 
 .td-label {
   font-weight: bold;
@@ -574,18 +574,33 @@ table, tr, td, th {
   text-align: center;
 }
 
+.user-main {
+  padding: 40px 30px;
+  display: inline-block;
+  width: 940px;
+  height: auto;
+  background-color: white;
+}
+
+.user-main-box {
+  display: block;
+  background-color: #104da1;
+  height: 100%;
+  width: 100%;
+  padding: 30px 40px;
+}
+
 .user-basics-box {
-  padding-top: 20px;
+  margin-top: 20px;
   vertical-align: middle;
   text-align: center;
   display: inline-block;
   width: auto;
-  height: auto;
+  height: 300px;
 }
 
 .profile-top-left {
-  display: inline-block;
-  width: auto;
+  display: block;
   height: auto;
 }
 

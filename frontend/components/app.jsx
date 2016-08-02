@@ -27,7 +27,7 @@ const App = React.createClass({
     	return (
     		<hgroup className="header-welcome-box">
     			<h3 className="header-welcome">Welcome, {SessionStore.currentUser().username}!</h3>
-    			<input className="blue-button"
+    			<input className="blue-button-logout"
             type="submit"
             value="Log out"
             onClick={ this._handleLogOut } />
