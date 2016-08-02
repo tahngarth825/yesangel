@@ -241,7 +241,7 @@ textarea {
 
 .filter-box{
   color: white;
-  display: inline-block;
+  flex: auto;
   margin: 0 auto;
   width: 100%;
   text-align: center;
@@ -342,9 +342,9 @@ input[type="checkbox"]:checked + label span {
 }
 
 .slider {
+  margin-top: 10px;
   background-color: #618bdd;
   width: 300px;
-  opacity: 0.5px;
   cursor: pointer;
   height: 2px;
 }
@@ -360,6 +360,14 @@ input[type="checkbox"]:checked + label span {
   margin: 10px auto;
   width: 200px;
   vertical-align: middle;
+}
+
+.slider-handle {
+  position: absolute;
+  top: -10px;
+  background: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_30,w_32/v1470114105/heart_mpdnx1.png");
+  height: 30px;
+  width: 32px;
 }
 
 .unbold {

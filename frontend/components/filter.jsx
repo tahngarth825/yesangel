@@ -177,8 +177,8 @@ const Filter = React.createClass({
                 id="lf_age"
                 withBars>
 
-                <div id='left-handle' className='my-handle'>{that.data.lf_min_age}</div>
-                <div id='right-handle' className='my-handle'>{that.data.lf_max_age}</div>
+                <div id='left-handle' className='slider-handle'></div>
+                <div id='right-handle' className='slider-handle'></div>
               </ReactSlider>
           </div>
         </form>
