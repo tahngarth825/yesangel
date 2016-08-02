@@ -203,10 +203,10 @@ h3, h4, li {
   -webkit-border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   font-family: "Open Sans", sans-serif;
-  width: 210px;
+  width: auto;
   height: auto;
   font-size: 16px;
-  padding: 10px 40px;
+  padding: 10px 20px;
   background: #4c7bd9;
 }
 .blue-button:hover, .blue-button:active{
@@ -490,6 +490,7 @@ p {
 }
 
 .navbar-profile-pic {
+  padding: 20px;
   height: 120px;
   width: 120px;
   border-radius: 50%;
