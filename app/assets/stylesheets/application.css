@@ -241,19 +241,19 @@ textarea {
 
 .filter-box{
   color: white;
-  flex: auto;
   margin: 0 auto;
+  padding: 10px 0;
   width: 100%;
   text-align: center;
   background-color: rgb(50, 96, 199);
 }
 
 .filter-lf_gender {
-  margin-top: 5px;
   text-align: center;
   display: inline-block;
   width: auto;
   height: auto;
+  margin-right: 10px;
 }
 
 .checkbox-box {
@@ -275,14 +275,14 @@ li {
 }
 
 .filter-location {
+  display: inline-block;
   margin: 0 10px;
   padding: 0 10px;
-  display: inline-block;
 }
 
 .filter-box > h2 {
   vertical-align: middle;
-  padding: 10px 0 0 0;
+  margin-bottom: 10px;
 }
 
 .browse-tile-box {
@@ -347,6 +347,10 @@ input[type="checkbox"]:checked + label span {
   width: 300px;
   cursor: pointer;
   height: 2px;
+}
+
+label {
+  margin-bottom: 10px;
 }
 
 .slider-label{

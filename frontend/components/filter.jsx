@@ -143,22 +143,27 @@ const Filter = React.createClass({
             </ul>
           </div>
 
-            <label className="filter-location">	Location:
-                <select value={this.data.location}
-                  onChange={this.update("location")}
-                  className="react-select"
-                  >
-                  {
-                    TraitConstants.location.map( function(location){
-                      return (
-                        <option value={location.value} key={location.value}>
-                          {location.label}
-                        </option>
-                      );
-                    })
-                  }
-                </select>
-              </label>
+          <div className="filter-location">
+            <label htmlFor="location">
+              Location:
+            </label>
+            <br/>
+            <select value={this.data.location}
+              onChange={this.update("location")}
+              className="react-select"
+              id="location"
+              >
+              {
+                TraitConstants.location.map( function(location){
+                  return (
+                    <option value={location.value} key={location.value}>
+                      {location.label}
+                    </option>
+                  );
+                })
+              }
+            </select>
+          </div>
 
           <div className="filter-age">
             <label className="slider-label" htmlFor="lf_age">
