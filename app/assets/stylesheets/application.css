@@ -125,10 +125,12 @@ h3, h4, li {
   display: inline-block;
   width: auto;
   text-align: center;
+  margin-left: 40px;
 }
 
 .login-submit {
   display: block;
+  margin-top: 30px;
 }
 
 .header-link {
@@ -153,7 +155,7 @@ h3, h4, li {
   cursor: pointer;
 }
 
-.browse:hover, .navbar-messages-icon:hover, .navbar-profile:hover{
+.browse:hover, .navbar-messages-icon:hover, .navbar-profile:hover, .navbar-profile-words:hover{
   color: white;
 }
 
@@ -241,11 +243,19 @@ textarea {
 
 .filter-box{
   color: white;
-  margin: 0 auto;
   padding: 10px 0;
   width: 100%;
-  text-align: center;
   background-color: rgb(50, 96, 199);
+}
+
+.filter-box > h2 {
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: center;
 }
 
 .filter-lf_gender {
@@ -253,22 +263,11 @@ textarea {
   display: inline-block;
   width: auto;
   height: auto;
-  margin-right: 10px;
-}
-
-.checkbox-box {
-  display: inline-block;
-  text-align: left;
-  width: auto;
-}
-
-li {
-  width: auto;
+  margin: 0 20px;
 }
 
 .filter-age {
-  margin: 0 10px;
-  padding: 0 5px;
+  margin: 0 20px;
   height: auto;
   width: auto;
   display: inline-block;
@@ -276,13 +275,17 @@ li {
 
 .filter-location {
   display: inline-block;
-  margin: 0 10px;
-  padding: 0 10px;
+  margin: 0 20px;
 }
 
-.filter-box > h2 {
-  vertical-align: middle;
-  margin-bottom: 10px;
+li {
+  width: auto;
+}
+
+.checkbox-box {
+  display: inline-block;
+  text-align: left;
+  width: auto;
 }
 
 .browse-tile-box {
@@ -306,7 +309,7 @@ li {
 .react-select {
   padding: 5px 10px;
   width: 170px;
-  margin: 0 10px;
+  margin: 10px 10px;
   -webkit-appearance: button;
   -webkit-border-radius: 2px;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -349,10 +352,6 @@ input[type="checkbox"]:checked + label span {
   height: 2px;
 }
 
-label {
-  margin-bottom: 10px;
-}
-
 .slider-label{
   display: block;
   margin: 0;
@@ -372,10 +371,6 @@ label {
   background: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_30,w_32/v1470114105/heart_mpdnx1.png");
   height: 30px;
   width: 32px;
-}
-
-.unbold {
-  font-weight: normal;
 }
 
 .checkbox-label {
@@ -457,6 +452,7 @@ p {
 }
 
 .navbar-profile-words {
+  margin-top: 40px;
   height: 75px;
   width: 120px;
   color: #9dbaf2;

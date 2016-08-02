@@ -6,6 +6,8 @@ const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const TraitConstants = require("../constants/trait_constants.js");
+const ReactSlider = require('../../lib/assets/react-slider.js');
+
 
 //Router
 const ReactRouter = require('react-router');
@@ -99,44 +101,48 @@ const LoginForm = React.createClass({
 
   update(property) {
 		const that = this;
-    return (
-			function(event) {
-				let value = event.target.value;
 
-				if (property === "lf_gender"){
-					const lf_gender = that.state.lf_gender;
-					const index = lf_gender.indexOf(value);
+    return (function(event) {
+			if (property === "lf_age") {
+        const minAge = event[0];
+        const maxAge = event[1];
 
-					if (index === -1){
-						lf_gender.push(value);
-						that.setState({[property]: lf_gender});
-					} else {
-						lf_gender.splice(index, 1);
-						that.setState({[property]: lf_gender});
-					}
+        that.setState({"lf_min_age": minAge, "lf_max_age": maxAge});
+        return;
+      }
 
-					return;
+			if (property === "age") {
+				that.setState({[property]: event});
+				return;
+			}
+
+			let value = event.target.value;
+
+			if (property === "lf_gender"){
+				const lfGender = that.state.lf_gender.slice();
+				const index = lfGender.indexOf(value);
+
+				if (index === -1){
+					lfGender.push(value);
+				} else {
+					lfGender.splice(index, 1);
 				}
 
-				if (property === "age" || property === "lf_min_age" ||
-					property === "lf_max_age")
-				{
-					value = parseInt(value);
-				}
+				that.setState({[property]: lfGender});
+			} else {
 				that.setState({[property]: value});
 			}
-		);
+		});
   },
 
 	edgeModifier(property, value){
-		if (property === "age") {
-			if (value === 60){
-				return (value + "+");
-			}
-		}
-
-		return value;
-	},
+    if (property === "age") {
+      if (value === 60){
+        return (value + "+");
+      }
+    }
+    return value;
+  },
 
 	signUpForm(){
 		const that = this;
@@ -145,22 +151,27 @@ const LoginForm = React.createClass({
 			return (
 				<div className="login-column-2">
 					<br />
+						<div className="login-age">
+							<label className="slider-label" htmlFor="age">
+								Your Age:
+								<br/>
+								<p className="edge-modifier">
+									{that.edgeModifier("age", that.state.age)}
+								</p>
+							</label>
+							<ReactSlider
+								min={18}
+								max={60}
+								defaultValue={that.state.age}
+								onChange={that.update("age")}
+								className="slider"
+								id="age"
+								withBars>
 
-					<label className="unbold" htmlFor="age">
-						<b>Age: </b>
-							<p className="edge-modifier">
-								{that.edgeModifier("age", that.state.age)}
-							</p>
-					</label>
-						<input type="range"
-							min={18}
-							max={60}
-							defaultValue={30}
-							onChange={this.update("age")}
-							id="age"
-							className="slider"/>
+								<div id='left-handle' className='slider-handle'></div>
+							</ReactSlider>
+						</div>
 
-					<br />
 
 
 					<label htmlFor="location">
@@ -231,39 +242,27 @@ const LoginForm = React.createClass({
 
 					<br/> <br/>
 
-					<label htmlFor="lf_min_age">
-						What is the youngest age your desired person can be?
-						<br/>
-						<p className="edge-modifier">
-							{that.edgeModifier("age", that.state.lf_min_age)}
-						</p>
-					</label>
-						<input type="range"
-							id="lf_min_age"
-							min="18"
-							max="60"
-							defaultValue="18"
-							onChange={this.update("lf_min_age")}
-							className="slider"/>
+					<div className="login-age">
+						<label className="slider-label" htmlFor="lf_age">
+							Desired Age Range
+							<br/>
+							<p className="edge-modifier">
+								{that.edgeModifier("age", that.state.lf_min_age)} - {that.edgeModifier("age", that.state.lf_max_age)}
+							</p>
+						</label>
+						<ReactSlider
+							min={18}
+							max={60}
+							defaultValue={[that.state.lf_min_age, that.state.lf_max_age]}
+							onChange={that.update("lf_age")}
+							className="slider"
+							id="lf_age"
+							withBars>
 
-					<br />
-
-					<label htmlFor="lf_max_age">
-						What is the oldest age your desired person can be?
-						<br/>
-						<p className="edge-modifier">
-							{that.edgeModifier("age", that.state.lf_max_age)}
-						</p>
-					</label>
-						<br/>
-							<input type="range"
-								id="lf_max_age"
-								min="18"
-								max="60"
-								defaultValue="60"
-								onChange={this.update("lf_max_age")}
-								className="slider"/>
-					<br/>
+							<div id='left-handle' className='slider-handle'></div>
+							<div id='right-handle' className='slider-handle'></div>
+						</ReactSlider>
+					</div>
 				</div>
 			);
 		}

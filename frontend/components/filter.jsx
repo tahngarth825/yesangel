@@ -63,20 +63,19 @@ const Filter = React.createClass({
       let value = event.currentTarget.value;
 
       if (property === "lf_gender"){
-        const gender = that.data.lf_gender.slice();
-        const old_gender = gender.splice();
-        const index = gender.indexOf(value);
+        const lfGender = that.data.lf_gender.slice();
+        const index = lfGender.indexOf(value);
 
         if (index === -1){
-          gender.push(value);
+          lfGender.push(value);
         } else {
-          gender.splice(index, 1);
+          lfGender.splice(index, 1);
         }
 
-        if (gender.length === 0){
+        if (lfGender.length === 0){
           alert("You must have at least one gender selected");
         } else {
-          that.data.lf_gender = gender;
+          that.data.lf_gender = lfGender;
           UserActions.filterUsers(that.data);
         }
         return;
@@ -96,7 +95,7 @@ const Filter = React.createClass({
     }
   },
 
-  parser(property, value){
+  edgeModifier(property, value){
     if (property === "age") {
       if (value === 60){
         return (value + "+");
@@ -116,63 +115,63 @@ const Filter = React.createClass({
       );
     } else {
       return (
-        <form className="filter-box">
+        <div className="filter-box">
           <h2>Your desired traits in your partner: </h2>
-
-          <div className="filter-lf_gender">
-            <label htmlFor="lf_gender">Gender(s) of interest</label>
-            <br/>
-            <ul className="checkbox-box" id="lf_gender">
-              {
-                TraitConstants.lf_gender.map( function(lf_gender){
-                  return (
-                    <li key={lf_gender.value}>
-                      <input type="checkbox"
-                        checked={that.checkGender(lf_gender.value)}
-                        id={lf_gender.value}
-                        value={lf_gender.value}
-                        onChange={that.update("lf_gender")} />
-                      <label htmlFor={lf_gender.value} className="checkbox-label">
-                        <span></span>
-                        {lf_gender.label}
-                      </label>
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </div>
-
-          <div className="filter-location">
-            <label htmlFor="location">
-              Location:
-            </label>
-            <br/>
-            <select value={this.data.location}
-              onChange={this.update("location")}
-              className="react-select"
-              id="location"
-              >
-              {
-                TraitConstants.location.map( function(location){
-                  return (
-                    <option value={location.value} key={location.value}>
-                      {location.label}
-                    </option>
-                  );
-                })
-              }
-            </select>
-          </div>
-
-          <div className="filter-age">
-            <label className="slider-label" htmlFor="lf_age">
-              Desired Age Range
+          <form className="filter-form">
+            <div className="filter-lf_gender">
+              <label htmlFor="lf_gender">Gender(s) of interest</label>
               <br/>
-              <p className="edge-modifier">
-                {that.parser("age", that.data.lf_min_age)} - {that.parser("age", that.data.lf_max_age)}
-              </p>
-            </label>
+              <ul className="checkbox-box" id="lf_gender">
+                {
+                  TraitConstants.lf_gender.map( function(lf_gender){
+                    return (
+                      <li key={lf_gender.value}>
+                        <input type="checkbox"
+                          checked={that.checkGender(lf_gender.value)}
+                          id={lf_gender.value}
+                          value={lf_gender.value}
+                          onChange={that.update("lf_gender")} />
+                        <label htmlFor={lf_gender.value} className="checkbox-label">
+                          <span></span>
+                          {lf_gender.label}
+                        </label>
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+            </div>
+
+            <div className="filter-location">
+              <label htmlFor="location">
+                Location:
+              </label>
+              <br/>
+              <select value={this.data.location}
+                onChange={this.update("location")}
+                className="react-select"
+                id="location"
+                >
+                {
+                  TraitConstants.location.map( function(location){
+                    return (
+                      <option value={location.value} key={location.value}>
+                        {location.label}
+                      </option>
+                    );
+                  })
+                }
+              </select>
+            </div>
+
+            <div className="filter-age">
+              <label className="slider-label" htmlFor="lf_age">
+                Desired Age Range
+                <br/>
+                <p className="edge-modifier">
+                  {that.edgeModifier("age", that.data.lf_min_age)} - {that.edgeModifier("age", that.data.lf_max_age)}
+                </p>
+              </label>
               <ReactSlider
                 min={18}
                 max={60}
@@ -185,8 +184,9 @@ const Filter = React.createClass({
                 <div id='left-handle' className='slider-handle'></div>
                 <div id='right-handle' className='slider-handle'></div>
               </ReactSlider>
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
       );
     }
   }
