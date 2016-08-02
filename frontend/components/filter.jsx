@@ -4,6 +4,7 @@ const UserActions = require("../actions/user_actions.js");
 const UserStore = require("../stores/user_store.js");
 const TraitConstants = require("../constants/trait_constants.js");
 const SessionActions = require("../actions/session_actions.js");
+const ReactSlider = require('../../lib/assets/react-slider.js');
 
 window.SessionStore = SessionStore;
 window.UserStore = UserStore;
@@ -48,6 +49,16 @@ const Filter = React.createClass({
     const that = this;
 
     return (function(event){
+      if (property === "lf_age") {
+        const minAge = event[0];
+        const maxAge = event[1];
+
+        that.data["lf_min_age"] = minAge;
+        that.data["lf_max_age"] = maxAge;
+
+        UserActions.filterUsers(that.data);
+        return;
+      }
 
       let value = event.currentTarget.value;
 
@@ -69,10 +80,6 @@ const Filter = React.createClass({
           UserActions.filterUsers(that.data);
         }
         return;
-      }
-
-      if (property === "lf_min_age" || property === "lf_max_age") {
-        value = parseInt(value);
       }
 
       that.data[property] = value;
@@ -111,7 +118,6 @@ const Filter = React.createClass({
       return (
         <form className="filter-box">
           <h2>Your desired traits in your partner: </h2>
-
 
           <div className="filter-lf_gender">
             <label htmlFor="lf_gender">Gender(s) of interest</label>
@@ -155,37 +161,25 @@ const Filter = React.createClass({
               </label>
 
           <div className="filter-age">
-            <label className="slider-label" htmlFor="lf_min_age">
-              Youngest desired age
+            <label className="slider-label" htmlFor="lf_age">
+              Desired Age Range
               <br/>
               <p className="edge-modifier">
-                {that.parser("age", that.data.lf_min_age)}
+                {that.parser("age", that.data.lf_min_age)} - {that.parser("age", that.data.lf_max_age)}
               </p>
             </label>
-              <input type="range"
-                min="18"
-                max="60"
-                defaultValue={that.data.lf_min_age}
-                onChange={this.update("lf_min_age")}
+              <ReactSlider
+                min={18}
+                max={60}
+                defaultValue={[that.data.lf_min_age, that.data.lf_max_age]}
+                onChange={that.update("lf_age")}
                 className="slider"
-                id="lf_min_age"/>
-          </div>
+                id="lf_age"
+                withBars>
 
-          <div className="filter-age">
-            <label className="slider-label" htmlFor="lf_max_age">
-              Oldest desired age
-              <br/>
-              <p className="edge-modifier">
-                {that.parser("age", that.data.lf_max_age)}
-              </p>
-            </label>
-                <input type="range"
-                  min="18"
-                  max="60"
-                  defaultValue={that.data.lf_max_age}
-                  onChange={this.update("lf_max_age")}
-                  className="slider"
-                  id="lf_max_age"/>
+                <div id='left-handle' className='my-handle'>{that.data.lf_min_age}</div>
+                <div id='right-handle' className='my-handle'>{that.data.lf_max_age}</div>
+              </ReactSlider>
           </div>
         </form>
       );

@@ -75,7 +75,7 @@ const App = React.createClass({
   renderMessages(){
     return (
       <div className="navbar-messages">
-          <div className="navbar-messages-icon" onClick={this.toMessages}/>
+        <div className="navbar-messages-icon" onClick={this.toMessages}/>
       </div>
     );
   },

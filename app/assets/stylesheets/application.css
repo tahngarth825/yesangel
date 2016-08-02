@@ -342,11 +342,11 @@ input[type="checkbox"]:checked + label span {
 }
 
 .slider {
-  display: block;
+  background-color: #618bdd;
   width: 300px;
-  vertical-align: middle;
-  text-align: center;
-  margin: auto;
+  opacity: 0.5px;
+  cursor: pointer;
+  height: 2px;
 }
 
 .slider-label{
