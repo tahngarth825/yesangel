@@ -183,20 +183,33 @@ h3, h4, li {
   padding: 20px;
   display: inline-block;
   width: 300px;
-  border: 2px solid black;
   text-align: center;
   vertical-align: bottom;
   height: 300px;
 }
 
 .user-tabs-item {
-  margin: 5px;
+  text-decoration: none;
+  color: #474d59;
+  font-size: 18px;
+  margin-right: 30px;
+}
+.user-tabs-item-active {
+  text-decoration: none;
+  border-bottom: 2px solid #4c7bd9;
+  color: #4c7bd9;
+  font-size: 18px;
+  margin-right: 30px;
+  padding-bottom: 10px;
+}
+.user-tabs-item:hover {
+  color: #4c7bd9;
 }
 
 .user-tabs-box {
   display: inline-block;
-  text-align: center;
-  width: 100%;
+  text-align: left;
+  width: auto;
   margin: 10px 0;
 }
 
@@ -296,8 +309,8 @@ textarea {
 
 .profile-age {
   display: inline-block;
-  margin-bottom: 20px;
-  width: 200px
+  margin: 20px 0;
+  width: 200px;
 }
 
 .filter-location {
@@ -605,6 +618,7 @@ table, tr, td, th {
   width: 940px;
   height: auto;
   background-color: #f3f5f9;
+  color: #474d59;
 }
 
 .user-main-box {
@@ -616,8 +630,6 @@ table, tr, td, th {
 }
 
 .user-basics-box {
-  vertical-align: middle;
-  text-align: center;
   display: inline-block;
   width: 600px;
   height: 300px;
@@ -626,6 +638,11 @@ table, tr, td, th {
 .profile-top-left {
   display: block;
   height: auto;
+}
+
+.profile-top {
+  text-align: left;
+  border-bottom: 1px solid #ccd0d9;
 }
 
 .upload-form {

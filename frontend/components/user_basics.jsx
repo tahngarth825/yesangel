@@ -127,31 +127,29 @@ const UserBasics = React.createClass({
 
     return(
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
-          <h3>Your Basic Info: </h3>
-
           <label htmlFor="username"> Username: </label>
             <p id="username">{this.state.username}</p>
 
-              <div className="profile-age">
-  							<label className="slider-label" htmlFor="age">
-  								Your Age:
-  								<br/>
-  								<p className="profile-edge-modifier">
-  									{that.edgeModifier("age", that.state.age)}
-  								</p>
-  							</label>
-  							<ReactSlider
-  								min={18}
-  								max={60}
-  								defaultValue={that.state.age}
-  								onChange={that.update("age")}
-  								className="profile-age-slider"
-  								id="age"
-  								withBars>
+          <div className="profile-age">
+						<label className="slider-label" htmlFor="age">
+							Your Age:
+							<br/>
+							<p className="profile-edge-modifier">
+								{that.edgeModifier("age", that.state.age)}
+							</p>
+						</label>
+						<ReactSlider
+							min={18}
+							max={60}
+							defaultValue={that.state.age}
+							onChange={that.update("age")}
+							className="profile-age-slider"
+							id="age"
+							withBars>
 
-  								<div id='left-handle' className='slider-handle'></div>
-  							</ReactSlider>
-  						</div>
+							<div id='left-handle' className='slider-handle'></div>
+						</ReactSlider>
+					</div>
 
           <label className="basic-location" htmlFor="location">
             Location:
@@ -159,7 +157,7 @@ const UserBasics = React.createClass({
           </label>
               <select value={this.state.location}
                 onChange={this.update("location")}
-                className="basics-input"
+                className="react-select"
                 id="location"
                 >
                 {
@@ -173,7 +171,7 @@ const UserBasics = React.createClass({
                 }
               </select>
 
-            <br/><br/>
+            <br/>
 
   				<label htmlFor="gender">
             Gender
@@ -181,7 +179,7 @@ const UserBasics = React.createClass({
           </label>
               <select value={this.state.gender}
                 onChange={this.update("gender")}
-                className="basics-input"
+                className="react-select"
                 id="gender">
                 {
                   TraitConstants.gender.map( function(gender){
