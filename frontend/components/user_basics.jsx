@@ -136,7 +136,7 @@ const UserBasics = React.createClass({
   							<label className="slider-label" htmlFor="age">
   								Your Age:
   								<br/>
-  								<p className="edge-modifier">
+  								<p className="profile-edge-modifier">
   									{that.edgeModifier("age", that.state.age)}
   								</p>
   							</label>
@@ -145,7 +145,7 @@ const UserBasics = React.createClass({
   								max={60}
   								defaultValue={that.state.age}
   								onChange={that.update("age")}
-  								className="slider"
+  								className="profile-age-slider"
   								id="age"
   								withBars>
 
@@ -153,10 +153,14 @@ const UserBasics = React.createClass({
   							</ReactSlider>
   						</div>
 
-          <label className="basic-location">	Location:
+          <label className="basic-location" htmlFor="location">
+            Location:
+            <br/>
+          </label>
               <select value={this.state.location}
                 onChange={this.update("location")}
                 className="basics-input"
+                id="location"
                 >
                 {
                   TraitConstants.location.map( function(location){
@@ -168,15 +172,17 @@ const UserBasics = React.createClass({
                   })
                 }
               </select>
-            </label>
 
             <br/><br/>
-            
-  				<label>	Gender:
+
+  				<label htmlFor="gender">
+            Gender
+            <br/>
+          </label>
               <select value={this.state.gender}
                 onChange={this.update("gender")}
                 className="basics-input"
-                >
+                id="gender">
                 {
                   TraitConstants.gender.map( function(gender){
                     return (
@@ -187,7 +193,6 @@ const UserBasics = React.createClass({
                   })
                 }
               </select>
-  					</label>
         </form>
     );
   },

@@ -197,6 +197,7 @@ h3, h4, li {
   display: inline-block;
   text-align: center;
   width: 100%;
+  margin: 10px 0;
 }
 
 .blue-button{
@@ -378,6 +379,14 @@ input[type="checkbox"]:checked + label span {
   margin-top: 10px;
   background-color: #618bdd;
   width: 300px;
+  cursor: pointer;
+  height: 2px;
+}
+
+.profile-age-slider {
+  margin-top: 10px;
+  background-color: #618bdd;
+  width: 200px;
   cursor: pointer;
   height: 2px;
 }
@@ -644,6 +653,10 @@ table, tr, td, th {
 
 .edge-modifier {
   color: yellow;
+}
+
+.profile-edge-modifier {
+  color: #104da1;
 }
 
 button:hover{
