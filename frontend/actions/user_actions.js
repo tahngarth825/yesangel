@@ -31,7 +31,9 @@ const UserActions = {
 
   updateUser(user, callback){
     UserApiUtil.editUser(user, SessionActions.receiveCurrentUser);
-    callback();
+    if (callback){
+      callback();
+    }
   },
 
   filterUsers(filter){

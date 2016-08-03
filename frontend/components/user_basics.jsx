@@ -5,6 +5,7 @@ const UserActions = require("../actions/user_actions.js");
 const ReactDOM = require("react-dom");
 const TraitConstants = require("../constants/trait_constants.js");
 const SessionAction = require("../actions/session_actions.js");
+const ReactSlider = require('../../lib/assets/react-slider.js');
 
 const UserBasics = React.createClass({
   getInitialState(){
@@ -114,7 +115,7 @@ const UserBasics = React.createClass({
   edgeModifier(property, value){
     if (property === "age") {
       if (value === 60){
-        return (value + " or more");
+        return (value + "+");
       }
     }
 
@@ -123,6 +124,7 @@ const UserBasics = React.createClass({
 
   handleEditable(){
     const that = this;
+
     return(
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
           <h3>Your Basic Info: </h3>
@@ -130,14 +132,26 @@ const UserBasics = React.createClass({
           <label htmlFor="username"> Username: </label>
             <p id="username">{this.state.username}</p>
 
-          <label className="slider-label"> <b>Age:</b> {that.edgeModifier("age", that.state.age)}
-						<input type="range"
-							min="18"
-							max="60"
-							defaultValue={this.state.age}
-							onChange={this.update("age")}
-							className="slider-small"/>
-					</label>
+              <div className="profile-age">
+  							<label className="slider-label" htmlFor="age">
+  								Your Age:
+  								<br/>
+  								<p className="edge-modifier">
+  									{that.edgeModifier("age", that.state.age)}
+  								</p>
+  							</label>
+  							<ReactSlider
+  								min={18}
+  								max={60}
+  								defaultValue={that.state.age}
+  								onChange={that.update("age")}
+  								className="slider"
+  								id="age"
+  								withBars>
+
+  								<div id='left-handle' className='slider-handle'></div>
+  							</ReactSlider>
+  						</div>
 
           <label className="basic-location">	Location:
               <select value={this.state.location}
@@ -156,7 +170,8 @@ const UserBasics = React.createClass({
               </select>
             </label>
 
-            <br />
+            <br/><br/>
+            
   				<label>	Gender:
               <select value={this.state.gender}
                 onChange={this.update("gender")}
@@ -173,26 +188,24 @@ const UserBasics = React.createClass({
                 }
               </select>
   					</label>
-
-          <div className="submit-box">
-            <input className="submit" type="submit" value="Update Basic Info!"/>
-          </div>
         </form>
     );
   },
 
-  update(trait){
+  update(property){
     const that = this;
 
     return(function(event){
-      event.preventDefault();
+      if (property === "age") {
+				that.setState({[property]: event});
+				return;
+			}
+
       let value = event.currentTarget.value;
 
-      if (trait === "age") {
-        value = parseInt(value);
-      }
+      that.setState({[property]: value});
 
-      that.setState({[trait]: value});
+      window.setTimeout(that.handleSubmit, 1);
     });
   },
 

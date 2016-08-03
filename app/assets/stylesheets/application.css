@@ -289,6 +289,16 @@ textarea {
   display: inline-block;
 }
 
+.login-age {
+  margin-bottom: 20px;
+}
+
+.profile-age {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 200px
+}
+
 .filter-location {
   display: inline-block;
   margin: 0 20px;
