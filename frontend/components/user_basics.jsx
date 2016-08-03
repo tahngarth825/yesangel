@@ -135,7 +135,7 @@ const UserBasics = React.createClass({
 							Your Age:
 							<br/>
 							<p className="profile-edge-modifier">
-								{that.edgeModifier("age", that.state.age)}
+                {that.edgeModifier("age", that.state.age)}
 							</p>
 						</label>
 						<ReactSlider
@@ -200,16 +200,17 @@ const UserBasics = React.createClass({
 
     return(function(event){
       if (property === "age") {
-				that.setState({[property]: event});
-        window.setTimeout(that.handleSubmit, .2);
+				that.setState({[property]: event}, function() {
+          that.handleSubmit();
+        });
 				return;
 			}
 
       let value = event.currentTarget.value;
 
-      that.setState({[property]: value});
-
-      window.setTimeout(that.handleSubmit, 1);
+      that.setState({[property]: value}, function(){
+        that.handleSubmit();
+      });
     });
   },
 
