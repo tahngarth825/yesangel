@@ -93,7 +93,10 @@ const UserQuestions = React.createClass({
     if (this.editable()){
       return(
         <form onSubmit={this.handleSubmit} className="user-questions-editable">
-          <input type="submit" value="Update Responses!"/>
+          <input type="submit"
+            value="Update Responses!"
+            className="blue-button"/>
+
           <table>
             <thead>
               <tr>
@@ -138,6 +141,9 @@ const UserQuestions = React.createClass({
               }
             </tbody>
           </table>
+          <input type="submit"
+            value="Update Responses!"
+            className="blue-button"/>
         </form>
       );
     } else {
