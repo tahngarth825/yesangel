@@ -174,18 +174,19 @@ h3, h4, li {
 .user-basics {
   display: inline-block;
   text-align: center;
-  width: 200px;
-  margin: 20px;
+  width: 300px;
+  height: 120px;
+  margin-top: 120px;
 }
 
 .user-basics-editable {
-  margin: 20px;
   padding: 20px;
   display: inline-block;
   width: 300px;
   border: 2px solid black;
   text-align: center;
   vertical-align: bottom;
+  height: 300px;
 }
 
 .user-tabs-item {
@@ -305,6 +306,7 @@ li {
 
 .browse-tile-box {
   display: block;
+  background-color: #f3f5f9;
 }
 
 .user-details-box {
@@ -583,7 +585,7 @@ table, tr, td, th {
   display: inline-block;
   width: 940px;
   height: auto;
-  background-color: white;
+  background-color: #f3f5f9;
 }
 
 .user-main-box {
@@ -595,11 +597,10 @@ table, tr, td, th {
 }
 
 .user-basics-box {
-  margin-top: 20px;
   vertical-align: middle;
   text-align: center;
   display: inline-block;
-  width: auto;
+  width: 600px;
   height: 300px;
 }
 
