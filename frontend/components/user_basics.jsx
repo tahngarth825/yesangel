@@ -201,6 +201,7 @@ const UserBasics = React.createClass({
     return(function(event){
       if (property === "age") {
 				that.setState({[property]: event});
+        window.setTimeout(that.handleSubmit, .2);
 				return;
 			}
 
