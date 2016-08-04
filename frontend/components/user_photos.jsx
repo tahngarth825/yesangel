@@ -70,8 +70,12 @@ const UserPhotos = React.createClass({
               this.state.photos.map(function (photo){
                 return (
                   <li className="user-photos-item" key={photo.id}>
-                    <img src={photo.url}/>
-                    <button onClick={that.handleDelete(photo.id)}>Delete Photo</button>
+                    <img src={photo.url} className="photo"/>
+                    <br/>
+                    <button onClick={that.handleDelete(photo.id)}
+                      className="blue-button">
+                      Delete Photo
+                    </button>
                   </li>
                 );
               })

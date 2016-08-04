@@ -159,11 +159,15 @@ const UserDetails = React.createClass({
     return (
 			function(event) {
         if (property === "lf_age") {
-  				that.setState({[property]: event}, function() {
-            UserActions.updateUser(this.extractUser());
+  				that.setState({
+            "lf_min_age": event[0],
+            "lf_max_age": event[1]
           });
   				return;
-  			}
+  			} else if (property === "height") {
+          that.setState({[property]: event});
+          return;
+				}
 
 				let value = event.target.value;
 
@@ -181,12 +185,6 @@ const UserDetails = React.createClass({
 
 					return;
 				}
-
-				if (property === "height")
-				{
-					value = parseInt(value);
-				}
-				that.setState({[property]: value});
 			}
 		);
   },
@@ -224,12 +222,14 @@ const UserDetails = React.createClass({
 
   handleEditable(){
     const that = this;
-    let num1 = 18;
-    let num2 = 60;
+    let minAge = 18;
+    let mageAge = 60;
+    let height = 60;
 
-    if (that.refs.slider) {
-      num1 = that.refs.slider.getValue()[0];
-      num2 = that.refs.slider.getValue()[1];
+    if (that.refs.age) {
+      minAge = that.refs.age.getValue()[0];
+      mageAge = that.refs.age.getValue()[1];
+      height = that.refs.height.getValue();
     }
 
     return (
@@ -275,15 +275,20 @@ const UserDetails = React.createClass({
           Height
           <br/>
           <label htmlFor="height" className="profile-edge-modifier">
-            {that.edgeModifier("height", this.state.height)}
+            {that.edgeModifier("height", height)}
           </label>
-          <input type="range"
-            min="48"
-            max="86"
-            defaultValue={this.state.height}
-            onChange={this.update("height")}
+          <ReactSlider
+            min={48}
+            max={86}
+            defaultValue={that.state.height}
+            onChange={that.update("height")}
             className="slider"
-            id="height"/>
+            id="height"
+            ref="height"
+            withBars>
+
+            <div id='left-handle' className='slider-handle'></div>
+          </ReactSlider>
         </div>
 
         <div className="detail">
@@ -291,7 +296,7 @@ const UserDetails = React.createClass({
             Desired Age Range
             <br/>
             <p className="profile-edge-modifier">
-              {that.edgeModifier("age", num1)} - {that.edgeModifier("age", num2)}
+              {that.edgeModifier("age", minAge)} - {that.edgeModifier("age", mageAge)}
             </p>
           </label>
           <ReactSlider
@@ -301,7 +306,7 @@ const UserDetails = React.createClass({
             onChange={that.update("lf_age")}
             className="slider"
             id="lf_age"
-            ref="slider"
+            ref="age"
             withBars>
 
             <div id='left-handle' className='slider-handle'></div>

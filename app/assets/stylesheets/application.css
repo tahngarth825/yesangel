@@ -174,7 +174,7 @@ h3, h4, li {
 .user-basics {
   display: inline-block;
   text-align: center;
-  width: 300px;
+  width: 230px;
   height: 120px;
   margin-top: 120px;
 }
@@ -210,7 +210,7 @@ h3, h4, li {
   display: inline-block;
   text-align: left;
   width: auto;
-  margin: 10px 0;
+  margin: 20px 0 10px 0;
 }
 
 .blue-button{
@@ -245,7 +245,7 @@ h3, h4, li {
 }
 
 .user-about-box {
-  margin: 10px 0;
+  margin: 20px 0;
   text-align: left;
   display: inline-block;
   width: 880px;
@@ -648,7 +648,7 @@ table, tr, td, th {
 
 .user-basics-box {
   display: inline-block;
-  width: 600px;
+  width: auto;
   height: 300px;
 }
 
@@ -673,7 +673,11 @@ table, tr, td, th {
 
 .user-photos-item{
   padding: 20px;
-  display: inline-block;
+  display: block;
+}
+
+.photo {
+  margin-bottom: 20px;
 }
 
 .user-questions-box{
