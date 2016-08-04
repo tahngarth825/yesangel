@@ -69,11 +69,13 @@ const MessageItem = React.createClass({
     // if (this.state.clicked === true){
       return (
         <form className="message-reply" onSubmit={this.handleSubmit}>
-          <input type="textarea"
+          <textarea
             value={this.state.message.content}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="message-reply-content"/>
 
-          <input type="submit" value="Reply!"/>
+          <br/>
+          <input type="submit" value="Reply!" className="small-grey-button"/>
         </form>
       );
     // }

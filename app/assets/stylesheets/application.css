@@ -239,6 +239,25 @@ h3, h4, li {
   padding: 5px 10px;
   background: #4c7bd9;
 }
+.blue-button:hover, .blue-button:active,
+.small-grey-button:hover, .small-grey-button:active,
+.blue-button-logout {
+  background-color: #618bdd;
+  cursor: pointer;
+}
+.small-grey-button{
+  display: inline-block;
+  border: 1px solid #ccd0d9;
+  color: #474d59;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  font-family: "Open Sans", sans-serif;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  padding: 5px;
+}
+
 .blue-button:hover, .blue-button:active{
   background-color: #618bdd;
   cursor: pointer;
@@ -576,11 +595,17 @@ p {
   font-weight: bold;
 }
 
+.message-item-item {
+  display: inline-block;
+  width: 220px;
+}
 .message-item-item-more:hover{
   background-color: #ccd0d9;
 }
 
 .message-item-content {
+  display: inline-block;
+  width: 240px;
   text-align: left;
   padding: 0 0 10px 10px;
 }
@@ -636,15 +661,17 @@ table, tr, td, th {
   display: inline-block;
   text-align: center;
   vertical-align: top;
+  padding: 10px;
   margin-bottom: 10px;
   width: 450px;
   border: 1px solid #ccd0d9;
 }
 
 .user-message-table {
-  width: 450px;
+  width: 100%;
   display: inline-block;
   text-align: center;
+  padding: 0;
 }
 
 .user-main {
@@ -654,6 +681,17 @@ table, tr, td, th {
   height: auto;
   background-color: #f3f5f9;
   color: #474d59;
+}
+
+.message-maker {
+  padding: 10px;
+}
+.message-maker-content{
+  height: 100px;
+}
+.message-reply-content{
+  width: 90%;
+  height: 60px;
 }
 
 .user-main-box {

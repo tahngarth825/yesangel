@@ -115,12 +115,12 @@ const UserMessage = React.createClass({
   messageMaker(){
     return (
       <form className="message-maker" onSubmit={this.handleSubmit}>
-        <input type="textarea"
+        <textarea
           onChange={this.changeContent}
           value={this.state.message.content}
           className="message-maker-content"/>
 
-        <input type="submit" value="Send a Message!"/>
+        <input type="submit" value="Send a Message!" className="small-grey-button"/>
       </form>
     );
   },
