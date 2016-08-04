@@ -67,7 +67,7 @@ const Messages = React.createClass({
     }
 
     return (
-      <table>
+      <table className="message-table">
         <thead>
           <tr>
             <th className="th-user">User</th>

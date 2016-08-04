@@ -17,8 +17,14 @@ const MessageItem = React.createClass({
       if (this.props.message.content.length > 1) {
         if (idx === this.props.message.content.length-1) {
           return (
-            <div className="message-item-item" key={idx}>
-              {" . . ."} <br/> {content}
+            <div className="message-item-item-more" key={idx}>
+              <p className="ellipses">
+                {" . . ."}
+              </p>
+
+              <br/><br/>
+
+              {content}
             </div>
           );
         } else {

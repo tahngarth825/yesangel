@@ -207,9 +207,9 @@ h3, h4, li {
 }
 
 .user-tabs-box {
-  display: inline-block;
+  display: block;
   text-align: left;
-  width: auto;
+  width: 100%;
   margin: 20px 0 10px 0;
 }
 
@@ -576,26 +576,42 @@ p {
   font-weight: bold;
 }
 
-.message-item-item {
-  display: block;
-  padding: 10px;
+.message-item-item-more:hover{
+  background-color: #ccd0d9;
+}
+
+.message-item-content {
+  text-align: left;
+  padding: 0 0 10px 10px;
+}
+
+.ellipses {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 table, tr, td, th {
-  text-align: left;
   padding: 10px;
 }
 
 .th-user {
+  text-align: center;
   width: 100px;
 }
 
 .th-time {
+  text-align: center;
   width: 100px;
 }
 
 .th-content {
+  text-align: center;
   width: 400px;
+}
+
+.user-questions-table {
+  text-align: left;
 }
 
 .messages-box {
@@ -608,7 +624,7 @@ table, tr, td, th {
 .messages {
   padding: 30px;
   display: inline-block;
-  width: 650px;
+  width: 850px;
   background-color: rgb(243, 245, 249);
 }
 
@@ -617,14 +633,16 @@ table, tr, td, th {
 }
 
 .user-message {
-  display: block;
+  display: inline-block;
   text-align: center;
   vertical-align: top;
   margin-bottom: 10px;
+  width: 450px;
+  border: 1px solid #ccd0d9;
 }
 
-.user-message table {
-  width: 650px;
+.user-message-table {
+  width: 450px;
   display: inline-block;
   text-align: center;
 }
@@ -653,7 +671,7 @@ table, tr, td, th {
 }
 
 .profile-top-left {
-  display: block;
+  display: inline-block;
   height: auto;
 }
 

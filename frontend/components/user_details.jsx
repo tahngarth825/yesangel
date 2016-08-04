@@ -315,7 +315,7 @@ const UserDetails = React.createClass({
         </div>
 
         <div className="submit-box">
-          <input className="submit" type="submit" value="Update Details!"/>
+          <input className="blue-button" type="submit" value="Update Details!"/>
         </div>
       </form>
     );

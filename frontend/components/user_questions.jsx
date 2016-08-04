@@ -97,7 +97,7 @@ const UserQuestions = React.createClass({
             value="Update Responses!"
             className="blue-button"/>
 
-          <table>
+          <table className="user-questions-table">
             <thead>
               <tr>
                 <th className="th-question">Question</th>
@@ -148,7 +148,7 @@ const UserQuestions = React.createClass({
       );
     } else {
       return(
-        <table>
+        <table className="user-questions-table">
           <thead>
             <tr>
               <th className="th-question">Question</th>

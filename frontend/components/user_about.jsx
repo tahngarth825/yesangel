@@ -144,7 +144,7 @@ const UserAbout = React.createClass({
         <br/>
 
         <div className="submit-box">
-          <input className="submit" type="submit" value="Update Profile!"/>
+          <input className="blue-button" type="submit" value="Update Profile!"/>
         </div>
       </form>
     );

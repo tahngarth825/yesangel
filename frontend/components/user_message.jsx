@@ -63,7 +63,7 @@ const UserMessage = React.createClass({
     const that = this;
     if (this.state.existing === true) {
       return (
-        <table>
+        <table className="user-message-table">
           <thead>
             <tr>
               <th className="th-user">User</th>
