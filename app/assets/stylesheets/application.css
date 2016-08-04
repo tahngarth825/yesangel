@@ -694,8 +694,25 @@ table, tr, td, th {
   display: block;
 }
 
+.photo-container {
+  display: inline-block;
+  width: auto;
+  position: relative;
+}
+
 .photo {
   margin-bottom: 20px;
+}
+
+.photo-delete {
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+}
+.photo-delete:hover{
+  opacity: 1;
 }
 
 .user-questions-box{

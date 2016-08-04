@@ -64,24 +64,25 @@ const UserPhotos = React.createClass({
     if ( this.editable() ){
       return (
         <div>
-          <h2>Add a Photo!</h2>
+          <UploadButton/>
           <ul>
             {
               this.state.photos.map(function (photo){
                 return (
                   <li className="user-photos-item" key={photo.id}>
-                    <img src={photo.url} className="photo"/>
-                    <br/>
-                    <button onClick={that.handleDelete(photo.id)}
-                      className="blue-button">
-                      Delete Photo
-                    </button>
+                    <div className="photo-container">
+                      <img src={photo.url} className="photo"/>
+                      <br/>
+                      <button onClick={that.handleDelete(photo.id)}
+                        className="photo-delete">
+                        X
+                      </button>
+                    </div>
                   </li>
                 );
               })
             }
           </ul>
-          <UploadButton/>
         </div>
       );
     } else {
