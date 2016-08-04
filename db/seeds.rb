@@ -9,7 +9,7 @@
 #Seeds Photos
 Photo.create!({
   user_id: 1,
-  url: "http://res.cloudinary.com/tahngarth825/image/upload/v1468221956/bradpitt2_pxivac.jpg"
+  url: "https://res.cloudinary.com/tahngarth825/image/upload/v1468221956/bradpitt2_pxivac.jpg"
 })
 
 #Seeds questions
@@ -56,7 +56,7 @@ User.create!({
   summary: "I'm new to San Francisco and looking for someone to explore the city!",
   hobbies: "Hiking and exploring",
   favs: "I love action movies",
-  pic_url: "http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_300,w_200/v1470205046/yes_angel/xzr8ll2oy1vbag7axdia.jpg",
+  pic_url: "https://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_300,w_200/v1470205046/yes_angel/xzr8ll2oy1vbag7axdia.jpg",
   ethnicity: "Mixed",
   height: 72
 })

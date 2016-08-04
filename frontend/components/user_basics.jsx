@@ -125,6 +125,12 @@ const UserBasics = React.createClass({
   handleEditable(){
     const that = this;
 
+    let num = 18;
+
+    if (that.refs.slider) {
+      num = that.refs.slider.getValue();
+    }
+
     return(
         <form className="user-basics-editable" onSubmit={this.handleSubmit}>
           <label htmlFor="username"> Username: </label>
@@ -132,10 +138,10 @@ const UserBasics = React.createClass({
 
           <div className="profile-age">
 						<label className="slider-label" htmlFor="age">
-							Your Age:
+							Your Age
 							<br/>
 							<p className="profile-edge-modifier">
-                {that.edgeModifier("age", that.state.age)}
+                {that.edgeModifier("age",num)}
 							</p>
 						</label>
 						<ReactSlider
@@ -145,6 +151,7 @@ const UserBasics = React.createClass({
 							onChange={that.update("age")}
 							className="profile-age-slider"
 							id="age"
+              ref="slider"
 							withBars>
 
 							<div id='left-handle' className='slider-handle'></div>
