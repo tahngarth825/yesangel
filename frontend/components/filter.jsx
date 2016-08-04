@@ -107,6 +107,14 @@ const Filter = React.createClass({
   render(){
     const that = this;
 
+    let num1 = 18;
+    let num2 = 60;
+
+    if (that.refs.slider) {
+      num1 = that.refs.slider.getValue()[0];
+      num2 = that.refs.slider.getValue()[1];
+    }
+
     if (SessionStore.currentUser() === {}){
       return (
         <div>
@@ -169,7 +177,7 @@ const Filter = React.createClass({
                 Desired Age Range
                 <br/>
                 <p className="edge-modifier">
-                  {that.edgeModifier("age", that.data.lf_min_age)} - {that.edgeModifier("age", that.data.lf_max_age)}
+                  {that.edgeModifier("age", num1)} - {that.edgeModifier("age", num2)}
                 </p>
               </label>
               <ReactSlider
@@ -179,6 +187,7 @@ const Filter = React.createClass({
                 onChange={that.update("lf_age")}
                 className="slider"
                 id="lf_age"
+                ref="slider"
                 withBars>
 
                 <div id='left-handle' className='slider-handle'></div>

@@ -212,26 +212,29 @@ const UserDetails = React.createClass({
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
         <div className="detail">
-          <label> Desired gender:
-            <div className="checkbox-box">
+          <label htmlFor="lf_gender">
+            Desired gender
+          </label>
+            <br/>
+            <ul className="checkbox-box" id="lf_gender">
               {
                 TraitConstants.lf_gender.map( function(lf_gender){
                   return (
-                    <div className="checkbox-label" key={lf_gender.value}>
-                      <label htmlFor={lf_gender.value} className="checkbox-label">
-                        {lf_gender.label}
-                      </label>
+                    <li key={lf_gender.value}>
                       <input type="checkbox"
                         checked={that.checkGender(lf_gender.value)}
                         id={lf_gender.value}
                         value={lf_gender.value}
                         onChange={that.update("lf_gender")} />
-                    </div>
+                      <label htmlFor={lf_gender.value} className="checkbox-label">
+                        <span></span>
+                        {lf_gender.label}
+                      </label>
+                    </li>
                   );
                 })
               }
-            </div>
-          </label>
+            </ul>
         </div>
 
         <div className="detail">
