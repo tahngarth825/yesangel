@@ -90,17 +90,21 @@ const UserAbout = React.createClass({
     if (this.state.edit === false) {
       return (
         <div className="user-about">
-          <h3>About me: </h3>
-          {this.state.summary}
-          <br/>
 
-          <h3>What I like to do for fun: </h3>
-          {this.state.hobbies}
-          <br/>
+          <div className="user-about-detail">
+            <h3>About me: </h3>
+            {this.state.summary}
+          </div>
 
-          <h3>Some of my favorite things: </h3>
-          {this.state.favs}
-          <br/>
+          <div className="user-about-detail">
+            <h3>What I like to do for fun: </h3>
+            {this.state.hobbies}
+          </div>
+
+          <div className="user-about-detail">
+            <h3>Some of my favorite things: </h3>
+            {this.state.favs}
+          </div>
 
         </div>
       );
@@ -148,7 +152,7 @@ const UserAbout = React.createClass({
 
   render(){
     return(
-      <div className="user-about">
+      <div className="user-about-box">
         <UserDetails userId={parseInt(this.props.params.userId)}/>
         {this.handleDisplay()}
       </div>

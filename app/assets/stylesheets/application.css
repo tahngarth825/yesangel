@@ -244,15 +244,24 @@ h3, h4, li {
   cursor: pointer;
 }
 
-.user-about {
+.user-about-box {
   margin: 10px 0;
   text-align: left;
+  display: inline-block;
+  width: 880px;
+}
+
+.user-about {
+  display: inline-block;
+  width: 300px;
+}
+
+.user-about-detail {
+  margin: 20px 0;
 }
 
 .user-about-editable {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 10px 20px;
+  text-align: center;
   display: inline-block;
 }
 
@@ -309,7 +318,7 @@ textarea {
 
 .profile-age {
   display: inline-block;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 200px;
 }
 
@@ -337,6 +346,11 @@ li {
   display: inline-block;
   width: 250px;
   margin-right: 100px;
+  text-align: center;
+}
+
+.user-details > h4 {
+  border-top: 1px solid #ccd0d9;
 }
 
 .detail {
@@ -395,15 +409,15 @@ input[type="checkbox"]:checked + label span {
 }
 
 .slider {
-  margin-top: 10px;
+  margin: 10px auto;
   background-color: #618bdd;
-  width: 300px;
+  width: 200px;
   cursor: pointer;
   height: 2px;
 }
 
 .profile-age-slider {
-  margin-top: 10px;
+  margin: 10px 0;
   background-color: #618bdd;
   width: 200px;
   cursor: pointer;
@@ -426,6 +440,7 @@ input[type="checkbox"]:checked + label span {
 .slider-handle {
   position: absolute;
   top: -10px;
+  left: -16px;
   background: url("http://res.cloudinary.com/tahngarth825/image/upload/c_scale,h_30,w_32/v1470114105/heart_mpdnx1.png");
   height: 30px;
   width: 32px;
@@ -567,8 +582,7 @@ p {
 }
 
 table, tr, td, th {
-  border: 1px solid black;
-  text-align: center;
+  text-align: left;
   padding: 10px;
 }
 
@@ -606,6 +620,7 @@ table, tr, td, th {
   display: block;
   text-align: center;
   vertical-align: top;
+  margin-bottom: 10px;
 }
 
 .user-message table {
@@ -675,6 +690,8 @@ table, tr, td, th {
 }
 
 .profile-edge-modifier {
+  display: inline-block;
+  margin: 0 auto;
   color: #104da1;
 }
 

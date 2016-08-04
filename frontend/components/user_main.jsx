@@ -57,9 +57,9 @@ const UserMain = React.createClass({
             <div className="profile-top-left">
               <UserBasics userId={this.props.params.userId}/>
             </div>
+            {this.handleMessage()}
             <UserTabs userId={this.props.params.userId} location={this.props.location}/>
           </div>
-          {this.handleMessage()}
           {this.props.children}
         </div>
       </div>

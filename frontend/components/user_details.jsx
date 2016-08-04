@@ -4,6 +4,7 @@ const UserStore = require("../stores/user_store.js");
 const UserActions = require("../actions/user_actions.js");
 const TraitConstants = require("../constants/trait_constants.js");
 const SessionAction = require("../actions/session_actions.js");
+const ReactSlider = require('../../lib/assets/react-slider.js');
 
 const UserDetails = React.createClass({
   getInitialState(){
@@ -112,17 +113,26 @@ const UserDetails = React.createClass({
     if (this.state.edit === false) {
       return (
         <div className="user-details">
-          <h4>Gender(s) of interest:</h4>
-          {this.splitArray(this.state.lf_gender)}
 
-          <h4>Ethnicity:</h4>
-          {this.state.ethnicity}
+          <div className="detail">
+            <h4>Gender(s) of interest:</h4>
+            {this.splitArray(this.state.lf_gender)}
+          </div>
 
-          <h4>Height:</h4>
-          {this.state.height}
+          <div className="detail">
+            <h4>Ethnicity:</h4>
+            {this.state.ethnicity}
+          </div>
 
-          <h4>I'm looking for someone ages:</h4>
-          {this.state.lf_min_age + "-" + this.state.lf_max_age}
+          <div className="detail">
+            <h4>Height:</h4>
+            {this.state.height}
+          </div>
+
+          <div className="detail">
+            <h4>I'm looking for someone ages:</h4>
+            {this.state.lf_min_age + "-" + this.state.lf_max_age}
+          </div>
 
         </div>
       );
@@ -148,6 +158,13 @@ const UserDetails = React.createClass({
 		const that = this;
     return (
 			function(event) {
+        if (property === "lf_age") {
+  				that.setState({[property]: event}, function() {
+            UserActions.updateUser(this.extractUser());
+          });
+  				return;
+  			}
+
 				let value = event.target.value;
 
 				if (property === "lf_gender"){
@@ -165,8 +182,7 @@ const UserDetails = React.createClass({
 					return;
 				}
 
-				if (property === "lf_min_age" || property === "lf_max_age" ||
-          property === "age" || property === "height")
+				if (property === "height")
 				{
 					value = parseInt(value);
 				}
@@ -183,7 +199,7 @@ const UserDetails = React.createClass({
     }
   },
 
-  parser(property, value){
+  edgeModifier(property, value){
     if (property === "age") {
       if (value === 60){
         return (value + "+");
@@ -208,6 +224,13 @@ const UserDetails = React.createClass({
 
   handleEditable(){
     const that = this;
+    let num1 = 18;
+    let num2 = 60;
+
+    if (that.refs.slider) {
+      num1 = that.refs.slider.getValue()[0];
+      num2 = that.refs.slider.getValue()[1];
+    }
 
     return (
       <form onSubmit={this.handleSubmit} className="user-details-editable">
@@ -252,7 +275,7 @@ const UserDetails = React.createClass({
           Height
           <br/>
           <label htmlFor="height" className="profile-edge-modifier">
-            {that.parser("height", this.state.height)}
+            {that.edgeModifier("height", this.state.height)}
           </label>
           <input type="range"
             min="48"
@@ -264,33 +287,26 @@ const UserDetails = React.createClass({
         </div>
 
         <div className="detail">
-           Youngest desired age
-           <br/>
-          <label htmlFor="lf_min_age" className="profile-edge-modifier">
-            {that.parser("age", that.state.lf_min_age)}
+          <label className="slider-label" htmlFor="lf_age">
+            Desired Age Range
+            <br/>
+            <p className="profile-edge-modifier">
+              {that.edgeModifier("age", num1)} - {that.edgeModifier("age", num2)}
+            </p>
           </label>
-          <input type="range"
-            min="18"
-            max="60"
-            defaultValue={that.state.lf_min_age}
-            onChange={this.update("lf_min_age")}
+          <ReactSlider
+            min={18}
+            max={60}
+            defaultValue={[that.state.lf_min_age, that.state.lf_max_age]}
+            onChange={that.update("lf_age")}
             className="slider"
-            id="lf_min_age"/>
-        </div>
+            id="lf_age"
+            ref="slider"
+            withBars>
 
-        <div className="detail">
-          Oldest desired age
-          <br/>
-          <label htmlFor="lf_max_age" className="profile-edge-modifier">
-            {that.parser("age", that.state.lf_max_age)}
-          </label>
-          <input type="range"
-            min="18"
-            max="60"
-            defaultValue={that.state.lf_max_age}
-            onChange={this.update("lf_max_age")}
-            className="slider"
-            id="lf_max_age"/>
+            <div id='left-handle' className='slider-handle'></div>
+            <div id='right-handle' className='slider-handle'></div>
+          </ReactSlider>
         </div>
 
         <div className="submit-box">
