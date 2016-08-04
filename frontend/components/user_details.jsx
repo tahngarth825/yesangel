@@ -186,7 +186,7 @@ const UserDetails = React.createClass({
   parser(property, value){
     if (property === "age") {
       if (value === 60){
-        return (value + " or more");
+        return (value + "+");
       }
     }
 
@@ -238,17 +238,22 @@ const UserDetails = React.createClass({
         </div>
 
         <div className="detail">
-          <label> Ethnicity:
+          <label htmlFor="ethnicity">
+            Ethnicity
+            <br/>
+          </label>
             <input value={this.state.ethnicity}
               onChange={this.update("ethnicity")}
               className="basics-input"
-              />
-          </label>
+              id="ethnicity"/>
         </div>
 
         <div className="detail">
-          <label htmlFor="height"> Height: </label>
-          {that.parser("height", this.state.height)}
+          Height
+          <br/>
+          <label htmlFor="height" className="profile-edge-modifier">
+            {that.parser("height", this.state.height)}
+          </label>
           <input type="range"
             min="48"
             max="86"
@@ -259,8 +264,11 @@ const UserDetails = React.createClass({
         </div>
 
         <div className="detail">
-          <label htmlFor="lf_min_age"> Youngest desired age: </label>
-          {that.parser("age", that.state.lf_min_age)}
+           Youngest desired age
+           <br/>
+          <label htmlFor="lf_min_age" className="profile-edge-modifier">
+            {that.parser("age", that.state.lf_min_age)}
+          </label>
           <input type="range"
             min="18"
             max="60"
@@ -271,8 +279,11 @@ const UserDetails = React.createClass({
         </div>
 
         <div className="detail">
-          <label htmlFor="lf_max_age"> Oldest desired age:	</label>
-          {that.parser("age", that.state.lf_max_age)}
+          Oldest desired age
+          <br/>
+          <label htmlFor="lf_max_age" className="profile-edge-modifier">
+            {that.parser("age", that.state.lf_max_age)}
+          </label>
           <input type="range"
             min="18"
             max="60"
@@ -292,7 +303,7 @@ const UserDetails = React.createClass({
   render(){
     return(
       <div className="user-details-box">
-        <h3>My Details:</h3>
+        <h3>My Details</h3>
         {this.handleDisplay()}
       </div>
     );

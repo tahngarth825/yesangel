@@ -245,14 +245,14 @@ h3, h4, li {
 }
 
 .user-about {
-  margin: 10px 20px;
+  margin: 10px 0;
+  text-align: left;
 }
 
 .user-about-editable {
   border: 2px solid black;
   padding: 10px;
   margin: 10px 20px;
-  text-align: center;
   display: inline-block;
 }
 
@@ -335,10 +335,13 @@ li {
 
 .user-details-box {
   display: inline-block;
-  width: 350px;
-  padding: 10px 20px;
-  margin: 10px 20px;
-  border: 2px solid black;
+  width: 250px;
+  margin-right: 100px;
+}
+
+.detail {
+  border-top: 1px solid #ccd0d9;
+  padding: 10px 0;
 }
 
 .select-box {
@@ -435,10 +438,6 @@ input[type="checkbox"]:checked + label span {
 
 .checkbox-label:hover {
   font-weight: bold;
-}
-
-.detail {
-  margin: 10px;
 }
 
 .link {
