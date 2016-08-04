@@ -148,7 +148,7 @@ const UserAbout = React.createClass({
 
   render(){
     return(
-      <div>
+      <div className="user-about">
         <UserDetails userId={parseInt(this.props.params.userId)}/>
         {this.handleDisplay()}
       </div>
